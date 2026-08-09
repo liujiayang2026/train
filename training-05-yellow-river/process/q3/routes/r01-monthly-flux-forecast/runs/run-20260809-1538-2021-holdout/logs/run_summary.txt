@@ -1,0 +1,9 @@
+observations=16735
+monthly_rows=72
+modeling_months=48
+model_selection_years=2019,2020
+holdout_test_years=2021
+selected_models=water_volume_1e8_m3=fourier_ridge_alpha_1, sediment_mass_1e4_t=fourier_ridge_alpha_1
+sampling_times=473
+max_integration_difference_pct=0.364676
+quality_checks_passed=9/9

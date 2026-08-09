@@ -42,8 +42,9 @@ TARGETS = [
     ("water_volume_1e8_m3", "月水量（亿m³）", "water"),
     ("sediment_mass_1e4_t", "月输沙量（万吨）", "sediment"),
 ]
-VALIDATION_YEARS = (2019, 2020, 2021)
-STRESS_YEAR = 2018
+REGIME_START_YEAR = 2018
+MODEL_SELECTION_YEARS = (2019, 2020)
+HOLDOUT_TEST_YEARS = (2021,)
 SECOND_YEAR_INTERVAL_INFLATION = 1.25
 
 
@@ -328,8 +329,10 @@ def compare_models(monthly: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, Candi
     model_grid = candidates()
     for target, _, _ in TARGETS:
         for candidate in model_grid:
-            for year in VALIDATION_YEARS:
-                train = monthly[monthly["year"] < year].copy()
+            for year in MODEL_SELECTION_YEARS:
+                train = monthly[
+                    monthly["year"].between(REGIME_START_YEAR, year - 1)
+                ].copy()
                 test = monthly[monthly["year"] == year].copy()
                 predicted = candidate_forecast(candidate, train, pd.DatetimeIndex(test["date"]), target)
                 rows.append(
@@ -381,13 +384,14 @@ def historical_backtest(
     for target, _, _ in TARGETS:
         target_residuals = []
         candidate = selected[target]
-        for year in (STRESS_YEAR,) + VALIDATION_YEARS:
-            train = monthly[monthly["year"] < year].copy()
+        for year in MODEL_SELECTION_YEARS + HOLDOUT_TEST_YEARS:
+            train = monthly[
+                monthly["year"].between(REGIME_START_YEAR, year - 1)
+            ].copy()
             test = monthly[monthly["year"] == year].copy()
             predicted = candidate_forecast(candidate, train, pd.DatetimeIndex(test["date"]), target)
             actual = test[target].to_numpy(dtype=float)
-            if year in VALIDATION_YEARS:
-                target_residuals.extend((np.log1p(actual) - np.log1p(predicted)).tolist())
+            target_residuals.extend((np.log1p(actual) - np.log1p(predicted)).tolist())
             for date, actual_value, predicted_value in zip(test["date"], actual, predicted):
                 rows.append(
                     {
@@ -395,7 +399,11 @@ def historical_backtest(
                         "year": year,
                         "target": target,
                         "model_label": candidate.label,
-                        "evaluation_scope": "structural_break_stress_test" if year == STRESS_YEAR else "rolling_origin",
+                        "evaluation_scope": (
+                            "final_holdout_test"
+                            if year in HOLDOUT_TEST_YEARS
+                            else "model_selection_backtest"
+                        ),
                         "actual": float(actual_value),
                         "predicted": float(predicted_value),
                     }
@@ -426,7 +434,7 @@ def add_backtest_intervals(
         work.loc[mask, "upper80"] = np.expm1(center + radius80)
         work.loc[mask, "lower95"] = np.expm1(center - radius95).clip(min=0)
         work.loc[mask, "upper95"] = np.expm1(center + radius95)
-        regular = work.loc[mask & work["evaluation_scope"].eq("rolling_origin")]
+        regular = work.loc[mask]
         for level in (80, 95):
             covered = regular["actual"].between(regular[f"lower{level}"], regular[f"upper{level}"])
             coverage_rows.append(
@@ -448,8 +456,9 @@ def forecast_months(
 ) -> pd.DataFrame:
     dates = pd.date_range("2022-01-01", "2023-12-01", freq="MS")
     output = pd.DataFrame({"date": dates, "year": dates.year, "month": dates.month})
+    model_monthly = monthly[monthly["year"] >= REGIME_START_YEAR].copy()
     for target, _, _ in TARGETS:
-        predicted = candidate_forecast(selected[target], monthly, dates, target)
+        predicted = candidate_forecast(selected[target], model_monthly, dates, target)
         radius80 = empirical_radius(residuals[target], 0.80)
         radius95 = empirical_radius(residuals[target], 0.95)
         center = np.log1p(predicted)
@@ -493,6 +502,8 @@ def build_quality_checks(
 
     expected_dates = pd.date_range("2016-01-01", "2021-12-01", freq="MS")
     add("monthly_observation_count", len(monthly) == 72, str(len(monthly)), "exactly 72")
+    modeling_months = int(monthly["year"].ge(REGIME_START_YEAR).sum())
+    add("post_break_modeling_count", modeling_months == 48, str(modeling_months), "exactly 48 months from 2018-01 through 2021-12")
     add(
         "monthly_calendar_complete",
         pd.DatetimeIndex(monthly["date"]).equals(expected_dates),
@@ -707,14 +718,15 @@ def draw_series_panel(
     draw.text((legend_x + 315, legend_y), "95%", font=legend_font, fill=(55, 65, 81, 255))
 
 
-def save_backtest_figure(backtest: pd.DataFrame, path: Path) -> None:
+def save_backtest_figure(monthly: pd.DataFrame, backtest: pd.DataFrame, path: Path) -> None:
     width, height = 1640, 940
     image = Image.new("RGB", (width, height), "white")
     draw = ImageDraw.Draw(image, "RGBA")
-    title = "月总量模型历史回测：实际值与预测值（2018-2021）"
+    title = "历史对照：2019-2020选模回测与2021最终留出检验"
     font = get_font(30, True)
     box = draw.textbbox((0, 0), title, font=font)
     draw.text(((width - box[2] + box[0]) / 2, 24), title, font=font, fill=(25, 34, 48, 255))
+    history = monthly[monthly["year"] >= REGIME_START_YEAR].copy()
     for index, (target, label, _) in enumerate(TARGETS):
         panel = backtest[backtest["target"].eq(target)].sort_values("date")
         top = 125 if index == 0 else 595
@@ -722,7 +734,7 @@ def save_backtest_figure(backtest: pd.DataFrame, path: Path) -> None:
             draw,
             label,
             (115, top, 1570, top + 300),
-            panel.rename(columns={"actual": target}),
+            history,
             panel,
             target,
             "predicted",
@@ -835,9 +847,9 @@ def write_summary(
             {
                 "target": target,
                 "selected_model": selected[target].label,
-                "mean_rmse_log": mean_row["rmse_log"],
-                "mean_r2_log": mean_row["r2_log"],
-                "mean_wape": mean_row["wape"],
+                "validation_rmse_log": mean_row["rmse_log"],
+                "validation_r2_log": mean_row["r2_log"],
+                "validation_wape": mean_row["wape"],
             }
         )
     lines = [
@@ -906,7 +918,7 @@ def main() -> None:
     consistency.to_csv(run_dir / "validation" / "integration_consistency.csv", index=False, encoding="utf-8-sig")
     quality.to_csv(run_dir / "validation" / "quality_checks.csv", index=False, encoding="utf-8-sig")
 
-    save_backtest_figure(backtest, run_dir / "figures" / "historical_backtest.png")
+    save_backtest_figure(monthly, backtest, run_dir / "figures" / "historical_backtest.png")
     save_forecast_figure(monthly, forecast, run_dir / "figures" / "monthly_forecast_intervals.png")
     save_sampling_figure(strategy, run_dir / "figures" / "sampling_intensity.png")
     write_summary(run_dir, selected, comparison, coverage, annual, strategy, quality)
@@ -915,6 +927,9 @@ def main() -> None:
     log_lines = [
         f"observations={len(observations)}",
         f"monthly_rows={len(monthly)}",
+        f"modeling_months={int(monthly['year'].ge(REGIME_START_YEAR).sum())}",
+        f"model_selection_years={','.join(str(year) for year in MODEL_SELECTION_YEARS)}",
+        f"holdout_test_years={','.join(str(year) for year in HOLDOUT_TEST_YEARS)}",
         f"selected_models={selected_text}",
         f"sampling_times={len(schedule)}",
         f"max_integration_difference_pct={consistency['max_abs_pct'].max():.6f}",

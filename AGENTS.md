@@ -50,7 +50,10 @@ Move them into a route when their ownership becomes clear.
 - Treat `source/` as official input. Do not clean, rewrite, or replace files in
   place; put derived data under `process/common/data/` or a route/run.
 - Treat `process/legacy-package/` as an immutable historical snapshot. New work
-  must go under canonical `process/qN/routes/` paths.
+  must go under canonical `process/qN/routes/` paths. A one-time removal is
+  allowed only when the repository owner explicitly authorizes a complete
+  `git mv` migration and the package records every mapping in
+  `process/legacy-migration.json`.
 - Do not create or hand-edit `final/` or `human-package.json` during intake.
 - Do not infer adoption from names such as `final`, `new`, `best`, or `v2`.
   Adoption/rejection requires an explicit human decision file.

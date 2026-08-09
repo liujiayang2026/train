@@ -10,7 +10,7 @@
 - `training-04-ancient-glass`：古代玻璃制品的成分分析与鉴别（q1-q4）
 - `training-05-yellow-river`：黄河水沙监测数据分析（q1-q4，q4 尚未完成）
 
-每个目录均为独立的 process-only intake，包含题面与附件、人工建模过程、逐问入口和原项目的 legacy 快照。当前未生成或批准 `final/`。
+每个目录均为独立的 process-only intake，包含题面与附件、人工建模过程和逐问入口。前四个训练包仍保留原项目的 legacy 快照；第五题已把历史材料迁入正式的 `qN/routes/` 与 `qN/inbox/`。当前未生成或批准 `final/`。
 
 ## 目录约定
 

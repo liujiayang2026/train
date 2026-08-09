@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "package_id": "training-05-yellow-river",
+  "migrated_at": "2026-08-09",
+  "authorized_by": "liujiayang2026",
+  "source_commit": "669f848b712af0ea32f4664426149784e68df85f",
+  "legacy_root": "process/legacy-package",
+  "mappings": [
+    {
+      "from": "process/legacy-package/question-1",
+      "to": "process/q1/routes/r01-log-linear-sediment"
+    },
+    {
+      "from": "process/legacy-package/question-2",
+      "to": "process/q2/routes/r01-interpolated-daily-pattern"
+    },
+    {
+      "from": "process/legacy-package/question-3",
+      "to": "process/q3/routes/r01-historical-ensemble"
+    },
+    {
+      "from": "process/legacy-package/q3",
+      "to": "process/q3/routes/r02-random-forest"
+    },
+    {
+      "from": "process/legacy-package/q3-optimized",
+      "to": "process/q3/routes/r03-stl-template-ensemble"
+    },
+    {
+      "from": "process/legacy-package/question-4",
+      "to": "process/q4/inbox/legacy-placeholder"
+    }
+  ],
+  "note": "Owner-authorized one-time migration from the V3 legacy snapshot into canonical qN routes/inbox. No route is adopted by this migration."
+}

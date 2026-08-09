@@ -214,6 +214,55 @@ def validate_question(question_dir: Path, report: Report) -> None:
                 report.error(child, "decision file must match dNN-short-title.md")
 
 
+def validate_legacy_migration(package: Path, report: Report) -> None:
+    path = package / "process" / "legacy-migration.json"
+    if not path.is_file():
+        return
+    migration = read_json(path, report)
+    if migration is None:
+        return
+    if migration.get("schema_version") != 1:
+        report.error(path, "legacy migration schema_version must be 1")
+    for key in ("package_id", "migrated_at", "authorized_by", "source_commit", "legacy_root"):
+        value = migration.get(key)
+        if not isinstance(value, str) or not value.strip():
+            report.error(path, f"legacy migration {key} must be a non-empty string")
+    if migration.get("package_id") != package.name:
+        report.error(path, "legacy migration package_id must match the package directory")
+    if migration.get("legacy_root") != "process/legacy-package":
+        report.error(path, "legacy_root must be process/legacy-package")
+    mappings = migration.get("mappings")
+    if not isinstance(mappings, list) or not mappings:
+        report.error(path, "legacy migration mappings must be a non-empty list")
+        return
+    seen_from: set[str] = set()
+    seen_to: set[str] = set()
+    for index, mapping in enumerate(mappings):
+        label = f"mappings[{index}]"
+        if not isinstance(mapping, dict):
+            report.error(path, f"{label} must be an object")
+            continue
+        source = mapping.get("from")
+        target = mapping.get("to")
+        if not isinstance(source, str) or not source.startswith("process/legacy-package/"):
+            report.error(path, f"{label}.from must be under process/legacy-package/")
+            continue
+        if not isinstance(target, str) or not target.startswith("process/q"):
+            report.error(path, f"{label}.to must be under process/qN/")
+            continue
+        if source in seen_from:
+            report.error(path, f"duplicate migration source: {source}")
+        if target in seen_to:
+            report.error(path, f"duplicate migration target: {target}")
+        seen_from.add(source)
+        seen_to.add(target)
+        if not (package / Path(*PurePosixPath(target).parts)).exists():
+            report.error(path, f"migration target does not exist: {target}")
+    legacy_root = package / "process" / "legacy-package"
+    if legacy_root.is_dir() and any(candidate.is_file() for candidate in legacy_root.rglob("*")):
+        report.error(legacy_root, "legacy files remain after a declared complete migration")
+
+
 def validate_package(package: Path, report: Report) -> None:
     report.packages += 1
     required_files = ("README.md", "PROCESS_GUIDE.md", "human-process.json", "process/README.md", "process/common/README.md")
@@ -225,6 +274,7 @@ def validate_package(package: Path, report: Report) -> None:
         report.error(package / "final", "final/ is forbidden in a process-only intake")
     if (package / "human-package.json").exists():
         report.error(package / "human-package.json", "generated finalization manifest is forbidden in intake")
+    validate_legacy_migration(package, report)
 
     intake = read_json(package / "human-process.json", report)
     if intake is None:
@@ -297,6 +347,31 @@ def git_changed_entries(repo: Path, base: str, report: Report) -> list[tuple[str
 def validate_git_immutability(repo: Path, base: str, report: Report) -> None:
     for status, paths in git_changed_entries(repo, base, report):
         status_code = status[0]
+        migration_rename_allowed = False
+        if status_code == "R" and len(paths) == 2:
+            old_parts = PurePosixPath(paths[0]).parts
+            new_parts = PurePosixPath(paths[1]).parts
+            if len(old_parts) >= 2 and old_parts[0] == new_parts[0] and old_parts[0].startswith("training-"):
+                manifest_path = repo / old_parts[0] / "process" / "legacy-migration.json"
+                if manifest_path.is_file():
+                    try:
+                        migration = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
+                        old_relative = "/".join(old_parts[1:])
+                        new_relative = "/".join(new_parts[1:])
+                        migration_rename_allowed = any(
+                            isinstance(entry, dict)
+                            and (
+                                old_relative == entry.get("from")
+                                or old_relative.startswith(str(entry.get("from", "")) + "/")
+                            )
+                            and (
+                                new_relative == entry.get("to")
+                                or new_relative.startswith(str(entry.get("to", "")) + "/")
+                            )
+                            for entry in migration.get("mappings", [])
+                        )
+                    except (OSError, UnicodeError, json.JSONDecodeError):
+                        migration_rename_allowed = False
         for value in paths:
             parts = PurePosixPath(value).parts
             if len(parts) < 2 or not parts[0].startswith("training-"):
@@ -307,8 +382,24 @@ def validate_git_immutability(repo: Path, base: str, report: Report) -> None:
             if status_code in {"M", "D", "R", "C"} and "/source/" in f"/{joined}/":
                 report.error(value, "existing official source material is immutable")
             if status_code in {"M", "D", "R", "C"} and "/process/legacy-package/" in f"/{joined}/":
-                report.error(value, "legacy-package is an immutable snapshot")
-            if status_code in {"M", "D", "R", "C"} and re.search(r"/runs/run-[^/]+/", f"/{joined}/"):
+                package = repo / parts[0]
+                manifest_path = package / "process" / "legacy-migration.json"
+                allowed = False
+                if manifest_path.is_file():
+                    try:
+                        migration = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
+                        relative = "/".join(parts[1:])
+                        sources = [entry.get("from", "") for entry in migration.get("mappings", []) if isinstance(entry, dict)]
+                        allowed = any(relative == source or relative.startswith(source + "/") for source in sources)
+                    except (OSError, UnicodeError, json.JSONDecodeError):
+                        allowed = False
+                if not allowed:
+                    report.error(value, "legacy-package is immutable without a declared owner-authorized migration")
+            if (
+                status_code in {"M", "D", "R", "C"}
+                and re.search(r"/runs/run-[^/]+/", f"/{joined}/")
+                and not migration_rename_allowed
+            ):
                 report.error(value, "existing run records and artifacts are append-only")
             if status_code in {"M", "D", "R", "C"} and re.search(r"/process/q\d+/decisions/", f"/{joined}/"):
                 report.error(value, "existing decision records are append-only; add a superseding decision")

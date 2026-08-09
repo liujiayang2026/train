@@ -1,0 +1,7 @@
+﻿glass_type,dropped_feature,remaining_features,adjusted_rand_index
+高钾,K2O,SiO2;CaO;MgO;Al2O3;Fe2O3;CuO,1.0
+高钾,CaO,SiO2;K2O;MgO;Al2O3;Fe2O3;CuO,0.3672316384180791
+高钾,Al2O3,SiO2;K2O;CaO;MgO;Fe2O3;CuO,1.0
+铅钡,PbO,SiO2;BaO;P2O5;SrO;CuO,0.47747632180959104
+铅钡,BaO,SiO2;PbO;P2O5;SrO;CuO,0.4289774562366772
+铅钡,P2O5,SiO2;PbO;BaO;SrO;CuO,0.2839054326327658

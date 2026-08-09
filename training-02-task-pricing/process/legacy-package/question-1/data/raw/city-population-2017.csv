@@ -1,0 +1,9 @@
+city,population_2017_10k,administrative_area_km2,population_density_per_km2,population_source_url,area_source_note
+广州市,1449.84,7434.40,1950.18,"https://www.gz.gov.cn/zwgk/sjfb/tjgb/content/mpost_3093709.html","Guangzhou administrative area"
+深圳市,1252.83,1997.47,6272.09,"https://www.sz.gov.cn/zfgb/2018/gb1048/content/post_5019203.html","Shenzhen administrative area"
+东莞市,834.25,2460.08,3391.14,"https://tjj.dg.gov.cn/tjzl/tjgb/content/post_3211254.html","Dongguan administrative area"
+佛山市,765.67,3797.72,2016.15,"https://web.xiaze.org/tjgb/201804/42511.html","Foshan administrative area"
+惠州市,477.70,11347.00,420.99,"https://www.huizhou.gov.cn/zwgk/hzsz/zwyw/content/post_194696.html","Huizhou administrative area"
+中山市,326.00,1783.67,1827.69,"https://www.zs.gov.cn/zwgk/sjfb/content/post_307835.html","Zhongshan administrative area"
+肇庆市,411.54,14891.00,276.37,"https://tjgb.hongheiku.com/2520.html","Zhaoqing administrative area"
+珠海市,176.54,1736.45,1016.67,"https://tjgb.hongheiku.com/2547.html","Zhuhai administrative area"

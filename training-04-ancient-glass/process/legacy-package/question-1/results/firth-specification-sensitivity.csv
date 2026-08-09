@@ -1,0 +1,5 @@
+﻿specification,factors,number_of_parameters,converged,log_likelihood,or_glass_type_铅钡,or_pattern_B,or_pattern_C
+type-only,glass_type,2,True,-35.897169325737664,4.3846153548139055,,
+type-pattern,glass_type+pattern,4,True,-25.37138081076241,52.693968841293255,326.88230080696593,1.1137564289570343
+type-color,glass_type+color,10,True,-27.732769189997487,30.185128358287496,,
+full,glass_type+pattern+color,12,True,-18.54474699346014,133.9560044618827,416.1075800998574,7.42182246391881

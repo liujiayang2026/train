@@ -1,0 +1,24 @@
+{
+  "schema_version": 3,
+  "package_id": "training-02-task-pricing",
+  "title": "“拍照赚钱”的任务定价",
+  "intake_status": "intake",
+  "human_supplies": [
+    "source",
+    "process"
+  ],
+  "questions": [
+    "q1",
+    "q2",
+    "q3",
+    "q4"
+  ],
+  "source_files": [
+    "source/problem/CUMCM-2017-problem-B.docx",
+    "source/attachments/附件一：已结束项目任务数据.xls",
+    "source/attachments/附件二：会员信息数据.xlsx",
+    "source/attachments/附件三：新项目任务数据.xls",
+    "source/external/amap-2017-traffic-report.pdf"
+  ],
+  "external_input_note": "高德地图 2017 年交通分析报告属于人工补充的外部背景资料，已保存在 source/external/；其余为官方题面与附件。"
+}

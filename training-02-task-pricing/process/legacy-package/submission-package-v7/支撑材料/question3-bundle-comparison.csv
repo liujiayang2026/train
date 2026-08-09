@@ -1,0 +1,5 @@
+﻿scheme,budget_relaxation,packages,bundled_tasks,single_tasks,ride_along_tasks,expected_payout,expected_completions,expected_completion_rate,completion_gain_vs_q2,payout_change_vs_q2,mip_gap,message
+question2-practical-milp,0.0,0,0,835,0,41910.85055644618,573.9559638013008,0.6873724117380847,0.0,0.0,,baseline
+enhanced-joint-0pct-extra,0.0,46,120,715,11,41910.78764852368,584.5540754741143,0.7000647610468435,10.598111672813502,-0.06290792250365485,8.75474220982679e-07,Optimization terminated successfully. (HiGHS Status 7: Optimal)
+enhanced-joint-1pct-extra,0.01,46,120,715,11,42329.89868289608,587.6888739549205,0.7038190107244556,13.732910153619741,419.0481264498958,7.599757944006531e-07,Optimization terminated successfully. (HiGHS Status 7: Optimal)
+enhanced-joint-2pct-extra,0.02,46,120,715,11,42748.99754504681,590.7561117615282,0.7074923494150039,16.80014796022749,838.1469886006307,9.025145322270438e-07,Optimization terminated successfully. (HiGHS Status 7: Optimal)

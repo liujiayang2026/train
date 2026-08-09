@@ -1,0 +1,41 @@
+Question 2 baseline pricing result
+==========================================
+Tasks: 835
+Observed historical completion rate: 0.6251
+Model AUC on training data: 0.7995
+Model Brier score on training data: 0.1732
+Standardized price coefficient: 0.243031
+
+Target completion probability: 0.75
+Original average price: 69.111
+New average price: 77.357
+Original posted total: 57707.50
+New posted total: 64593.50
+Historical actual payout: 36446.00
+Original expected payout: 36444.28
+New expected payout: 46933.59
+
+Original expected completions: 522.00
+New expected completions: 616.69
+Original expected completion rate: 0.6252
+New expected completion rate: 0.7386
+Expected completion increase: 94.69
+
+Tasks with price increase: 561
+Tasks with price decrease: 255
+Tasks with unchanged price: 19
+Tasks unable to reach target at 85: 333
+Tasks predicted to reach target under new scheme: 502
+
+Model coefficients (standardized continuous variables):
+intercept: 0.706683
+price: 0.243031
+nearest_member_km: 0.048779
+log_members_2km: -0.660487
+log_tasks_2km: 0.271816
+log_quota_2km: 0.684299
+log_credit_2km: -0.602214
+region_1: 2.172730
+region_2: -0.928126
+region_3: -0.615113
+region_4: -0.522960

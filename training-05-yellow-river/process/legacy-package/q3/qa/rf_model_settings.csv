@@ -1,0 +1,2 @@
+﻿model,n_estimators,max_depth,min_samples_leaf,target_transform
+pure_numpy_random_forest_regressor,140,10,10,log1p

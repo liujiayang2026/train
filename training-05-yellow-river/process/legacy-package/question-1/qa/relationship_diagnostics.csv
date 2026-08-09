@@ -1,0 +1,9 @@
+﻿item,value,description
+corr_sediment_flow,0.6241040577421336,Pearson correlation between observed sediment concentration and flow.
+corr_log_sediment_log_flow,0.8902670194639948,Pearson correlation after log transform.
+corr_sediment_water_level,0.6152496718188718,Pearson correlation between observed sediment concentration and water level.
+coef_log_flow,-18.20698388774421,Approximate raw-scale coefficient of log_flow in the log-concentration model.
+coef_water_level,32.94845103326799,Approximate raw-scale coefficient of water_level in the log-concentration model.
+coef_log_flow_sq,0.1862998128845002,Approximate raw-scale coefficient of log_flow_sq in the log-concentration model.
+coef_water_level_sq,-0.4149485346715648,Approximate raw-scale coefficient of water_level_sq in the log-concentration model.
+coef_log_flow_x_water_level,0.3999011453670051,Approximate raw-scale coefficient of log_flow_x_water_level in the log-concentration model.

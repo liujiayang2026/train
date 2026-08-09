@@ -1,0 +1,14 @@
+Question 2 MILP comparison
+========================================
+        scheme  average_price  posted_total  expected_payout  expected_cost_increase  expected_completions  expected_completion_rate  completion_increase  price_increase_tasks  price_decrease_tasks  unchanged_tasks  mean_absolute_change  boundary_change_tasks  tasks_at_65  tasks_at_85
+      original      69.110778       57707.5     36444.276592                0.000000            522.000443                  0.625150             0.000000                     0                     0              835              0.000000                      0           65           27
+        greedy      73.577844       61437.5     41910.666220                0.149993            574.537761                  0.688069            52.537317                   614                   206               15              6.562874                    557          156           13
+    exact-milp      73.577844       61437.5     41910.833791                0.149998            574.538714                  0.688070            52.538271                   614                   206               15              6.565269                    557          156           13
+practical-milp      73.614371       61468.0     41910.850556                0.149998            573.955964                  0.687372            51.955520                   633                   175               27              6.073653                    433          115           24
+
+Exact MILP status: Optimization terminated successfully. (HiGHS Status 7: Optimal)
+Exact MILP gap: 9.123269834811765e-07
+Practical MILP status: Optimization terminated successfully. (HiGHS Status 7: Optimal)
+Practical MILP gap: 5.84459394985617e-07
+Practical price-change penalty: 0.015
+Regional maximum rate drop: 1.0%

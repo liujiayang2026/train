@@ -1,0 +1,8 @@
+﻿metric,value
+base_task_model_auc,0.699903908535615
+city_fixed_effect_model_auc,0.8291377474202196
+base_task_model_brier,0.20673345330540474
+city_fixed_effect_model_brier,0.1631427709805217
+bootstrap_successful_runs,240.0
+city_spearman_traffic_vs_completion,-0.4
+city_spearman_population_density_vs_completion,-0.2

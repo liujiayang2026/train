@@ -1,0 +1,21 @@
+{
+  "schema_version": 3,
+  "package_id": "training-04-ancient-glass",
+  "title": "古代玻璃制品的成分分析与鉴别",
+  "intake_status": "intake",
+  "human_supplies": [
+    "source",
+    "process"
+  ],
+  "questions": [
+    "q1",
+    "q2",
+    "q3",
+    "q4"
+  ],
+  "source_files": [
+    "source/problem/C题.pdf",
+    "source/attachments/附件.xlsx"
+  ],
+  "external_input_note": "官方题面和附件均已复制到本包 source/；未声明包外部的必需输入。"
+}

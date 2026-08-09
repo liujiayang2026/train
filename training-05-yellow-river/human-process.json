@@ -1,0 +1,23 @@
+{
+  "schema_version": 3,
+  "package_id": "training-05-yellow-river",
+  "title": "黄河水沙监测数据分析",
+  "intake_status": "intake",
+  "human_supplies": [
+    "source",
+    "process"
+  ],
+  "questions": [
+    "q1",
+    "q2",
+    "q3",
+    "q4"
+  ],
+  "source_files": [
+    "source/problem/E题.pdf",
+    "source/attachments/附件1.xlsx",
+    "source/attachments/附件2.xlsx",
+    "source/attachments/附件3.xlsx"
+  ],
+  "external_input_note": "官方题面和三个附件均已复制到本包 source/；未声明包外部的必需输入。"
+}

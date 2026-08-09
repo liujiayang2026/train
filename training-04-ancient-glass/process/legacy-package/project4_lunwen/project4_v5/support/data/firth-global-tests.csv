@@ -1,0 +1,4 @@
+﻿factor,observed_deviance,parameter_bootstrap_p,requested_simulations,successful_simulations,reduced_model_iterations
+glass_type,23.45404697382424,0.00020408163265306123,5000,4899,160
+pattern,18.376044393074736,0.0006010819475055099,5000,4990,160
+color,13.653267634604582,0.05741337630942788,5000,4963,9

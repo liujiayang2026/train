@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="520" viewBox="0 0 1120 520">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:"Microsoft YaHei",Arial,sans-serif;fill:#17212b;letter-spacing:0}.title{font-size:20px;font-weight:700}.axis{font-size:12px}.label{font-size:13px}.small{font-size:11px}</style>
+<text x="560.0" y="30" text-anchor="middle" class="title">风化点当前成分与预测风化前成分均值</text>
+<text x="290" y="64" text-anchor="middle" class="label" font-weight="700">铅钡</text>
+<rect x="60" y="307.8" width="20" height="137.2" fill="#b94b3e"/>
+<rect x="81" y="135.0" width="20" height="310.0" fill="#2f7d6d"/>
+<text x="80" y="463" text-anchor="middle" class="small">SiO2</text>
+<rect x="117" y="206.5" width="20" height="238.5" fill="#b94b3e"/>
+<rect x="138" y="327.8" width="20" height="117.2" fill="#2f7d6d"/>
+<text x="137" y="463" text-anchor="middle" class="small">PbO</text>
+<rect x="174" y="380.0" width="20" height="65.0" fill="#b94b3e"/>
+<rect x="195" y="391.9" width="20" height="53.1" fill="#2f7d6d"/>
+<text x="194" y="463" text-anchor="middle" class="small">BaO</text>
+<rect x="231" y="428.6" width="20" height="16.4" fill="#b94b3e"/>
+<rect x="252" y="418.3" width="20" height="26.7" fill="#2f7d6d"/>
+<text x="251" y="463" text-anchor="middle" class="small">Al2O3</text>
+<rect x="288" y="415.9" width="20" height="29.1" fill="#b94b3e"/>
+<rect x="309" y="442.3" width="20" height="2.7" fill="#2f7d6d"/>
+<text x="308" y="463" text-anchor="middle" class="small">P2O5</text>
+<rect x="345" y="430.2" width="20" height="14.8" fill="#b94b3e"/>
+<rect x="366" y="438.8" width="20" height="6.2" fill="#2f7d6d"/>
+<text x="365" y="463" text-anchor="middle" class="small">CaO</text>
+<rect x="402" y="432.5" width="20" height="12.5" fill="#b94b3e"/>
+<rect x="423" y="436.6" width="20" height="8.4" fill="#2f7d6d"/>
+<text x="422" y="463" text-anchor="middle" class="small">CuO</text>
+<rect x="459" y="437.5" width="20" height="7.5" fill="#b94b3e"/>
+<rect x="480" y="433.3" width="20" height="11.7" fill="#2f7d6d"/>
+<text x="479" y="463" text-anchor="middle" class="small">SO2</text>
+<line x1="52" y1="445" x2="520" y2="445" stroke="#65727e"/>
+<text x="830" y="64" text-anchor="middle" class="label" font-weight="700">高钾</text>
+<rect x="600" y="135.0" width="20" height="310.0" fill="#b94b3e"/>
+<rect x="621" y="224.0" width="20" height="221.0" fill="#2f7d6d"/>
+<text x="620" y="463" text-anchor="middle" class="small">SiO2</text>
+<rect x="657" y="443.2" width="20" height="1.8" fill="#b94b3e"/>
+<rect x="678" y="414.2" width="20" height="30.8" fill="#2f7d6d"/>
+<text x="677" y="463" text-anchor="middle" class="small">K2O</text>
+<rect x="714" y="438.6" width="20" height="6.4" fill="#b94b3e"/>
+<rect x="735" y="421.3" width="20" height="23.7" fill="#2f7d6d"/>
+<text x="734" y="463" text-anchor="middle" class="small">Al2O3</text>
+<rect x="771" y="442.1" width="20" height="2.9" fill="#b94b3e"/>
+<rect x="792" y="422.0" width="20" height="23.0" fill="#2f7d6d"/>
+<text x="791" y="463" text-anchor="middle" class="small">CaO</text>
+<rect x="828" y="439.8" width="20" height="5.2" fill="#b94b3e"/>
+<rect x="849" y="436.2" width="20" height="8.8" fill="#2f7d6d"/>
+<text x="848" y="463" text-anchor="middle" class="small">CuO</text>
+<rect x="885" y="444.4" width="20" height="0.6" fill="#b94b3e"/>
+<rect x="906" y="435.3" width="20" height="9.7" fill="#2f7d6d"/>
+<text x="905" y="463" text-anchor="middle" class="small">MgO</text>
+<rect x="942" y="444.1" width="20" height="0.9" fill="#b94b3e"/>
+<rect x="963" y="438.6" width="20" height="6.4" fill="#2f7d6d"/>
+<text x="962" y="463" text-anchor="middle" class="small">Fe2O3</text>
+<rect x="999" y="444.1" width="20" height="0.9" fill="#b94b3e"/>
+<rect x="1020" y="440.9" width="20" height="4.1" fill="#2f7d6d"/>
+<text x="1019" y="463" text-anchor="middle" class="small">P2O5</text>
+<line x1="592" y1="445" x2="1060" y2="445" stroke="#65727e"/>
+<rect x="430" y="480" width="15" height="12" fill="#b94b3e"/><text x="452" y="491" class="axis">当前风化点</text>
+<rect x="550" y="480" width="15" height="12" fill="#2f7d6d"/><text x="572" y="491" class="axis">预测风化前</text>
+</svg>

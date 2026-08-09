@@ -1,0 +1,137 @@
+\documentclass[UTF8,zihao=-4,a4paper,fontset=fandol]{ctexart}
+\usepackage{cumcm-paper}
+\emergencystretch=2em
+\title{系泊系统的静力响应与鲁棒优化设计}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{cumcmabstract}
+近浅海传输节点的工作性能同时受浮标吃水、刚性构件姿态、锚链形态和环境载荷影响。本文建立浮标--钢管--钢桶--重物球--锚链的一体化静力模型：以构件水中有效重量修正重力，以刚体力矩平衡递推钢桶和钢管倾角，以分段悬链线刻画锚链铺底与全悬状态，并在复杂环境下进一步引入风流空间向量、姿态相关迎流面积和多工况鲁棒优化。
+
+针对问题一，在水深18 m、II型锚链22.05 m和1200 kg重物球条件下，求解浮标吃水、五个刚性构件倾角及锚链形状。风速12 m/s时钢桶倾角为$1.0073^\circ$、吃水为0.7348 m、游动半径为14.3029 m，锚链铺底6.8246 m；风速24 m/s时相应结果为$3.8461^\circ$、0.7489 m和17.4232 m，铺底长度仅0.3233 m。210链环离散模型与连续悬链线结果的关键指标相对误差均很小，验证了连续模型的适用性。
+
+针对问题二，在36 m/s风速下原1200 kg方案的钢桶倾角和锚点夹角分别达到$8.0636^\circ$和$17.9006^\circ$，均超过限制。将重物球质量作为决策变量，建立带静力平衡和水深闭合约束的最小配重模型。锚点角约束对应临界质量1524.0332 kg，钢桶角约束对应1780.8803 kg，故可行质量下界和理论最优值均为1780.8803 kg；考虑配重取整，推荐1800 kg，此时两角分别为$4.9276^\circ$和$14.1945^\circ$。
+
+针对问题三，考虑16--20 m水深、最大36 m/s风速和1.5 m/s流速，建立三维风流载荷与构件姿态耦合模型，并枚举整数链环、配重档位与环境组合。经204个可行设计的Pareto筛选和180个代表工况复核，推荐IV型锚链22.05 m、重物球4050 kg。该方案的最大钢桶倾角为$4.7382^\circ$，最大锚点夹角为$14.8547^\circ$，最大吃水为1.7519 m，最大游动半径为19.6195 m；浅水控制游动范围和钢桶倾角，深水控制吃水和锚点夹角。
+\aimark{1}
+\end{cumcmabstract}
+
+\keywords{系泊系统；悬链线；静力平衡；鲁棒优化；Pareto前沿}
+\CumcmBodyStart
+
+\section{问题重述}
+近浅海观测网传输节点由圆柱形浮标、四节钢管、密封钢桶、重物球、锚链及锚组成。浮标承担水面风载并提供浮力，水声设备安装于钢桶内；钢桶倾角超过$5^\circ$时工作效果变差，锚链在锚点处与海床夹角超过$16^\circ$时锚可能被拖行。设计任务是在给定海洋环境中确定链型、链长和配重，使系统满足安全约束，并减小浮标吃水、游动范围和钢桶倾角。
+
+问题一要求验证给定的II型锚链22.05 m和1200 kg配重在12 m/s、24 m/s风速下的静态响应。问题二将风速提高至36 m/s，需要判断原方案并寻找满足两个角度限制的配重质量。问题三进一步考虑16--20 m水深、最大1.5 m/s水流及不同风流方向，完成链型、链长和配重的综合设计，并分析不同工况下的构件姿态、锚链形态、吃水和游动区域。
+
+\section{总体分析与统一建模路线}
+三问共享同一物理链条：环境水平载荷决定浮标底部连接力，连接力与构件水中重量共同决定钢管和钢桶姿态，刚性构件端点位置又与锚链悬链线及水深约束闭合。问题一在静水条件下建立二维基准模型；问题二保持结构不变，仅把配重提升为优化变量；问题三在基准模型上增加水流分布载荷、水平向量递推、链型离散选择和多工况搜索。
+
+计算中先给定锚链顶端或锚点竖直张力，由下向上递推竖直载荷并计算浮标吃水，再由吃水更新迎风面积；随后求各刚性构件角度与空间投影，最后使用水深闭合方程求未知张力或悬起链长。锚链优先按部分铺底状态求解，若所需悬起长度超过总链长，则自动切换至完全悬链。该状态切换贯穿三问，避免把不同载荷状态强行套用同一边界条件。
+\aimark{2}
+
+\section{模型假设}
+\begin{enumerate}
+\item 系统在稳定风流作用下达到静态平衡，忽略波浪、瞬态振动和构件惯性；
+\item 浮标依靠自身浮稳性保持竖直，只考虑吃水变化和水平移动；
+\item 钢管和钢桶为刚性圆柱构件，连接处为理想铰，重物球作为钢桶下端集中载荷；
+\item 锚链均匀、不可伸长且只承受拉力，海床水平并忽略链床摩擦；
+\item 钢管和钢桶按外部圆柱体积计算浮力；题目未给出重物球和锚链排水体积，主模型忽略二者浮力；
+\item 问题三水流速度沿水深均匀，钢管和钢桶水流合力作用于几何中心；因缺少尺寸，忽略重物球和锚链自身水流力。
+\end{enumerate}
+
+\section{主要符号}
+\begin{table}[H]\centering
+\caption{主要符号及含义}
+\label{tab:symbols}
+\begin{tabular}{ccc}
+\toprule
+符号 & 含义 & 单位\\
+\midrule
+$h$ & 浮标吃水深度 & m\\
+$H,V$ & 张力的水平、竖直分量 & N\\
+$\theta_i,\theta_b$ & 第$i$节钢管、钢桶相对竖直方向的倾角 & $^\circ$\\
+$L_c,q$ & 锚链总长、单位长度有效重量 & m，N/m\\
+$V_a,V_t$ & 锚点、锚链顶端竖直张力 & N\\
+$R$ & 浮标相对锚点的水平偏移模长 & m\\
+$d,v_w,v_c,\varphi$ & 水深、风速、流速、风流夹角 & m，m/s，m/s，$^\circ$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\input{question-1.tex}
+\begin{figure}[H]\centering
+\includegraphics[width=0.78\textwidth]{../figures/question-1-chain-profiles.pdf}
+\caption{问题一两种风速下的锚链形状}
+\label{fig:q1-chain}
+\end{figure}
+
+\input{question-2.tex}
+
+\input{question-3.tex}
+
+\input{comprehensive-analysis.tex}
+
+\section{模型评价与改进}
+本文模型把浮标吃水、风载面积、刚性构件姿态和锚链边界状态置于同一闭合框架中，能够解释风速增加、配重变化和水深变化如何沿系统传递。问题三使用水平向量而非简单标量叠加，可分析非同向风流；链长严格由完整链环组成，最终设计具有可实施的离散结构。连续悬链线与离散链环结果的一致性，为大量工况下采用解析链形提供了计算依据。
+
+模型的首要局限是准静态平衡无法描述阵风、波浪激励下的瞬态峰值、惯性效应和疲劳累积，因而推荐方案只反映稳态载荷水平。其次，理想不可伸长柔索忽略链环轴向弹性、弯曲刚度、海床接触摩擦与局部冲击，使铺底和全悬之间被处理为理想状态切换。再次，均匀流速和准定常阻力模型未刻画尾流遮蔽、构件间流体耦合及姿态变化引起的时变阻力。问题三的离散工况搜索也不能严格证明连续环境域内的全局鲁棒性，Pareto理想点还对归一化范围敏感。后续可建立刚柔耦合时域模型，引入弹性离散链及接触摩擦，并在连续环境域上采用自适应采样和鲁棒优化复核方案。
+\aimark{6}
+
+\begin{thebibliography}{9}
+\bibitem{catenary} Irvine H M. Cable Structures[M]. Cambridge: MIT Press, 1981.
+\bibitem{mechanics} 哈尔滨工业大学理论力学教研室. 理论力学[M]. 北京: 高等教育出版社, 2016.
+\bibitem{ai} OpenAI. Codex，模型与程序辅助工具，使用日期：2026-08-01.
+\end{thebibliography}
+
+\CumcmMainMatterEnd
+\appendix
+\ctexset{section={name={附录,、},number=\Alph{section}}}
+\section{支撑材料与代码说明}
+
+\begingroup
+\renewcommand{\texttt}[1]{{\ttfamily\seqsplit{#1}}}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{L{0.12\textwidth}L{0.18\textwidth}L{0.28\textwidth}L{0.32\textwidth}}
+\caption{各问题关键小点与可运行代码文件清单}\label{tab:appendix-code}\\
+\toprule 对应问题 & 关键小点 & 文件名 & 用途\\ \midrule
+\endfirsthead
+\toprule 对应问题 & 关键小点 & 文件名 & 用途\\ \midrule
+\endhead
+问题一 & 静力平衡 & \texttt{solve\_question1.py} & 求两种风速下的系统状态\\
+问题一 & 离散校核 & \texttt{validate\_discrete\_chain.py} & 210链环离散模型复算\\
+问题二 & 原方案判断 & \texttt{solve\_question2.py} & 复算36 m/s原配重方案\\
+问题二 & 临界质量搜索 & \texttt{solve\_question2.py} & 搜索两个角度约束边界\\
+问题二 & 敏感性分析 & \texttt{solve\_question2.py} & 扫描配重与约束指标\\
+问题三 & 风流耦合求解 & \texttt{solve\_question3.py} & 计算空间载荷和锚链状态\\
+问题三 & 候选设计枚举 & \texttt{solve\_question3.py} & 枚举链型、链环数和配重\\
+问题三 & Pareto筛选 & \texttt{solve\_question3.py} & 选取非支配折中方案\\
+问题三 & 多工况复核 & \texttt{solve\_question3.py} & 复核推荐方案180个工况\\
+共用 & 论文图形生成 & \texttt{generate\_figures.py} & 从结果数据生成五幅论文图\\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{L{0.12\textwidth}L{0.34\textwidth}L{0.42\textwidth}}
+\caption{关键数据与结果文件清单}\label{tab:appendix-data}\\
+\toprule 对应问题 & 文件名 & 用途\\ \midrule
+\endfirsthead
+\toprule 对应问题 & 文件名 & 用途\\ \midrule
+\endhead
+问题一 & \texttt{question-1-summary.csv} & 两种风速下的系统平衡汇总\\
+问题一 & \texttt{chain-profiles.csv} & 两种风速下的锚链离散坐标\\
+问题一 & \texttt{continuous-discrete-validation.csv} & 连续悬链线与210链环模型误差\\
+问题二 & \texttt{question-2-summary.csv} & 原方案、两个临界质量和推荐方案结果\\
+问题二 & \texttt{ballast-mass-sensitivity.csv} & 1200--2200 kg配重扫描结果\\
+问题三 & \texttt{design-candidates.csv} & 204个可行候选设计及其最坏响应\\
+问题三 & \texttt{pareto-designs.csv} & 97个Pareto非支配设计\\
+问题三 & \texttt{selected-design-summary.csv} & 推荐设计与最坏指标汇总\\
+问题三 & \texttt{selected-design-scenarios.csv} & 推荐方案180个验证工况\\
+全文 & AI 工具使用详情.pdf & 记录AI辅助范围、关键交互、采纳内容与人工核验\\
+\bottomrule
+\end{longtable}
+\endgroup
+\end{document}

@@ -1,0 +1,22 @@
+project 1 目录说明
+
+原始资料：
+存放赛题 PDF、附件数据和论文模板，供所有问题共用。
+
+问题1：
+存放问题一的建模代码、最终预测结果、对比实验结果、论文源文件、图表和表格。
+
+问题1\code：
+问题一建模脚本。最终采用流程为先运行 problem1_lightgbm_forecast.py，再运行 problem1_final_forecast.py。
+
+问题1\results\final：
+问题一最终采用的预测结果和校准汇总。
+
+问题1\results\experiments：
+问题一建模过程中产生的 baseline、LightGBM、改进模型和 Tweedie 模型对比结果。
+
+问题1\paper_source：
+写论文 skill 生成或保留的 LaTeX 源文件、图表、表格与随文代码。
+
+环境工具：
+MiKTeX、Strawberry Perl 安装包，以及之前用于测试 LaTeX 编译环境的文件。

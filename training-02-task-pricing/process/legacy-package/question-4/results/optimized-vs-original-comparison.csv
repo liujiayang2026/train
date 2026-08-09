@@ -1,0 +1,5 @@
+﻿scheme,average_price,posted_total,expected_payout,expected_completions,expected_completion_rate,target_reached_tasks,unreachable_at_85_tasks,tasks_at_65,tasks_at_85,bundled_tasks,packages,total_packages,assigned_members,maximum_member_utilization,mip_gap,solver_message
+original-bundled-pricing,81.729912875121,168854.0,117106.43097265415,1437.6675374927045,0.6958700568696536,927,1139,22,1175,1809,546,,,,,baseline
+original-bundle-updated-model,81.729912875121,168854.0,102119.76431311236,1253.3385721044037,0.6066498412896436,37,1678,22,1175,1809,546,803.0,,,,re-evaluated with effective supply model
+optimized-bundled-pricing,84.11229428848016,173776.0,111842.51794703741,1332.114070701692,0.6447793178614192,386,1680,8,1704,1804,709,971.0,391.0,1.0,0.0,Optimization terminated successfully. (HiGHS Status 7: Optimal)
+optimized-minus-original,2.3823814133591554,4922.0,9722.753633925051,78.77549859728833,0.03812947657177557,349,2,-14,529,-5,163,,,,0.0,difference

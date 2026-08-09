@@ -1,0 +1,26 @@
+Question 4 baseline run
+=======================
+Valid new tasks: 2066
+Historical model training AUC: 0.7995
+Historical observed completion rate: 0.6251
+Historical 95th percentile task density (2 km): 10.00
+Historical 95th percentile task/member pressure: 2.2400
+New median task/member pressure: 6.0526
+
+Price range: 65.0--85.0 yuan
+Target completion probability: 0.75
+Congestion logit penalty coefficient: 0.65
+Bundle radius: 0.35 km
+Maximum tasks per package: 5
+
+            scheme  average_price  posted_total  expected_payout  expected_completions  expected_completion_rate  target_reached_tasks  unreachable_at_85_tasks  tasks_at_65  tasks_at_85  bundled_tasks  packages
+ uniform-75-single      75.000000      154950.0     77627.674141           1035.035655                  0.500985                    44                        0            0            0              0         0
+individual-pricing      84.293078      174149.5    107485.506676           1277.471486                  0.618331                   296                     1770            4         1784              0         0
+   bundled-pricing      81.729913      168854.0    117106.430973           1437.667537                  0.695870                   927                     1139           22         1175           1809       546
+
+Interpretation note
+-------------------
+The predicted rates are model-based implementation estimates, not observed
+outcomes.  Attachment 3 has no actual price or completion-status field.
+The congestion and bundling corrections are scenario assumptions and should
+be checked with a pilot release before full deployment.

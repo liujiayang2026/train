@@ -1,0 +1,22 @@
+{
+  "schema_version": 3,
+  "package_id": "training-01-logistics",
+  "title": "电商物流网络货量预测、关停分流与网络优化",
+  "intake_status": "intake",
+  "human_supplies": [
+    "source",
+    "process"
+  ],
+  "questions": [
+    "q1",
+    "q2",
+    "q3",
+    "q4"
+  ],
+  "source_files": [
+    "source/problem/C题.pdf",
+    "source/problem/论文模板.doc",
+    "source/attachments/附件1：物流网络历史货量数据.xlsx"
+  ],
+  "external_input_note": "官方题面、论文模板和附件均已复制到本包 source/；未声明包外部的必需输入。"
+}

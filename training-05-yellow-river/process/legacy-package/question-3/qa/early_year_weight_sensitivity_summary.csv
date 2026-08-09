@@ -1,0 +1,5 @@
+﻿target,data_scope,template_weight,stl_weight,mean_rmse_log
+mean_flow_m3s,all_available,1.0,0.0,0.5049164330791084
+mean_flow_m3s,exclude_2016_2017,1.0,0.0,0.5127076761870891
+mean_sediment_flux_kg_s,all_available,0.65,0.35,1.0997781426761766
+mean_sediment_flux_kg_s,exclude_2016_2017,0.5,0.5,1.1239279693799051

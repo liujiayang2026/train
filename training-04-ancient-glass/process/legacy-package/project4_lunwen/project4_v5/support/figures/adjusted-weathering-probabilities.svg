@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="621" viewBox="0 0 1050 621">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:"Microsoft YaHei",Arial,sans-serif;fill:#17212b;letter-spacing:0}.title{font-size:20px;font-weight:700}.axis{font-size:12px}.label{font-size:13px}.small{font-size:11px}</style>
+<text x="525.0" y="30" text-anchor="middle" class="title">Firth模型调整后的风化概率及95% Bootstrap区间</text>
+<line x1="250.0" y1="64" x2="250.0" y2="576" stroke="#e1e6ea"/>
+<text x="250.0" y="599" text-anchor="middle" class="axis">0%</text>
+<line x1="390.0" y1="64" x2="390.0" y2="576" stroke="#e1e6ea"/>
+<text x="390.0" y="599" text-anchor="middle" class="axis">20%</text>
+<line x1="530.0" y1="64" x2="530.0" y2="576" stroke="#e1e6ea"/>
+<text x="530.0" y="599" text-anchor="middle" class="axis">40%</text>
+<line x1="670.0" y1="64" x2="670.0" y2="576" stroke="#e1e6ea"/>
+<text x="670.0" y="599" text-anchor="middle" class="axis">60%</text>
+<line x1="810.0" y1="64" x2="810.0" y2="576" stroke="#e1e6ea"/>
+<text x="810.0" y="599" text-anchor="middle" class="axis">80%</text>
+<line x1="950.0" y1="64" x2="950.0" y2="576" stroke="#e1e6ea"/>
+<text x="950.0" y="599" text-anchor="middle" class="axis">100%</text>
+<text x="234" y="83" text-anchor="end" class="label">玻璃类型：铅钡</text>
+<line x1="669.4" y1="78" x2="814.8" y2="78" stroke="#2f7d6d" stroke-width="3"/>
+<line x1="669.4" y1="73" x2="669.4" y2="83" stroke="#2f7d6d"/>
+<line x1="814.8" y1="73" x2="814.8" y2="83" stroke="#2f7d6d"/>
+<circle cx="765.2" cy="78" r="5" fill="#2f7d6d"/>
+<text x="775.2" y="83" class="small">73.6%</text>
+<text x="234" y="117" text-anchor="end" class="label">玻璃类型：高钾</text>
+<line x1="326.9" y1="112" x2="447.7" y2="112" stroke="#2f7d6d" stroke-width="3"/>
+<line x1="326.9" y1="107" x2="326.9" y2="117" stroke="#2f7d6d"/>
+<line x1="447.7" y1="107" x2="447.7" y2="117" stroke="#2f7d6d"/>
+<circle cx="345.8" cy="112" r="5" fill="#2f7d6d"/>
+<text x="355.8" y="117" class="small">13.7%</text>
+<text x="234" y="151" text-anchor="end" class="label">纹饰：A</text>
+<line x1="407.5" y1="146" x2="620.8" y2="146" stroke="#b94b3e" stroke-width="3"/>
+<line x1="407.5" y1="141" x2="407.5" y2="151" stroke="#b94b3e"/>
+<line x1="620.8" y1="141" x2="620.8" y2="151" stroke="#b94b3e"/>
+<circle cx="488.1" cy="146" r="5" fill="#b94b3e"/>
+<text x="498.1" y="151" class="small">34.0%</text>
+<text x="234" y="185" text-anchor="end" class="label">纹饰：B</text>
+<line x1="773.3" y1="180" x2="935.4" y2="180" stroke="#b94b3e" stroke-width="3"/>
+<line x1="773.3" y1="175" x2="773.3" y2="185" stroke="#b94b3e"/>
+<line x1="935.4" y1="175" x2="935.4" y2="185" stroke="#b94b3e"/>
+<circle cx="914.9" cy="180" r="5" fill="#b94b3e"/>
+<text x="924.9" y="185" class="small">95.0%</text>
+<text x="234" y="219" text-anchor="end" class="label">纹饰：C</text>
+<line x1="573.9" y1="214" x2="763.1" y2="214" stroke="#b94b3e" stroke-width="3"/>
+<line x1="573.9" y1="209" x2="573.9" y2="219" stroke="#b94b3e"/>
+<line x1="763.1" y1="209" x2="763.1" y2="219" stroke="#b94b3e"/>
+<circle cx="660.7" cy="214" r="5" fill="#b94b3e"/>
+<text x="670.7" y="219" class="small">58.7%</text>
+<text x="234" y="253" text-anchor="end" class="label">颜色：未知</text>
+<line x1="552.7" y1="248" x2="834.9" y2="248" stroke="#3c6e9b" stroke-width="3"/>
+<line x1="552.7" y1="243" x2="552.7" y2="253" stroke="#3c6e9b"/>
+<line x1="834.9" y1="243" x2="834.9" y2="253" stroke="#3c6e9b"/>
+<circle cx="778.9" cy="248" r="5" fill="#3c6e9b"/>
+<text x="788.9" y="253" class="small">75.6%</text>
+<text x="234" y="287" text-anchor="end" class="label">颜色：浅绿</text>
+<line x1="289.3" y1="282" x2="677.4" y2="282" stroke="#3c6e9b" stroke-width="3"/>
+<line x1="289.3" y1="277" x2="289.3" y2="287" stroke="#3c6e9b"/>
+<line x1="677.4" y1="277" x2="677.4" y2="287" stroke="#3c6e9b"/>
+<circle cx="388.0" cy="282" r="5" fill="#3c6e9b"/>
+<text x="398.0" y="287" class="small">19.7%</text>
+<text x="234" y="321" text-anchor="end" class="label">颜色：浅蓝</text>
+<line x1="580.8" y1="316" x2="772.2" y2="316" stroke="#3c6e9b" stroke-width="3"/>
+<line x1="580.8" y1="311" x2="580.8" y2="321" stroke="#3c6e9b"/>
+<line x1="772.2" y1="311" x2="772.2" y2="321" stroke="#3c6e9b"/>
+<circle cx="700.3" cy="316" r="5" fill="#3c6e9b"/>
+<text x="710.3" y="321" class="small">64.3%</text>
+<text x="234" y="355" text-anchor="end" class="label">颜色：深绿</text>
+<line x1="347.7" y1="350" x2="751.0" y2="350" stroke="#3c6e9b" stroke-width="3"/>
+<line x1="347.7" y1="345" x2="347.7" y2="355" stroke="#3c6e9b"/>
+<line x1="751.0" y1="345" x2="751.0" y2="355" stroke="#3c6e9b"/>
+<circle cx="507.0" cy="350" r="5" fill="#3c6e9b"/>
+<text x="517.0" y="355" class="small">36.7%</text>
+<text x="234" y="389" text-anchor="end" class="label">颜色：深蓝</text>
+<line x1="400.5" y1="384" x2="862.6" y2="384" stroke="#3c6e9b" stroke-width="3"/>
+<line x1="400.5" y1="379" x2="400.5" y2="389" stroke="#3c6e9b"/>
+<line x1="862.6" y1="379" x2="862.6" y2="389" stroke="#3c6e9b"/>
+<circle cx="544.3" cy="384" r="5" fill="#3c6e9b"/>
+<text x="554.3" y="389" class="small">42.0%</text>
+<text x="234" y="423" text-anchor="end" class="label">颜色：紫</text>
+<line x1="284.6" y1="418" x2="714.0" y2="418" stroke="#3c6e9b" stroke-width="3"/>
+<line x1="284.6" y1="413" x2="284.6" y2="423" stroke="#3c6e9b"/>
+<line x1="714.0" y1="413" x2="714.0" y2="423" stroke="#3c6e9b"/>
+<circle cx="439.7" cy="418" r="5" fill="#3c6e9b"/>
+<text x="449.7" y="423" class="small">27.1%</text>
+<text x="234" y="457" text-anchor="end" class="label">颜色：绿</text>
+<line x1="325.7" y1="452" x2="654.2" y2="452" stroke="#3c6e9b" stroke-width="3"/>
+<line x1="325.7" y1="447" x2="325.7" y2="457" stroke="#3c6e9b"/>
+<line x1="654.2" y1="447" x2="654.2" y2="457" stroke="#3c6e9b"/>
+<circle cx="339.8" cy="452" r="5" fill="#3c6e9b"/>
+<text x="349.8" y="457" class="small">12.8%</text>
+<text x="234" y="491" text-anchor="end" class="label">颜色：蓝绿</text>
+<line x1="602.4" y1="486" x2="851.7" y2="486" stroke="#3c6e9b" stroke-width="3"/>
+<line x1="602.4" y1="481" x2="602.4" y2="491" stroke="#3c6e9b"/>
+<line x1="851.7" y1="481" x2="851.7" y2="491" stroke="#3c6e9b"/>
+<circle cx="769.5" cy="486" r="5" fill="#3c6e9b"/>
+<text x="779.5" y="491" class="small">74.2%</text>
+<text x="234" y="525" text-anchor="end" class="label">颜色：黑</text>
+<line x1="516.9" y1="520" x2="833.2" y2="520" stroke="#3c6e9b" stroke-width="3"/>
+<line x1="516.9" y1="515" x2="516.9" y2="525" stroke="#3c6e9b"/>
+<line x1="833.2" y1="515" x2="833.2" y2="525" stroke="#3c6e9b"/>
+<circle cx="779.3" cy="520" r="5" fill="#3c6e9b"/>
+<text x="789.3" y="525" class="small">75.6%</text>
+</svg>

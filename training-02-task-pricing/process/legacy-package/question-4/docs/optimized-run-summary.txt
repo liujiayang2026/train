@@ -1,0 +1,27 @@
+Question 4 optimized bundle run
+================================
+Tasks: 2066
+Candidate packages: 12026
+MILP variables with member assignments: 38786
+Historical effective-pressure P95: 3.248341
+New effective-pressure median: 12.178431
+Original and optimization expected-payout budget: 117106.430973
+Package solver status: Optimization terminated successfully. (HiGHS Status 7: Optimal)
+Package MIP gap: 0.0
+Assignment solver status: Optimization terminated successfully. (HiGHS Status 7: Optimal)
+Assignment MIP gap: 0.0044293822490318055
+
+                       scheme  average_price  posted_total  expected_payout  expected_completions  expected_completion_rate  target_reached_tasks  unreachable_at_85_tasks  tasks_at_65  tasks_at_85  bundled_tasks  packages  total_packages  assigned_members  maximum_member_utilization  mip_gap                                                  solver_message
+     original-bundled-pricing      81.729913      168854.0    117106.430973           1437.667537                  0.695870                   927                     1139           22         1175           1809       546             NaN               NaN                         NaN      NaN                                                        baseline
+original-bundle-updated-model      81.729913      168854.0    102119.764313           1253.338572                  0.606650                    37                     1678           22         1175           1809       546           803.0               NaN                         NaN      NaN                        re-evaluated with effective supply model
+    optimized-bundled-pricing      84.112294      173776.0    111842.517947           1332.114071                  0.644779                   386                     1680            8         1704           1804       709           971.0             391.0                         1.0      0.0 Optimization terminated successfully. (HiGHS Status 7: Optimal)
+     optimized-minus-original       2.382381        4922.0      9722.753634             78.775499                  0.038129                   349                        2          -14          529             -5       163             NaN               NaN                         NaN      0.0                                                      difference
+
+Capacity checks
+---------------
+Assigned members: 391
+Maximum member capacity utilization: 1.000000
+Members over quota: 0
+Selected packages: 971
+Selected multi-task packages: 709
+Maximum package size: 4

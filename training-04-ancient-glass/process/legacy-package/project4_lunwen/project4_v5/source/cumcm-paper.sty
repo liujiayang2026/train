@@ -1,0 +1,134 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cumcm-paper}[2026/08/05 CUMCM paper style]
+
+\RequirePackage[a4paper,top=25mm,bottom=25mm,left=28mm,right=28mm,headheight=14pt]{geometry}
+\RequirePackage{amsmath,amssymb,bm}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{float}
+\RequirePackage{subcaption}
+\RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{caption}
+\RequirePackage{xcolor}
+\RequirePackage{xurl}
+\RequirePackage{seqsplit}
+\RequirePackage{hyperref}
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\hypersetup{
+  hidelinks,
+  unicode=true,
+  pdfauthor={},
+  pdfsubject={},
+  pdfkeywords={}
+}
+
+\captionsetup{font=small,labelsep=quad}
+\captionsetup[figure]{position=bottom,name=图}
+\captionsetup[table]{position=top,name=表}
+\floatname{algorithm}{算法}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\linespread{1.30}
+\setlist{nosep,leftmargin=2em}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.88}
+\renewcommand{\bottomfraction}{0.75}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.80}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\ctexset{
+  section = {
+    format = \centering\heiti\zihao{4},
+    name = {,、},
+    number = \chinese{section},
+    aftername = {},
+    beforeskip = 1.2ex,
+    afterskip = 0.8ex
+  },
+  subsection = {
+    format = \raggedright\heiti\zihao{-4},
+    beforeskip = 1.0ex,
+    afterskip = 0.5ex
+  },
+  subsubsection = {
+    format = \raggedright\heiti\zihao{-4},
+    beforeskip = 0.8ex,
+    afterskip = 0.4ex
+  }
+}
+
+\def\@teamnumber{}
+\def\@problemnumber{}
+\newcommand{\teamnumber}[1]{\gdef\@teamnumber{#1}}
+\newcommand{\problemnumber}[1]{\gdef\@problemnumber{#1}}
+\newcommand{\cumcm@teamblock}{%
+  \begin{center}
+    \renewcommand{\arraystretch}{1.35}%
+    \begin{tabular}{|C{0.18\textwidth}|C{0.22\textwidth}|}
+      \hline
+      队伍编号 & \@teamnumber \\
+      \hline
+      题号 & \@problemnumber \\
+      \hline
+    \end{tabular}
+  \end{center}
+  \vspace{0.4em}
+  \noindent\rule{\textwidth}{0.6pt}
+  \vspace{0.5em}
+}
+
+\renewcommand{\maketitle}{%
+  \ifx\@teamnumber\@empty
+    \ifx\@problemnumber\@empty
+    \else
+      \cumcm@teamblock
+    \fi
+  \else
+    \cumcm@teamblock
+  \fi
+  \begin{center}
+    {\heiti\zihao{3}\@title\par}
+  \end{center}
+  \vspace{0.2em}
+}
+
+\newenvironment{cumcmabstract}{%
+  \begin{center}{\heiti\zihao{4}摘要}\end{center}
+  \zihao{-4}\songti
+  \setlength{\parindent}{2em}%
+  \leavevmode\hspace*{2em}\ignorespaces
+}{\par}
+
+\newcommand{\keywords}[1]{%
+  \par\vspace{0.5em}\noindent{\heiti 关键词：}{\songti #1}\par
+}
+
+\newcommand{\aimark}[1]{（AI-#1）}
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}
+\newcommand{\vect}[1]{\bm{#1}}
+\newcommand{\supportfile}[3]{{\expandafter\seqsplit\expandafter{\detokenize{#1}}} & #2 & #3 \\}
+\newcommand{\CumcmBodyStart}{\clearpage\label{cumcm:body-start}}
+\newcommand{\CumcmMainMatterEnd}{\label{cumcm:main-end}}

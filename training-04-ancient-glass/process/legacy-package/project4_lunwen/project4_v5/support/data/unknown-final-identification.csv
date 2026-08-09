@@ -1,0 +1,9 @@
+﻿artifact_id,surface_weathering,raw_threshold_type,raw_centroid_type,final_type,final_subclass_id,final_subclass_name,log_ratio_pbba_to_k,type_agreement,type_stable_under_candidate_correction,raw_subclass_id,subclass_stable_after_weathering_correction,confidence,decision_basis
+A1,无风化,高钾,高钾,高钾,K-1,高钾钙铝型,0.0,True,True,K-1,True,高,unweathered raw composition
+A2,风化,铅钡,铅钡,铅钡,LB-3,富铅型,5.878443085064234,True,True,LB-3,True,高,type-conditional weathering correction agrees with raw type
+A3,无风化,铅钡,铅钡,铅钡,LB-3,富铅型,3.4148030151933297,True,True,LB-3,True,高,unweathered raw composition
+A4,无风化,铅钡,铅钡,铅钡,LB-3,富铅型,3.607985180047922,True,True,LB-3,True,高,unweathered raw composition
+A5,风化,铅钡,铅钡,铅钡,LB-1,铅钡均衡型,3.4292639529432987,True,True,LB-3,False,高,type-conditional weathering correction agrees with raw type
+A6,风化,高钾,高钾,高钾,K-1,高钾钙铝型,-2.6825685117159366,True,True,K-1,True,高,type-conditional weathering correction agrees with raw type
+A7,风化,高钾,高钾,高钾,K-1,高钾钙铝型,-2.3828192408230477,True,True,K-1,True,高,type-conditional weathering correction agrees with raw type
+A8,无风化,铅钡,铅钡,铅钡,LB-2,富钡铜型,4.5954858904153495,True,True,LB-2,True,高,unweathered raw composition

@@ -1,0 +1,47 @@
+Question 2 improved pricing comparison
+==============================================
+Tasks: 835
+Observed historical completion rate: 0.6251
+
+Original scheme:
+  average price = 69.111
+  posted total = 57707.50
+  expected payout = 36444.28
+  expected completions = 522.00
+  expected completion rate = 0.6252
+
+Uniform 75% threshold scheme:
+  average price = 77.357
+  posted total = 64593.50
+  expected payout = 46933.59
+  expected completions = 616.69
+  expected completion rate = 0.7386
+
+Improved marginal-efficiency scheme:
+  average price = 70.644
+  posted total = 58988.00
+  expected payout = 38266.22
+  expected completions = 545.46
+  expected completion rate = 0.6532
+
+Improved expected-cost limit: 38266.49
+Improved expected cost used: 38266.22
+Accepted 0.5-yuan increments: 7104
+Maximum absolute price change: 5.00
+Expected-cost increase limit: 5.0%
+
+Improved tasks with price increase: 508
+Improved tasks with price decrease: 312
+Improved tasks with unchanged price: 15
+Improved tasks priced at 65: 138
+Improved tasks priced at 85: 4
+
+Differences versus original:
+  expected completion increase = 23.46
+  completion-rate increase = 0.0281
+  expected-payout increase = 1821.95
+
+Differences versus uniform 75% threshold scheme:
+  expected completions = -71.23
+  expected payout = -8667.37
+  average price = -6.713

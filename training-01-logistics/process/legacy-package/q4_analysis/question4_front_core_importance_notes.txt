@@ -1,0 +1,220 @@
+Question 4 Front Part Core Importance Notes
+
+一、评价目标
+
+问题四前半部分要求根据附件1，对物流网络中不同物流场地及线路的重要性进行评价。
+
+本次评价只评价“重要性”本身，不将负荷率纳入主评分。负荷率反映的是运行压力或风险，而不是场地或线路在网络中的重要性。一个能力很小的线路可能负荷率很高，但其总货量小、替代性强，并不一定重要；反之，一个核心枢纽负荷率不高，也可能因货量规模大、连接广、失效影响大而非常重要。
+
+因此，本问将重要性评价与风险压力评价区分开来。前半题的重要性主模型使用货量规模、连接结构、失效影响和替代性等指标；负荷率只作为辅助参考，不进入综合重要性得分。
+
+二、数据基础
+
+历史数据：
+
+paper_skill_materials/raw_data/history_volume_data.xlsx
+
+预测数据：
+
+q1_revised/results/revised_forecast_all_edges.csv
+
+历史数据用于计算历史货量、网络连接结构和线路能力。问题一修正预测结果用于计算 2023 年 1 月预测货量。由于历史数据中存在长期停运、临时异常和数据空白，货量规模指标中提高预测货量权重。
+
+三、场地处理量口径
+
+对场地 k 和日期 t，场地处理量定义为：
+
+B_{k,t} = In_{k,t} + Out_{k,t}
+
+其中：
+
+In_{k,t} = sum_i q_{i,k,t}
+
+Out_{k,t} = sum_j q_{k,j,t}
+
+因此，场地的预测总处理量为 2023 年 1 月每日入货量与出货量之和的累计值。
+
+四、场地重要性指标
+
+场地重要性使用四类主指标。
+
+1. 货量规模指标
+
+历史总处理量；
+
+预测总处理量。
+
+由于历史数据可能受到异常停运和缺失记录影响，货量规模得分采用：
+
+VolumeScore = 0.75 * rank(预测总处理量) + 0.25 * rank(历史总处理量)
+
+该指标衡量场地承担的业务规模。
+
+2. 连接结构指标
+
+入度；
+
+出度；
+
+总度数。
+
+该指标衡量场地在物流网络中的连接广度。连接越多，说明该场地与更多上下游场地发生货物流转，结构重要性越高。
+
+StructureScore = rank(总度数)
+
+3. 波动影响指标
+
+预测日处理量变异系数：
+
+CV_k = std(B_{k,t}) / mean(B_{k,t})
+
+波动越大，说明该场地在预测期内承担的流量越不稳定。一旦该场地异常，调度难度更高，因此作为辅助重要性指标。
+
+VolatilityScore = rank(CV_k)
+
+4. 失效直接影响指标
+
+若场地 k 关停，则所有与 k 直接相连的线路货量都会受到影响。因此关停直接影响货量定义为：
+
+DirectImpact_k = sum_t B_{k,t}
+
+也就是该场地预测总处理量。该指标表示场地失效时，直接需要重新分配的货量规模。
+
+FailureImpactScore = rank(DirectImpact_k)
+
+五、场地综合得分
+
+先对各项指标做百分位归一化，再计算：
+
+SiteScore =
+0.35 * VolumeScore
++ 0.25 * StructureScore
++ 0.15 * VolatilityScore
++ 0.25 * FailureImpactScore
+
+其中，货量规模和失效直接影响权重较高，连接结构次之，波动影响作为辅助项。
+
+六、场地重要性结果
+
+重算后场地重要性排名前 15 位为：
+
+1. DC14
+2. DC9
+3. DC10
+4. DC3
+5. DC4
+6. DC8
+7. DC5
+8. DC62
+9. DC25
+10. DC23
+11. DC36
+12. DC22
+13. DC51
+14. DC17
+15. DC20
+
+其中 DC14 综合得分最高，主要原因是其预测处理量、历史处理量和连接度均位于全网前列。DC9 在问题一修正预测后承担大量货量，且直接失效影响较大，因此排名第二。DC10、DC4、DC8、DC5 等场地连接度高、历史和预测业务规模大，是网络中的主干场地。
+
+七、线路重要性指标
+
+线路重要性使用四类主指标。
+
+1. 货量规模指标
+
+历史总货量；
+
+预测总货量。
+
+同样考虑历史异常影响，线路货量规模得分采用：
+
+VolumeScore = 0.75 * rank(预测总货量) + 0.25 * rank(历史总货量)
+
+2. 端点重要性指标
+
+线路 i->j 的重要性与其连接的起点和终点场地有关。若一条线路连接两个重要场地，则其结构价值更高。
+
+EndpointScore_{ij} = 0.5 * SiteScore_i + 0.5 * SiteScore_j
+
+ConnectionScore = rank(EndpointScore_{ij})
+
+3. 波动影响指标
+
+预测日货量变异系数：
+
+CV_{ij} = std(q_{ij,t}) / mean(q_{ij,t})
+
+波动越大，线路调度不确定性越强，失效后更难稳定替代。
+
+VolatilityScore = rank(CV_{ij})
+
+4. 替代性风险指标
+
+对线路 i->j，计算除本线路以外，同起点其他线路和同终点其他线路的运输能力之和：
+
+AltCap_{ij} = same_origin_alternative_capacity + same_dest_alternative_capacity
+
+替代能力越弱，该线路越不可替代，重要性越高。因此定义：
+
+SubstitutionRiskScore = rank(- AltCap_{ij} / C_{ij})
+
+八、线路综合得分
+
+先对各项指标做百分位归一化，再计算：
+
+EdgeScore =
+0.35 * VolumeScore
++ 0.25 * ConnectionScore
++ 0.15 * VolatilityScore
++ 0.25 * SubstitutionRiskScore
+
+该得分强调线路自身货量、连接核心场地的程度以及不可替代性。
+
+九、线路重要性结果
+
+重算后线路重要性排名前 20 位为：
+
+1. DC14->DC9
+2. DC25->DC9
+3. DC14->DC3
+4. DC9->DC3
+5. DC9->DC14
+6. DC51->DC9
+7. DC9->DC5
+8. DC14->DC8
+9. DC62->DC8
+10. DC10->DC3
+11. DC15->DC9
+12. DC36->DC3
+13. DC44->DC9
+14. DC10->DC4
+15. DC23->DC3
+16. DC14->DC62
+17. DC25->DC3
+18. DC14->DC10
+19. DC8->DC14
+20. DC23->DC4
+
+排名靠前的线路大多连接 DC14、DC9、DC3、DC8、DC4 等重要场地，同时具有较高预测货量或较弱替代性。由于负荷率已从重要性得分中删除，排名更突出线路在业务规模、结构连接和不可替代性上的作用，而不是短期运行压力。
+
+十、关于负荷率的处理
+
+负荷率不参与本次重要性综合评分。它可以作为后续新增场地与线路设计时的风险压力辅助指标，例如识别哪些节点或线路接近能力上限、需要新增能力缓冲。但在“重要性评价”中，负荷率不作为主评分项。
+
+十一、结果文件
+
+完整场地指标与排名：
+
+q4_analysis/results/problem4_site_core_importance.csv
+
+场地前 20 名：
+
+q4_analysis/results/problem4_site_core_importance_top20.csv
+
+完整线路指标与排名：
+
+q4_analysis/results/problem4_edge_core_importance.csv
+
+线路前 30 名：
+
+q4_analysis/results/problem4_edge_core_importance_top30.csv

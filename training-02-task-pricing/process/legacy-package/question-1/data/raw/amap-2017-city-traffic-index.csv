@@ -1,0 +1,6 @@
+city,congestion_index_2017,index_type,calculation_or_location,source_url
+广州市,1.892,reported,"Amap 2017 annual report page 14","https://co-image.qichacha.com/upload/chacha/att/20180119/1516347412576648.pdf"
+深圳市,1.751,reported,"Amap 2017 annual report page 14","https://co-image.qichacha.com/upload/chacha/att/20180119/1516347412576648.pdf"
+东莞市,1.622,reported,"Local article quoting the Amap 2017 annual report","https://gd.sina.com.cn/news/gd/2018-01-23/detail-ifyqwiqi8246063.shtml"
+佛山市,1.783812,derived,"2016 index 1.720 multiplied by 1 + 2017 increase 3.71%","https://co-image.qichacha.com/upload/chacha/att/20180119/1516347412576648.pdf"
+惠州市,1.798445,derived,"2016 index 1.721 multiplied by 1 + 2017 increase 4.50%","https://co-image.qichacha.com/upload/chacha/att/20180119/1516347412576648.pdf"

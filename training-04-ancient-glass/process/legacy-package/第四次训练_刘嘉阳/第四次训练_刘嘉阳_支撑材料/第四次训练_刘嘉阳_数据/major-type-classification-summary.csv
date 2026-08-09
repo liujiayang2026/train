@@ -1,0 +1,4 @@
+﻿model,threshold,accuracy,sensitivity_lead_barium,specificity_high_k,youden,tp,tn,fp,fn
+log_ratio_threshold_in_sample,0.5014376968597962,0.9821428571428571,1.0,0.9375,0.9375,40,15,1,0
+log_ratio_threshold_leave_one_out,,0.9821428571428571,1.0,0.9375,,40,15,1,0
+clr_nearest_centroid_leave_one_out,,0.9821428571428571,0.975,1.0,,39,16,0,1

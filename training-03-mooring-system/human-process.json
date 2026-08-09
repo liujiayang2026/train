@@ -1,0 +1,19 @@
+{
+  "schema_version": 3,
+  "package_id": "training-03-mooring-system",
+  "title": "系泊系统的静力响应与鲁棒优化设计",
+  "intake_status": "intake",
+  "human_supplies": [
+    "source",
+    "process"
+  ],
+  "questions": [
+    "q1",
+    "q2",
+    "q3"
+  ],
+  "source_files": [
+    "source/problem/2016—A.doc"
+  ],
+  "external_input_note": "官方题面已复制到本包 source/problem/；现有材料中没有独立官方附件或必需外部输入。"
+}

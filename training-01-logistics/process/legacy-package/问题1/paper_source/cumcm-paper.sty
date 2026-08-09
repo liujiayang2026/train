@@ -1,0 +1,113 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cumcm-paper}[2026/06/28 CUMCM paper style]
+
+\RequirePackage[a4paper,top=25mm,bottom=25mm,left=30mm,right=30mm,headheight=14pt]{geometry}
+\RequirePackage{amsmath,amssymb,bm}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{longtable}
+\RequirePackage{float}
+\RequirePackage{subcaption}
+\RequirePackage{siunitx}
+\RequirePackage{listings}
+\RequirePackage{xurl}
+\RequirePackage{seqsplit}
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
+\RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{hyperref}
+\RequirePackage{caption}
+\RequirePackage{xcolor}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\hypersetup{
+  hidelinks,
+  unicode=true,
+  pdfauthor={},
+  pdfsubject={},
+  pdfkeywords={}
+}
+\captionsetup{font=small,labelsep=quad}
+\captionsetup[figure]{position=bottom,name=图}
+\captionsetup[table]{position=top,name=表}
+\floatname{algorithm}{算法}
+\sisetup{detect-all,group-digits=false}
+\lstset{
+  basicstyle=\ttfamily\zihao{5},
+  commentstyle=\color{gray},
+  numbers=left,
+  numberstyle=\tiny,
+  frame=single,
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  tabsize=4,
+  captionpos=t
+}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\linespread{1.32}
+\setlist{nosep,leftmargin=2em}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.88}
+\renewcommand{\bottomfraction}{0.75}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.8}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\ctexset{
+  section = {
+    format = \centering\heiti\zihao{4},
+    name = {,、},
+    number = \chinese{section},
+    aftername = {},
+    beforeskip = 1.2ex,
+    afterskip = 0.8ex
+  },
+  subsection = {
+    format = \raggedright\heiti\zihao{-4},
+    beforeskip = 1.0ex,
+    afterskip = 0.5ex
+  },
+  subsubsection = {
+    format = \raggedright\heiti\zihao{-4},
+    beforeskip = 0.8ex,
+    afterskip = 0.4ex
+  }
+}
+
+\renewcommand{\maketitle}{%
+  \begin{center}
+    {\heiti\zihao{3}\@title\par}
+  \end{center}
+  \vspace{0.5em}
+}
+
+\newenvironment{cumcmabstract}{%
+  \begin{center}{\heiti\zihao{4}摘要}\end{center}
+  \zihao{-4}\songti
+}{\par}
+
+\newcommand{\keywords}[1]{%
+  \par\vspace{0.5em}\noindent{\heiti 关键词：}{\songti #1}\par
+}
+
+\newcommand{\aimark}[1]{（#1）}
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}
+\newcommand{\vect}[1]{\bm{#1}}
+\newcommand{\supportfile}[3]{{\expandafter\seqsplit\expandafter{\detokenize{#1}}} & #2 & #3 \\}
+\newcommand{\CumcmBodyStart}{\clearpage\label{cumcm:body-start}}
+\newcommand{\CumcmMainMatterEnd}{\label{cumcm:main-end}}

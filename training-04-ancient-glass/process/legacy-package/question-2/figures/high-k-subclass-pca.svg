@@ -1,0 +1,55 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="760" height="520" viewBox="0 0 760 520">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="380.0" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700">High-potassium subclass PCA</text>
+<line x1="70" y1="450" x2="580" y2="450" stroke="#222" stroke-width="1"/>
+<line x1="70" y1="55" x2="70" y2="450" stroke="#222" stroke-width="1"/>
+<line x1="70.0" y1="55" x2="70.0" y2="450" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70" y1="55.0" x2="580" y2="55.0" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="197.5" y1="55" x2="197.5" y2="450" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70" y1="153.8" x2="580" y2="153.8" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="325.0" y1="55" x2="325.0" y2="450" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70" y1="252.5" x2="580" y2="252.5" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="452.5" y1="55" x2="452.5" y2="450" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70" y1="351.2" x2="580" y2="351.2" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="580.0" y1="55" x2="580.0" y2="450" stroke="#e5e7eb" stroke-width="1"/>
+<line x1="70" y1="450.0" x2="580" y2="450.0" stroke="#e5e7eb" stroke-width="1"/>
+<circle cx="163.2" cy="94.3" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="171.2" y="98.3" font-family="Arial, sans-serif" font-size="10" fill="#111827">01</text>
+<circle cx="208.5" cy="121.5" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="216.5" y="125.5" font-family="Arial, sans-serif" font-size="10" fill="#111827">03</text>
+<circle cx="199.8" cy="135.8" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="207.8" y="139.8" font-family="Arial, sans-serif" font-size="10" fill="#111827">04</text>
+<circle cx="182.0" cy="136.8" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="190.0" y="140.8" font-family="Arial, sans-serif" font-size="10" fill="#111827">05</text>
+<circle cx="217.1" cy="204.1" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="225.1" y="208.1" font-family="Arial, sans-serif" font-size="10" fill="#111827">06</text>
+<circle cx="164.9" cy="247.2" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="172.9" y="251.2" font-family="Arial, sans-serif" font-size="10" fill="#111827">07</text>
+<circle cx="185.0" cy="118.6" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="193.0" y="122.6" font-family="Arial, sans-serif" font-size="10" fill="#111827">09</text>
+<circle cx="219.1" cy="82.2" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="227.1" y="86.2" font-family="Arial, sans-serif" font-size="10" fill="#111827">10</text>
+<circle cx="189.2" cy="93.3" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="197.2" y="97.3" font-family="Arial, sans-serif" font-size="10" fill="#111827">12</text>
+<circle cx="105.2" cy="83.2" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="113.2" y="87.2" font-family="Arial, sans-serif" font-size="10" fill="#111827">13</text>
+<circle cx="300.6" cy="142.0" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="308.6" y="146.0" font-family="Arial, sans-serif" font-size="10" fill="#111827">14</text>
+<circle cx="263.2" cy="98.3" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="271.2" y="102.3" font-family="Arial, sans-serif" font-size="10" fill="#111827">16</text>
+<circle cx="544.8" cy="179.0" r="6" fill="#c66b2b" stroke="#1f2937" stroke-width="0.8"/>
+<text x="552.8" y="183.0" font-family="Arial, sans-serif" font-size="10" fill="#111827">18</text>
+<circle cx="158.5" cy="422.8" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="166.5" y="426.8" font-family="Arial, sans-serif" font-size="10" fill="#111827">21</text>
+<circle cx="256.2" cy="176.7" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="264.2" y="180.7" font-family="Arial, sans-serif" font-size="10" fill="#111827">22</text>
+<circle cx="226.1" cy="284.8" r="6" fill="#2f6f9f" stroke="#1f2937" stroke-width="0.8"/>
+<text x="234.1" y="288.8" font-family="Arial, sans-serif" font-size="10" fill="#111827">27</text>
+<text x="325.0" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="13">PC1 (47.0%)</text>
+<text transform="translate(22 252.5) rotate(-90)" text-anchor="middle" font-family="Arial, sans-serif" font-size="13">PC2 (21.9%)</text>
+<text x="610" y="75" font-family="Arial, sans-serif" font-size="13" font-weight="700">Subclasses</text>
+<rect x="610" y="89" width="12" height="12" fill="#2f6f9f"/>
+<text x="628" y="99" font-family="Arial, sans-serif" font-size="12">K-1 高钾钙铝型</text>
+<rect x="610" y="113" width="12" height="12" fill="#c66b2b"/>
+<text x="628" y="123" font-family="Arial, sans-serif" font-size="12">K-2 高硅含锡特殊型</text>
+</svg>

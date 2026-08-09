@@ -22,3 +22,25 @@
 - `PROCESS_GUIDE.md`：人工 Process 包填写规范。
 
 `process/` 中的材料不是论文写作的规范最终输入；后续应由 Finalizer 形成待人工审核的 `final/`。
+
+## 团队协作与自动校验
+
+仓库根目录的 `AGENTS.md` 规定了边做题边归档的统一流程。新模型先建立
+`route.md`，同一模型的每次实际运行分别写入不可覆盖的 `run-*` 目录；原始
+`source/` 和 `process/legacy-package/` 视为受保护材料。
+
+提交前在仓库根目录运行：
+
+```powershell
+python scripts/validate_process_intake.py
+```
+
+也可以只检查一个训练包：
+
+```powershell
+python scripts/validate_process_intake.py training-05-yellow-river
+```
+
+校验器仅依赖 Python 标准库。GitHub Actions 会在推送和拉取请求中重复执行
+结构检查，并对修改历史 `run-*`、人工决定、官方源文件和 legacy 快照的提交
+报错；仓库启用分支保护后，可将该检查设为合并前的必需条件。

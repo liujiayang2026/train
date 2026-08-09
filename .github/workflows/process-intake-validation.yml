@@ -1,0 +1,38 @@
+name: Validate process intake packages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository with history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate package structure
+        run: python scripts/validate_process_intake.py
+
+      - name: Enforce protected and append-only paths on pull requests
+        if: github.event_name == 'pull_request'
+        run: >-
+          python scripts/validate_process_intake.py
+          --git-base "${{ github.event.pull_request.base.sha }}"
+
+      - name: Enforce protected and append-only paths on pushes
+        if: github.event_name == 'push'
+        run: >-
+          python scripts/validate_process_intake.py
+          --git-base "${{ github.event.before }}"

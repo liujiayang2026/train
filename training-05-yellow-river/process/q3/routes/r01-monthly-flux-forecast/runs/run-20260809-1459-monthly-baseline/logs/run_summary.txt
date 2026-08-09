@@ -1,0 +1,6 @@
+observations=16735
+monthly_rows=72
+selected_models=water_volume_1e8_m3=regime_climatology, sediment_mass_1e4_t=regime_climatology
+sampling_times=473
+max_integration_difference_pct=0.364676
+quality_checks_passed=8/8

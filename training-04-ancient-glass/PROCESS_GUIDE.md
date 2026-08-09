@@ -10,18 +10,25 @@
 | `source/attachments/` | 官方附件、原始数据、题目提供的图片 | 清洗后数据、程序生成结果 |
 | `source/external/` | 外部数据、参数依据、参考资料及来源说明 | 无法说明来源的数值 |
 | `process/README.md` | 全局时间线、各问依赖、公共冲突、当前进展 | 某一条路线的详细推导 |
+| `process/_staging/` | 暂时无法判断问题、路线或来源角色的散落材料 | 已经能够确定正式归属的材料 |
 | `process/common/notes/` | 两问以上共用的假设、符号、统一口径 | 单问专属假设 |
 | `process/common/data/` | 多问复用的清洗数据、数据字典、清洗说明 | 官方原始附件 |
 | `process/common/code/` | 多问复用的预处理、共享函数 | 某问某路线的主求解代码 |
 | `process/common/results/` | 多问共同依赖的中间结果 | 某条路线的最终输出 |
 | `process/common/figures/` | 多问共用的探索图、数据质量图 | 某次运行专属图 |
 | `process/qN/README.md` | 本问要求、候选路线清单、已知冲突、人工决定摘要 | 完整模型推导或大段日志 |
-| `process/qN/inbox/` | 尚未来得及分类的聊天导出、截图、散落文件 | 已明确属于某条路线的正式材料 |
+| `process/qN/inbox/` | 已知属于本问但尚未来得及确定路线的材料 | 已明确属于某条路线的正式材料 |
 | `process/qN/routes/` | 按候选解法分别保存完整证据链 | 不区分路线的混合代码与结果 |
 | `process/qN/comparisons/` | 多路线同口径对比表、对比图、比较说明 | 单路线自身验证 |
 | `process/qN/decisions/` | 人工明确作出的选择、否定、修改要求及理由 | 仅凭文件名暗示的“最终版” |
 
 空目录可以保留，不要求为了填满目录制造文件。
+
+### 暂存区怎么用
+
+直播建模或聊天导出时，如果暂时无法判断文件属于哪一问、哪条路线或哪种来源角色，先放入 `process/_staging/`。已知属于某问但路线未定的材料直接放入该问的 `qN/inbox/`。
+
+交给 Finalizer 前，由 intake-organizer Agent 逐个检查暂存文件内容，原样移动到 `source/`、`process/common/`、对应 `qN/inbox/` 或具体 route/run，并在 `process/_staging/classification-log.md` 追加原路径、目标路径、理由、日期和整理者。不得依据文件名中的“最终版”“new”或时间戳判断权威性，也不得把未分类文件留在 `_staging/` 中移交。
 
 ## 二、每条路线怎么放
 
@@ -141,4 +148,11 @@ process/q1/routes/r01-baseline/
 - 废方案和失败运行没有删除，失败原因有记录。
 - 重要人工选择已经写入 `decisions/`，而不是只存在于聊天中。
 - 题目原始材料仍在 `source/`，没有被清洗结果覆盖。
+- `_staging/` 中只剩 `README.md` 和 `classification-log.md`，所有移动均已留痕。
 - 没有人工创建 `final/`；把完整包交给 Finalizer Skill 即可。
+
+移交前在 `train` 仓库根目录运行：
+
+```powershell
+python scripts/validate_process_intake.py <package> --ready-for-finalization
+```

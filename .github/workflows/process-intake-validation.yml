@@ -25,6 +25,9 @@ jobs:
       - name: Validate package structure
         run: python scripts/validate_process_intake.py
 
+      - name: Run validator regression tests
+        run: python -m unittest discover -s tests -p "test_*.py"
+
       - name: Enforce protected and append-only paths on pull requests
         if: github.event_name == 'pull_request'
         run: >-

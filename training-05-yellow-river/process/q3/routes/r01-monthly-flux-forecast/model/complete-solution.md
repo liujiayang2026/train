@@ -41,7 +41,7 @@
 
 主要训练数据来自问题一清洗后的不等间隔观测：
 
-`process/legacy-package/question-1/data/processed/cleaned_hydro_timeseries.csv`
+`process/q1/routes/r01-log-linear-sediment/runs/run-20260809-0000-imported-legacy/results/data/processed/cleaned_hydro_timeseries.csv`
 
 使用字段为：
 

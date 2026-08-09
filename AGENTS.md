@@ -5,6 +5,18 @@ the `PROCESS_GUIDE.md` inside each package.
 
 ## Process-first work
 
+Create every new numbered training package from the repository-owned skeleton:
+
+```powershell
+python scripts/init_training_package.py training-06-short-name `
+  --title "Problem title" --questions q1 q2 q3
+```
+
+Do not copy an older training package and do not use the downstream
+`write-cumcm-paper` initializer. The `train` initializer is the authoritative
+source for process intake structure, including `_staging` and its classification
+log.
+
 Modeling work must be recorded while it is performed, not reconstructed after
 the fact. Before writing code or generating results, identify the package,
 question, route, and run that own the work.
@@ -12,6 +24,11 @@ question, route, and run that own the work.
 Use this state transition:
 
 ```text
+loose file with unknown ownership
+  -> process/_staging/
+  -> intake-organizer Agent classifies and logs the move
+known question but unknown route
+  -> process/qN/inbox/
 new idea
   -> process/qN/routes/rNN-short-name/route.md
 implementation
@@ -24,8 +41,43 @@ explicit human choice
   -> process/qN/decisions/dNN-short-title.md
 ```
 
-Unclassified notes, screenshots, or chat exports may go to `process/qN/inbox/`.
-Move them into a route when their ownership becomes clear.
+During live modeling, loose notes, screenshots, chat exports, temporary code,
+and uncertain results whose question or source role is not yet known may go to
+`process/_staging/`. If the question is already known but the route is not, use
+`process/qN/inbox/` instead.
+
+Before a package is handed to the Finalizer, an intake-organizer Agent must:
+
+1. Inspect every staging item's contents; do not infer authority or ownership
+   from filenames, timestamps, or words such as `final`, `new`, or `best`.
+2. Move each item without editing its contents into `source/`,
+   `process/common/`, the relevant `process/qN/inbox/`, or a specific route/run.
+3. Append the original path, destination path, classification reason, date, and
+   organizer to `process/_staging/classification-log.md`.
+4. Leave uncertain question-specific material in the relevant `qN/inbox/` and
+   explain its possible ownership in that question's `README.md`.
+5. Run the finalization-readiness check and leave no unclassified staging file:
+
+```powershell
+python scripts/validate_process_intake.py <package> --ready-for-finalization
+```
+
+The classification log is append-only evidence. Correct a mistake with a new
+row that records the subsequent move; do not rewrite the earlier row.
+
+For a nontrivial staging batch, the intake-organizer Agent should write a JSON
+classification plan outside `_staging`, preflight it, and apply it with the
+deterministic mover:
+
+```powershell
+python scripts/apply_staging_classification.py <package> <plan.json>
+python scripts/apply_staging_classification.py <package> <plan.json> --apply
+```
+
+The mover requires exact coverage of every staging file, rejects unsafe or
+duplicate destinations and overwrites, verifies SHA-256 before and after each
+move, updates `human-process.json` for files moved into `source/`, and appends
+one classification-log row per file.
 
 ## Mandatory route and run records
 
@@ -50,7 +102,10 @@ Move them into a route when their ownership becomes clear.
 - Treat `source/` as official input. Do not clean, rewrite, or replace files in
   place; put derived data under `process/common/data/` or a route/run.
 - Treat `process/legacy-package/` as an immutable historical snapshot. New work
-  must go under canonical `process/qN/routes/` paths.
+  must go under canonical `process/qN/routes/` paths. A one-time removal is
+  allowed only when the repository owner explicitly authorizes a complete
+  `git mv` migration and the package records every mapping in
+  `process/legacy-migration.json`.
 - Do not create or hand-edit `final/` or `human-package.json` during intake.
 - Do not infer adoption from names such as `final`, `new`, `best`, or `v2`.
   Adoption/rejection requires an explicit human decision file.
@@ -68,6 +123,13 @@ Move them into a route when their ownership becomes clear.
 
 ```powershell
 python scripts/validate_process_intake.py
+```
+
+This normal check reports staging files as warnings so live work can continue.
+Before handing a package to `write-cumcm-paper`, use strict readiness mode:
+
+```powershell
+python scripts/validate_process_intake.py <package> --ready-for-finalization
 ```
 
 - For a focused check, pass one or more package directories:

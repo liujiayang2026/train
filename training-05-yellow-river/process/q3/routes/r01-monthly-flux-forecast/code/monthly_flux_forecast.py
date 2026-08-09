@@ -15,8 +15,12 @@ PACKAGE_DIR = Path(__file__).resolve().parents[5]
 Q1_SERIES = (
     PACKAGE_DIR
     / "process"
-    / "legacy-package"
-    / "question-1"
+    / "q1"
+    / "routes"
+    / "r01-log-linear-sediment"
+    / "runs"
+    / "run-20260809-0000-imported-legacy"
+    / "results"
     / "data"
     / "processed"
     / "cleaned_hydro_timeseries.csv"
@@ -24,8 +28,12 @@ Q1_SERIES = (
 Q2_DAILY = (
     PACKAGE_DIR
     / "process"
-    / "legacy-package"
-    / "question-2"
+    / "q2"
+    / "routes"
+    / "r01-interpolated-daily-pattern"
+    / "runs"
+    / "run-20260809-0000-imported-legacy"
+    / "results"
     / "data"
     / "processed"
     / "daily_flux_series.csv"
@@ -33,9 +41,12 @@ Q2_DAILY = (
 Q2_EVENTS = (
     PACKAGE_DIR
     / "process"
-    / "legacy-package"
-    / "question-2"
-    / "qa"
+    / "q2"
+    / "routes"
+    / "r01-interpolated-daily-pattern"
+    / "runs"
+    / "run-20260809-0000-imported-legacy"
+    / "validation"
     / "abrupt_change_events.csv"
 )
 TARGETS = [

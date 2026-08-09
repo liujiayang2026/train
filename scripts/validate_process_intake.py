@@ -21,6 +21,8 @@ RUN_RE = re.compile(r"run-\d{8}-\d{4}-[a-z0-9][a-z0-9-]*$")
 DECISION_RE = re.compile(r"d\d{2}-[a-z0-9][a-z0-9-]*\.md$")
 COMPARISON_RE = re.compile(r"compare-[a-z0-9][a-z0-9-]*\.md$")
 QUESTION_RE = re.compile(r"q\d+$")
+STAGING_CONTROL_FILES = {"README.md", "classification-log.md"}
+CANONICAL_GUIDE = Path(__file__).resolve().parents[1] / "templates" / "PROCESS_GUIDE.md"
 
 ROUTE_FIELDS = (
     "对应问题",
@@ -263,17 +265,65 @@ def validate_legacy_migration(package: Path, report: Report) -> None:
         report.error(legacy_root, "legacy files remain after a declared complete migration")
 
 
-def validate_package(package: Path, report: Report) -> None:
+def validate_staging(package: Path, report: Report, ready_for_finalization: bool) -> None:
+    staging = package / "process" / "_staging"
+    if not staging.is_dir():
+        report.error(staging, "missing process staging directory")
+        return
+
+    for name in sorted(STAGING_CONTROL_FILES):
+        path = staging / name
+        if not path.is_file():
+            report.error(path, "required staging control file is missing")
+
+    unclassified = sorted(
+        path
+        for path in staging.rglob("*")
+        if path.is_file()
+        and path.relative_to(staging).as_posix() not in STAGING_CONTROL_FILES
+    )
+    for path in unclassified:
+        message = "unclassified file remains in process/_staging/"
+        if ready_for_finalization:
+            report.error(path, message)
+        else:
+            report.warn(path, message)
+
+
+def validate_process_guide(package: Path, report: Report) -> None:
+    package_guide = package / "PROCESS_GUIDE.md"
+    if not CANONICAL_GUIDE.is_file():
+        report.error(CANONICAL_GUIDE, "canonical process guide template is missing")
+        return
+    if not package_guide.is_file():
+        return
+    try:
+        if package_guide.read_bytes() != CANONICAL_GUIDE.read_bytes():
+            report.error(
+                package_guide,
+                "does not match templates/PROCESS_GUIDE.md; regenerate or synchronize it",
+            )
+    except OSError as exc:
+        report.error(package_guide, f"cannot compare process guide: {exc}")
+
+
+def validate_package(
+    package: Path,
+    report: Report,
+    ready_for_finalization: bool = False,
+) -> None:
     report.packages += 1
     required_files = ("README.md", "PROCESS_GUIDE.md", "human-process.json", "process/README.md", "process/common/README.md")
     for value in required_files:
         if not (package / value).is_file():
             report.error(package / value, "required package file is missing")
+    validate_process_guide(package, report)
 
     if (package / "final").exists():
         report.error(package / "final", "final/ is forbidden in a process-only intake")
     if (package / "human-package.json").exists():
         report.error(package / "human-package.json", "generated finalization manifest is forbidden in intake")
+    validate_staging(package, report, ready_for_finalization)
     validate_legacy_migration(package, report)
 
     intake = read_json(package / "human-process.json", report)
@@ -425,6 +475,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("packages", nargs="*", help="package directories; default: every training-* package")
     parser.add_argument("--git-base", help="also enforce append-only/protected paths against this Git revision")
+    parser.add_argument(
+        "--ready-for-finalization",
+        action="store_true",
+        help="fail if any unclassified file remains in process/_staging/",
+    )
     args = parser.parse_args()
 
     repo = Path(__file__).resolve().parents[1]
@@ -433,7 +488,7 @@ def main() -> int:
     if not packages and not report.errors:
         report.error(repo, "no process intake packages found")
     for package in packages:
-        validate_package(package, report)
+        validate_package(package, report, args.ready_for_finalization)
     if args.git_base:
         validate_git_immutability(repo, args.git_base, report)
 

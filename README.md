@@ -15,6 +15,7 @@
 ## 目录约定
 
 - `source/`：官方题面、附件和有来源说明的外部资料。
+- `process/_staging/`：直播建模时暂时无法判断问题或材料角色的散落文件。
 - `process/common/`：至少被两个问题共同使用的过程材料。
 - `process/qN/`：逐问入口、候选路线、比较和人工决定。
 - `process/legacy-package/`：整理前项目的完整快照，供后续 Finalizer 盘点。
@@ -22,6 +23,19 @@
 - `PROCESS_GUIDE.md`：人工 Process 包填写规范。
 
 `process/` 中的材料不是论文写作的规范最终输入；后续应由 Finalizer 形成待人工审核的 `final/`。
+
+## 新建训练题
+
+新训练包由本仓库自己的初始化器生成，不再依赖 `write-cumcm-paper` 的骨架脚本：
+
+```powershell
+python scripts/init_training_package.py training-06-short-name `
+  --title "题目标题" --questions q1 q2 q3
+```
+
+生成后把官方题面和附件放入 `source/`，并在 `human-process.json` 的
+`source_files` 中逐项登记。新骨架默认包含 `_staging`、分类日志、公共材料目录、
+逐问 inbox/routes/comparisons/decisions，以及当前统一的 `PROCESS_GUIDE.md`。
 
 ## 团队协作与自动校验
 
@@ -44,3 +58,18 @@ python scripts/validate_process_intake.py training-05-yellow-river
 校验器仅依赖 Python 标准库。GitHub Actions 会在推送和拉取请求中重复执行
 结构检查，并对修改历史 `run-*`、人工决定、官方源文件和 legacy 快照的提交
 报错；仓库启用分支保护后，可将该检查设为合并前的必需条件。
+
+普通校验允许建模中的 `_staging` 文件继续存在，但会逐项警告。准备把某个
+训练包交给 `write-cumcm-paper` 前，必须先让 intake-organizer Agent 按内容
+分类、原样移动并填写 `classification-log.md`，再运行严格检查：
+
+```powershell
+python scripts/apply_staging_classification.py <package> <plan.json>
+python scripts/apply_staging_classification.py <package> <plan.json> --apply
+```
+
+第一条命令只预检 Agent 给出的分类计划，第二条才实际移动并记录文件。完成后运行：
+
+```powershell
+python scripts/validate_process_intake.py training-05-yellow-river --ready-for-finalization
+```

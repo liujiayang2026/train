@@ -1,0 +1,24 @@
+﻿check,passed,observed,expected
+one_policy_per_month,True,12,12
+calibration_water_constraint,True,0.06195876304785813,<= 0.1
+calibration_sediment_constraint,True,0.12520189422121256,<= 0.25
+calibration_event_constraint,True,0.8,>= 0.8
+risk_specific_gap_constraints,True,True,True
+selected_in_epsilon_grid_approx_nondominated_set,True,01:14@1|02:14@2.5|03:14@1.5|04:10@1.5|05:10@1.5|06:5@2.5|07:5@2.5|08:5@2.5|09:5@2.5|10:5@2|11:10@2|12:14@2.5,present in grid-based epsilon-constraint approximate non-dominated set
+future_months_complete,True,24,24
+future_schedule_unique,True,0,0
+future_schedule_years,True,"[2022, 2023]","[2022, 2023]"
+future_cost_bounds_ordered,True,True,True
+r04_strategy_complete,True,24,24
+old_schedule_nonempty,True,474,> 0
+old_schedule_unique_datetimes,True,0,0
+old_schedule_year_coverage,True,"[2022, 2023]","[2022, 2023]"
+strategy_conditional_holdout_reported_separately,True,"['calibration_2018_2020', 'strategy_conditional_holdout_2021']","['calibration_2018_2020', 'strategy_conditional_holdout_2021']"
+dynamic_trigger_ablation_complete,True,4,2 policies x 2 splits
+dynamic_trigger_ablation_same_base_intervals,True,"{'calibration_2018_2020': 1, 'strategy_conditional_holdout_2021': 1}",one shared base signature per split
+event_stability_splits_complete,True,"['calibration_2018_2020', 'combined_2018_2021_descriptive', 'strategy_conditional_holdout_2021']","['calibration_2018_2020', 'combined_2018_2021_descriptive', 'strategy_conditional_holdout_2021']"
+event_stability_exact_date_match,True,1.0,1.0
+event_stability_direction_match,True,True,True
+operational_protocol_reports_q90,True,True,True
+operational_protocol_has_flow_fallback,True,True,True
+cost_coefficient_sensitivity_complete,True,15,15

@@ -1,0 +1,5 @@
+﻿split,policy,calendar_boundary_comparisons,cross_month_trigger_actions,cross_month_trigger_visits
+calibration_2018_2020,optimized_dynamic,35.0,2.0,1.0
+calibration_2018_2020,optimized_base_only_ablation,0.0,0.0,0.0
+strategy_conditional_holdout_2021,optimized_dynamic,12.0,1.0,0.0
+strategy_conditional_holdout_2021,optimized_base_only_ablation,0.0,0.0,0.0

@@ -1,0 +1,4 @@
+﻿year,optimized_base_cost_units,optimized_expected_cost_units,optimized_worst_case_cost_units,old_r04_cost_units,expected_cost_reduction_vs_old_pct,optimized_base_visits,optimized_expected_visits,old_r04_visits,old_r04_assays
+2022,310.0,323.3333333333333,910.0,526.0,38.529784537389105,62.0,64.66666666666666,85.0,186.0
+2023,310.0,323.3333333333333,910.0,735.0,56.009070294784586,62.0,64.66666666666666,112.0,287.0
+2022-2023 total,620.0,646.6666666666666,1820.0,1261.0,48.71794871794872,124.0,129.33333333333331,197.0,473.0

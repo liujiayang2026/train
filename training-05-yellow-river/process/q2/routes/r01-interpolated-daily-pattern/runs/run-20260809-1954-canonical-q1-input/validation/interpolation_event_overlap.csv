@@ -1,0 +1,4 @@
+﻿method,event_count,baseline_event_coverage_within_7d,candidate_event_match_within_7d
+linear_flux_direct,11,1.0,1.0
+linear_components_product,11,1.0,1.0
+previous_flux_direct,11,1.0,1.0

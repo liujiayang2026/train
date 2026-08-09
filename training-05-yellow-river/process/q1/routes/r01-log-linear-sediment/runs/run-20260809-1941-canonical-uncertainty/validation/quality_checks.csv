@@ -1,0 +1,11 @@
+﻿check,passed,detail
+rows_present,True,rows=16735
+all_six_years_present,True,"years=[2016, 2017, 2018, 2019, 2020, 2021]"
+unique_datetimes,True,duplicates=0
+flow_complete_positive,True,required for log(flow) and integration
+water_level_complete,True,after documented interpolation
+used_sediment_complete_positive,True,"observed where available, modeled otherwise"
+four_models_compared,True,"models=time_only,hydro_only_quadratic,hydro_time_harmonic,simple_hydro_time"
+selected_model_is_cv_candidate,True,hydro_only_quadratic
+six_annual_estimates,True,2016-2021 positive totals
+bootstrap_intervals_ordered,True,p2.5 <= median <= p97.5

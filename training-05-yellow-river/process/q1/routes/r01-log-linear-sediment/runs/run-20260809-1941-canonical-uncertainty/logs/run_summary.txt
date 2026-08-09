@@ -1,0 +1,14 @@
+Input: F:\train\training-05-yellow-river\source\attachments\附件1.xlsx
+Run directory: F:\train\training-05-yellow-river\process\q1\routes\r01-log-linear-sediment\runs\run-20260809-1941-canonical-uncertainty
+Python: 3.12.10
+NumPy: 1.26.4
+pandas: 3.0.3
+openpyxl: 3.1.5
+Cleaned rows: 16735
+Observed sediment rows: 2154
+Modeled sediment rows: 14581
+Selected machine candidate: hydro_only_quadratic
+Bootstrap replicates: 500
+Random seed: 20260809
+Residual block observations: 7
+Quality checks passed: 10/10

@@ -40,11 +40,11 @@
 | mean_flow_m3s           | 0.37516         | 0.35947         | 4.1816             | 0.28289     | 0.27483     |
 | mean_sediment_flux_kg_s | 0.8016          | 0.74557         | 6.9894             | 0.49345     | 0.44608     |
 
-![validation](../figures/regime-hybrid-monthly-validation.png)
+![validation](../runs/run-20260809-1452-imported-hxk-regime-aware/figures/regime-hybrid-monthly-validation.png)
 
 完整的 2018-2021 严格时间外推对照如下。每一年只使用该年以前的数据；2018 年是结构突变压力测试。
 
-![2018-2021 backtest](../figures/historical-backtest-2018-2021.png)
+![2018-2021 backtest](../runs/run-20260809-1452-imported-hxk-regime-aware/figures/historical-backtest-2018-2021.png)
 
 2018 年只用 2016-2017 年数据无法预见制度性跃迁，因此将其视为结构突变压力测试，不与 2019-2021 常规滚动预测平均。这个处理避免用一个先验不可知的突变夸大模型日常外推误差。
 
@@ -59,7 +59,7 @@
 
 ## 历史与预测连续对照
 
-![history forecast comparison](../figures/history-vs-forecast-monthly.png)
+![history forecast comparison](../runs/run-20260809-1452-imported-hxk-regime-aware/figures/history-vs-forecast-monthly.png)
 
 近期状态修正保留了 2021 年 8 月低谷和 10-11 月秋季高值特征，避免最终预测继续把 8 月机械设置为唯一洪峰。该修正反映最新观测状态，但不作为 2019-2021 交叉验证最优参数；其权重敏感性见 `qa/recent_regime_sensitivity.csv`。
 

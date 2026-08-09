@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-08-09T20:37:08.782089+08:00",
+  "script": "F:\\train\\training-05-yellow-river\\process\\q2\\routes\\r01-interpolated-daily-pattern\\code\\analyze_question2.py",
+  "script_sha256": "3c38977b8ff1f3cc9364d13f97a2d2c95336874580ebd8e245c3ea1a7f9cd2ee",
+  "input": "F:\\train\\training-05-yellow-river\\process\\q1\\routes\\r01-log-linear-sediment\\runs\\run-20260809-2032-time-block-bootstrap\\results\\data\\cleaned_hydro_timeseries.csv",
+  "input_sha256": "97e320a85fc91a24b5d4cdda61e18236c56d9bcbd5324b4147b749d1d7a23324",
+  "input_rows": 16735,
+  "baseline_interpolation_method": "linear_flux_direct",
+  "interpolation_sensitivity_methods": [
+    "linear_flux_direct",
+    "linear_components_product",
+    "previous_flux_direct"
+  ],
+  "event_parameters": {
+    "window": 7,
+    "threshold": 3.0,
+    "min_gap_days": 20,
+    "top_n": 15
+  },
+  "python": "3.12.10",
+  "numpy": "1.26.4",
+  "pandas": "3.0.3",
+  "pillow": "12.2.0",
+  "daily_rows": 2192,
+  "baseline_event_count": 11
+}

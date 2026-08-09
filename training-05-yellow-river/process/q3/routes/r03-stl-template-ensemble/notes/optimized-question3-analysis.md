@@ -41,7 +41,7 @@
 
 ## 月度预测图
 
-![optimized forecast](../figures/optimized-forecast-monthly-flux.png)
+![optimized forecast](../runs/run-20260809-0000-imported-legacy/figures/optimized-forecast-monthly-flux.png)
 
 | year | month | pred_mean_flow_m3s | pred_mean_sediment_flux_kg_s | pred_water_volume_1e8_m3 | pred_sediment_mass_1e4_t |
 | ---- | ----- | ------------------ | ---------------------------- | ------------------------ | ------------------------ |
@@ -74,7 +74,7 @@
 
 采样方案仍以平水情景为基础，综合预测沙通量、偏丰情景通量、通量变化率、汛期/峰值期指标和历史突变月份风险。优化版保留原来的采样逻辑，以便不同模型之间结果可比。
 
-![optimized sampling](../figures/optimized-sampling-monthly-counts.png)
+![optimized sampling](../runs/run-20260809-0000-imported-legacy/figures/optimized-sampling-monthly-counts.png)
 
 | year | month | samples | high_risk_samples |
 | ---- | ----- | ------- | ----------------- |

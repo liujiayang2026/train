@@ -22,7 +22,7 @@
 
 ## 月度预测图
 
-![rf forecast](../figures/rf-forecast-monthly-flux.png)
+![rf forecast](../runs/run-20260809-0000-imported-legacy/figures/rf-forecast-monthly-flux.png)
 
 ## 采样方案
 
@@ -53,4 +53,4 @@
 | 2023 | 11    | 5       | 0                 |
 | 2023 | 12    | 5       | 0                 |
 
-![rf sampling](../figures/rf-sampling-monthly-counts.png)
+![rf sampling](../runs/run-20260809-0000-imported-legacy/figures/rf-sampling-monthly-counts.png)

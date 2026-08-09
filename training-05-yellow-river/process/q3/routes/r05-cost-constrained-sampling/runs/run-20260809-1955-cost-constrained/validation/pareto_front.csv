@@ -1,0 +1,5 @@
+﻿annual_cost_units,annual_visits,water_wape,sediment_wape,event_capture_rate,policy_signature,solver_status,pareto_optimal
+285.0,57.0,0.07772906429679054,0.1607232893391892,0.6666666666666666,01:14@1|02:14@1|03:14@1|04:10@1|05:10@1|06:5@2|07:5@1.5|08:5@1|09:5@1.5|10:5@1|11:10@1|12:14@1,Optimization terminated successfully. (HiGHS Status 7: Optimal),True
+305.0,61.0,0.0713088096931821,0.14386545226596678,0.7777777777777778,01:14@1|02:14@1|03:14@1|04:10@1|05:10@1|06:5@2|07:3@2.5|08:5@1|09:5@1.5|10:5@1|11:10@1|12:14@1,Optimization terminated successfully. (HiGHS Status 7: Optimal),True
+325.0,65.0,0.06911727178012904,0.13992122076387978,0.8888888888888888,01:14@1|02:14@1|03:14@1|04:10@1|05:10@1|06:5@2|07:3@2.5|08:5@1|09:5@1.5|10:3@1.5|11:10@1|12:14@1,Optimization terminated successfully. (HiGHS Status 7: Optimal),True
+348.33333333333337,69.66666666666666,0.06252302419844596,0.13203189612366545,1.0,01:14@1|02:14@1|03:14@1|04:10@1|05:10@1|06:3@2.5|07:3@2.5|08:5@1|09:5@1.5|10:3@1.5|11:10@1|12:14@1,Optimization terminated successfully. (HiGHS Status 7: Optimal),True

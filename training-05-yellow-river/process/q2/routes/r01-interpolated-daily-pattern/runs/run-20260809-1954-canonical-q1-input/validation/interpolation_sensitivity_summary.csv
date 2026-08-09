@@ -1,0 +1,4 @@
+﻿method,water_total_1e8_m3,sediment_total_1e4_t,water_total_relative_difference,sediment_total_relative_difference,max_monthly_water_share_difference_pp,max_monthly_sediment_share_difference_pp,jun_oct_water_share,jun_oct_sediment_share,peak_water_month,peak_sediment_month
+linear_flux_direct,1979.713422,131382.97217764342,0.0,0.0,0.0,0.0,0.6103909457658867,0.8065864974754897,7,7
+linear_components_product,1979.713422,131373.31032099086,0.0,-7.35396413431566e-05,0.0,0.0010045495521027181,0.6103909457658867,0.806617840665806,7,7
+previous_flux_direct,1980.063612,131431.86629462667,0.00017688923866887585,0.0003721495729078761,0.007200544928234742,0.009051709107854577,0.6104025530670678,0.8066076424626403,7,7

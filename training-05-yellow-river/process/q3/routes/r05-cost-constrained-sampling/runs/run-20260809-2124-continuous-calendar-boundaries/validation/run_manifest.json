@@ -1,0 +1,130 @@
+{
+  "generated_at": "2026-08-09T21:25:51.219430+08:00",
+  "script": "F:\\train\\training-05-yellow-river\\process\\q3\\routes\\r05-cost-constrained-sampling\\code\\cost_constrained_sampling.py",
+  "script_sha256": "db2be19ef4cbdfe7017f91ec527612bc0ed95cbf3e8dfc1539648cec7da295ed",
+  "inputs": {
+    "q2_daily": {
+      "path": "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/results/data/processed/daily_flux_series.csv",
+      "sha256": "2ddbed3537b140648adc9356a27ab414e44df0daa8eebbc58c97a301ece6f76b",
+      "source_rows": 2192,
+      "rows_used": 1461
+    },
+    "q2_events": {
+      "path": "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/results/tables/abrupt_change_events.csv",
+      "sha256": "ed7c4141ef4a690cf5093e060ad7ceb0f2ab2b17e9573dd0248283a3a563735b",
+      "source_rows": 11,
+      "rows_used": 10
+    },
+    "q2_event_stability": {
+      "path": "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/validation/abrupt_event_stability.csv",
+      "sha256": "bc87360380f41974ad3f293631bd83718b9c0d02654ab5da0580cea45674956c",
+      "source_rows": 11,
+      "rows_used": 10
+    },
+    "r04_forecast": {
+      "path": "process/q3/routes/r04-monthly-flux-forecast/runs/run-20260809-2103-figure-label-clarity/results/monthly_forecast_2022_2023.csv",
+      "sha256": "db32f8d0c779c69aee92b2a630558a1f400ffa7608b2bc852855fd0fb4a9107d",
+      "source_rows": 24,
+      "rows_used": 24
+    },
+    "r04_strategy": {
+      "path": "process/q3/routes/r04-monthly-flux-forecast/runs/run-20260809-2103-figure-label-clarity/results/monthly_sampling_strategy.csv",
+      "sha256": "63c4875b31699e7b1bbbf04eaf824c95602615b2665efb0e3ddb9651e7efcfe1",
+      "source_rows": 24,
+      "rows_used": 24
+    },
+    "r04_old_schedule": {
+      "path": "process/q3/routes/r04-monthly-flux-forecast/runs/run-20260809-2103-figure-label-clarity/results/sampling_schedule_2022_2023.csv",
+      "sha256": "62919ab186636ba4f45231555ab7ff728c1088795374c1c66e29b0c64203f5b9",
+      "source_rows": 474,
+      "rows_used": 474
+    }
+  },
+  "calibration_years": [
+    2018,
+    2019,
+    2020
+  ],
+  "strategy_conditional_holdout_years": [
+    2021
+  ],
+  "strategy_conditional_holdout_boundary": "2021 is excluded from r05 policy selection only; supplied q1/r04 upstream products can contain full-span information, so this is not end-to-end leakage-free validation.",
+  "pre_specified_constraints": {
+    "water_wape_max": 0.1,
+    "sediment_wape_max": 0.25,
+    "event_capture_min": 0.8,
+    "event_tolerance_days": 1
+  },
+  "dynamic_protocol": {
+    "evaluation_time": "daily 09:00 Asia/Shanghai",
+    "rapid_signal_access_assumption": "existing automatic/remote station feed; manual daily attendance would require re-costing and re-optimization",
+    "q90_water_log_change": 0.08067714993482539,
+    "q90_sediment_log_change": 0.33139200295773896,
+    "water_same_time_proxy": "W*=0.000864*Q",
+    "sediment_same_time_proxy": "S*=0.00864*Q*C",
+    "followup_days": 2,
+    "calendar_continuity": "consecutive readings and next-two-calendar-day follow-ups continue across month and year boundaries",
+    "formal_assay_deadline": "before next-day 09:00 Asia/Shanghai",
+    "missing_sediment_fallback": "use flow component alone at the same threshold"
+  },
+  "cost_scenarios": [
+    {
+      "name": "assay_heavy",
+      "visit_cost_weight": 1.0,
+      "assay_cost_weight": 4.0
+    },
+    {
+      "name": "balanced",
+      "visit_cost_weight": 1.0,
+      "assay_cost_weight": 1.0
+    },
+    {
+      "name": "visit_light",
+      "visit_cost_weight": 2.0,
+      "assay_cost_weight": 1.0
+    },
+    {
+      "name": "pre_specified",
+      "visit_cost_weight": 4.0,
+      "assay_cost_weight": 1.0
+    },
+    {
+      "name": "visit_heavy",
+      "visit_cost_weight": 8.0,
+      "assay_cost_weight": 1.0
+    }
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "numpy": "1.26.4",
+    "pandas": "3.0.3",
+    "scipy": "1.13.1",
+    "matplotlib": "3.10.9"
+  },
+  "outputs": [
+    "figures/epsilon_constraint_approx_front.png",
+    "figures/sampling_calendar_2022_2023.png",
+    "figures/strategy_conditional_holdout_baseline_comparison.png",
+    "logs/run_summary.txt",
+    "results/conditional_trigger_protocol_2022_2023.csv",
+    "results/cost_summary_2022_2023.csv",
+    "results/monthly_plan_2022_2023.csv",
+    "results/sampling_plan_2022_2023.csv",
+    "results/selected_monthly_policy.csv",
+    "results/summary.md",
+    "validation/calendar_boundary_accounting.csv",
+    "validation/candidate_option_performance.csv",
+    "validation/cost_coefficient_sensitivity.csv",
+    "validation/dynamic_trigger_ablation.csv",
+    "validation/epsilon_constraint_approx_nondominated_set.csv",
+    "validation/epsilon_constraint_grid.csv",
+    "validation/event_stability_capture_details.csv",
+    "validation/event_stability_weighted_capture.csv",
+    "validation/historical_replay_metrics.csv",
+    "validation/quality_checks.csv",
+    "validation/run_manifest.json",
+    "validation/strategy_conditional_holdout_2021_daily_reconstruction.csv",
+    "validation/strategy_conditional_holdout_2021_event_capture.csv"
+  ]
+}

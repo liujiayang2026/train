@@ -1,0 +1,10 @@
+﻿check,passed,value,requirement
+monthly_observation_count,True,72,exactly 72
+post_break_modeling_count,True,48,exactly 48 months from 2018-01 through 2021-12
+monthly_calendar_complete,True,2016-01-01 to 2021-12-01,continuous 2016-01 through 2021-12
+positive_totals,True,True,all observed and forecast totals > 0
+forecast_interval_nesting,True,True,lower95 <= lower80 <= point <= upper80 <= upper95
+second_year_intervals_wider,True,True,every 2023 log interval wider than matching 2022 month
+annual_point_totals_match,True,True,annual points equal sums of monthly points
+schedule_has_no_daily_flux,True,none,sampling dates/times only
+integration_reference_difference,True,0.364676%,maximum difference <= 1%

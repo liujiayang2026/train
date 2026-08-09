@@ -1,6 +1,8 @@
-# Question 1 Analysis
+# Question 1 imported result summary
 
-Input workbook: `D:\jianmo\project5\E题\附件1.xlsx`
+Input workbook: `source/attachments/附件1.xlsx`
+
+This imported numerical summary is retained for readability. The current reproducible reference evidence, including real-time-block uncertainty and sensitivity validation, is under `../runs/run-20260809-2032-time-block-bootstrap/`.
 
 ## Data Cleaning
 
@@ -10,7 +12,7 @@ Input workbook: `D:\jianmo\project5\E题\附件1.xlsx`
 
 ## Concentration Model
 
-The selected model is `hydro_only_quadratic` and fits `log(C)` with: log_flow, water_level, log_flow_sq, water_level_sq, log_flow_x_water_level.
+The machine-selected candidate within this run is `hydro_only_quadratic` and fits `log(C)` with: log_flow, water_level, log_flow_sq, water_level_sq, log_flow_x_water_level. This wording does not represent a human adopted decision.
 A log transform is used because sediment concentration is positive and strongly right-skewed.
 
 Best mean held-out-year RMSE on log concentration: `0.4637` for `hydro_only_quadratic`.
@@ -58,8 +60,14 @@ Monthly time-pattern summary:
 
 ## Output Files
 
-- `data/processed/cleaned_hydro_timeseries.csv`: cleaned series with observed/model/used concentration.
-- `qa/model_validation.csv`: held-out-year model comparison.
-- `qa/relationship_diagnostics.csv`: correlation and model coefficient diagnostics.
-- `results/monthly_relationship_summary.csv`: month-level time relationship diagnostics.
-- `results/annual_flux_estimates.csv`: annual total water volume and sediment load estimates.
+- `../runs/run-20260809-2032-time-block-bootstrap/results/data/cleaned_hydro_timeseries.csv`: cleaned series with observed/model/used concentration.
+- `../runs/run-20260809-2032-time-block-bootstrap/validation/model_validation.csv`: four-model held-out-year comparison.
+- `../runs/run-20260809-2032-time-block-bootstrap/validation/relationship_diagnostics.csv`: descriptive correlations and model coefficients.
+- `../runs/run-20260809-2032-time-block-bootstrap/results/tables/monthly_relationship_summary.csv`: month-level summary.
+- `../runs/run-20260809-2032-time-block-bootstrap/results/tables/annual_flux_estimates.csv`: annual total water volume and sediment load estimates.
+- `../runs/run-20260809-2032-time-block-bootstrap/validation/bootstrap_block_length_sensitivity.csv`: 24/72/168-hour moving-block comparison.
+- `../runs/run-20260809-2032-time-block-bootstrap/validation/validation_summary.md`: annual holdout, sensitivity, bootstrap interval definitions, and limitations.
+
+## Interpretation boundary
+
+The correlations above are descriptive, not significance or causal tests. About 87.13% of concentration records are modeled; annual sediment totals must therefore be reported together with the reference run's holdout error, sensitivity scenarios, and model-imputation uncertainty limits. The 72-hour baseline lies inside only 2 of 6 empirical percentile intervals, and the intervals change with block duration; these are not calibrated confidence intervals or coverage evidence.

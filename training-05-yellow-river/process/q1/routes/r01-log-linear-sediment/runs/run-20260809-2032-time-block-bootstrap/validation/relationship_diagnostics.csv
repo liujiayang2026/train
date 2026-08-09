@@ -1,0 +1,10 @@
+﻿item,value,description
+observed_sample_size,2154.0,Number of positive observed-concentration records used for descriptive correlations.
+corr_sediment_flow,0.6241040577421336,Descriptive Pearson correlation between observed concentration and flow; not a significance test.
+corr_log_sediment_log_flow,0.8902670194639948,Descriptive Pearson correlation after log transform; not a significance test.
+corr_sediment_water_level,0.6152496718188718,Descriptive Pearson correlation between observed concentration and water level; Q/H collinearity is not removed.
+coef_log_flow,-18.20698388774421,Raw-feature-scale coefficient of log_flow; interpret jointly because polynomial terms are collinear.
+coef_water_level,32.94845103326799,Raw-feature-scale coefficient of water_level; interpret jointly because polynomial terms are collinear.
+coef_log_flow_sq,0.1862998128845002,Raw-feature-scale coefficient of log_flow_sq; interpret jointly because polynomial terms are collinear.
+coef_water_level_sq,-0.4149485346715648,Raw-feature-scale coefficient of water_level_sq; interpret jointly because polynomial terms are collinear.
+coef_log_flow_x_water_level,0.3999011453670051,Raw-feature-scale coefficient of log_flow_x_water_level; interpret jointly because polynomial terms are collinear.

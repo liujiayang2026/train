@@ -1,25 +1,17 @@
-# Question 2
+# Legacy execution note
 
-Run the analysis from the workspace root:
+历史 README 曾记录 `D:\jianmo\project5\question-2\...` 下的执行命令和 `question-2/data`、`question-2/results`、`question-2/qa` 等输出路径。这些路径属于迁移前工作区，在当前仓库中不可执行，仅作为来源说明保留在 Git 历史和 imported-legacy run 记录中。
 
-```powershell
-& 'C:\Users\lenovo\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' 'D:\jianmo\project5\question-2\code\analyze_question2.py'
+当前入口为：
+
+```text
+../code/analyze_question2.py
 ```
 
-Main outputs:
+当前命令、输入哈希、依赖、结果、验证和日志见：
 
-- `data/processed/daily_flux_series.csv`: daily water flux, sediment concentration, sediment flux, water volume, and sediment mass.
-- `results/annual_flux_pattern.csv`: annual variation pattern of water and sediment fluxes.
-- `results/monthly_flux_summary.csv`: monthly seasonality summary.
-- `results/flood_season_concentration.csv`: flood-season concentration of water and sediment fluxes.
-- `qa/abrupt_change_events.csv`: candidate abrupt change events based on 7-day before-after contrasts.
-- `qa/periodicity_summary.csv`: dominant periods from frequency-domain analysis.
-- `qa/autocorrelation_lags.csv`: autocorrelation at typical lags.
-- `docs/question2-analysis.md`: short Chinese analysis report.
-- `docs/question2-method.md`: complete Chinese method and solution process.
-- `figures/monthly-water-sediment-share.png`: monthly water and sediment contribution chart.
-- `figures/monthly-normalized-flux.png`: monthly normalized water-sediment flux chart.
+```text
+../runs/run-20260809-2036-time-block-q1/run.md
+```
 
-Manual process notes:
-
-- `docs/manual-process.md`
+不要把本说明中的“legacy”理解为 adopted 或最终答案；路线状态仍为 candidate。

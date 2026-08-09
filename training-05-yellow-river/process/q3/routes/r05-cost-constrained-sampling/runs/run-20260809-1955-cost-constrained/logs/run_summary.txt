@@ -1,0 +1,15 @@
+status=yes
+solver_status=Optimization terminated successfully. (HiGHS Status 7: Optimal)
+calibration_water_wape=0.06911727
+calibration_sediment_wape=0.13992122
+calibration_event_capture=0.88888889
+calibration_annual_cost_units=325.0000
+future_base_samples=124
+pareto_policies=4
+quality_checks_passed=12/12
+code_sha256=f696168ca7bb59564613df0c8cf09e0ba15816c160476cd931d726fb45b13620
+input_sha256 process\q2\routes\r01-interpolated-daily-pattern\runs\run-20260809-0000-imported-legacy\results\data\processed\daily_flux_series.csv=d71c5cd4c2aff0e7689c59432c37ca282521d085c4d7d9055a951147cb91584b
+input_sha256 process\q2\routes\r01-interpolated-daily-pattern\runs\run-20260809-0000-imported-legacy\validation\abrupt_change_events.csv=eb56735b97973f8bb74c5373a9dd234c829959422c28f3b1f9ca76febcea168c
+input_sha256 process\q3\routes\r04-monthly-flux-forecast\runs\run-20260809-1802-canonical-input-paths\results\monthly_forecast_2022_2023.csv=9531870a2be563c832a765fcdda0a1954899d0ec183569313072246d3deffac5
+input_sha256 process\q3\routes\r04-monthly-flux-forecast\runs\run-20260809-1802-canonical-input-paths\results\monthly_sampling_strategy.csv=221b198e9168757c96689a35085b411b078d1aef12a7a3985861889f21eb163f
+input_sha256 process\q3\routes\r04-monthly-flux-forecast\runs\run-20260809-1802-canonical-input-paths\results\sampling_schedule_2022_2023.csv=1343ad1faa8c59bdc4c0d3bde3f0c3eaf601441e3ed5d26e78fa4a58a649d8fd

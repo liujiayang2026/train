@@ -1,0 +1,49 @@
+﻿scenario_group,scenario,description,year,sediment_mass_1e4_t,relative_change_pct_vs_baseline
+reference,full_fit_selected_standard_clip,"Selected four-model CV winner, all observed years fitted, standard clipping.",2016,2322.846466463167,0.0
+reference,full_fit_selected_standard_clip,"Selected four-model CV winner, all observed years fitted, standard clipping.",2017,2351.5118922921442,0.0
+reference,full_fit_selected_standard_clip,"Selected four-model CV winner, all observed years fitted, standard clipping.",2018,27797.705290774193,0.0
+reference,full_fit_selected_standard_clip,"Selected four-model CV winner, all observed years fitted, standard clipping.",2019,30144.556545959924,0.0
+reference,full_fit_selected_standard_clip,"Selected four-model CV winner, all observed years fitted, standard clipping.",2020,36031.96790056782,0.0
+reference,full_fit_selected_standard_clip,"Selected four-model CV winner, all observed years fitted, standard clipping.",2021,32734.96624250194,0.0
+candidate_model,model_time_only,Alternative among the four machine-evidenced candidate models; standard clipping.,2016,2351.391941916944,1.2289006555496103
+candidate_model,model_time_only,Alternative among the four machine-evidenced candidate models; standard clipping.,2017,3081.087169639666,31.02579577585576
+candidate_model,model_time_only,Alternative among the four machine-evidenced candidate models; standard clipping.,2018,16477.13467020852,-40.72483862300269
+candidate_model,model_time_only,Alternative among the four machine-evidenced candidate models; standard clipping.,2019,20410.15907236322,-32.29238903798483
+candidate_model,model_time_only,Alternative among the four machine-evidenced candidate models; standard clipping.,2020,32001.881250655628,-11.184753108776727
+candidate_model,model_time_only,Alternative among the four machine-evidenced candidate models; standard clipping.,2021,38156.69196560686,16.56249064972468
+candidate_model,model_hydro_time_harmonic,Alternative among the four machine-evidenced candidate models; standard clipping.,2016,2357.0419727083045,1.472138031456059
+candidate_model,model_hydro_time_harmonic,Alternative among the four machine-evidenced candidate models; standard clipping.,2017,2141.335995898955,-8.937904889280388
+candidate_model,model_hydro_time_harmonic,Alternative among the four machine-evidenced candidate models; standard clipping.,2018,27199.77110749684,-2.1510199385983215
+candidate_model,model_hydro_time_harmonic,Alternative among the four machine-evidenced candidate models; standard clipping.,2019,30065.052689760498,-0.26374199958194927
+candidate_model,model_hydro_time_harmonic,Alternative among the four machine-evidenced candidate models; standard clipping.,2020,37080.62085527774,2.9103404998687137
+candidate_model,model_hydro_time_harmonic,Alternative among the four machine-evidenced candidate models; standard clipping.,2021,30952.359977774206,-5.445572332417016
+candidate_model,model_simple_hydro_time,Alternative among the four machine-evidenced candidate models; standard clipping.,2016,2402.5774455467235,3.4324687505049467
+candidate_model,model_simple_hydro_time,Alternative among the four machine-evidenced candidate models; standard clipping.,2017,2579.7323945822577,9.705266770633031
+candidate_model,model_simple_hydro_time,Alternative among the four machine-evidenced candidate models; standard clipping.,2018,26275.23077204325,-5.476979134807352
+candidate_model,model_simple_hydro_time,Alternative among the four machine-evidenced candidate models; standard clipping.,2019,28022.32411636591,-7.040184606326349
+candidate_model,model_simple_hydro_time,Alternative among the four machine-evidenced candidate models; standard clipping.,2020,35723.531447757385,-0.8560077919185027
+candidate_model,model_simple_hydro_time,Alternative among the four machine-evidenced candidate models; standard clipping.,2021,41019.7970909324,25.308811339703542
+prediction_clip,clip_none,No prediction clipping.,2016,2322.846466463167,0.0
+prediction_clip,clip_none,No prediction clipping.,2017,2351.5118922921442,0.0
+prediction_clip,clip_none,No prediction clipping.,2018,27797.705290774193,0.0
+prediction_clip,clip_none,No prediction clipping.,2019,30144.556545959924,0.0
+prediction_clip,clip_none,No prediction clipping.,2020,36031.96790056782,0.0
+prediction_clip,clip_none,No prediction clipping.,2021,32734.96624250194,0.0
+prediction_clip,clip_tight_q01_q99,Clip to 0.5*q01 and 1.25*q99 of observed concentration.,2016,2322.846466463167,0.0
+prediction_clip,clip_tight_q01_q99,Clip to 0.5*q01 and 1.25*q99 of observed concentration.,2017,2351.5118922921442,0.0
+prediction_clip,clip_tight_q01_q99,Clip to 0.5*q01 and 1.25*q99 of observed concentration.,2018,27797.705290774193,0.0
+prediction_clip,clip_tight_q01_q99,Clip to 0.5*q01 and 1.25*q99 of observed concentration.,2019,30144.556545959924,0.0
+prediction_clip,clip_tight_q01_q99,Clip to 0.5*q01 and 1.25*q99 of observed concentration.,2020,36031.96790056782,0.0
+prediction_clip,clip_tight_q01_q99,Clip to 0.5*q01 and 1.25*q99 of observed concentration.,2021,32734.96624250194,0.0
+prediction_clip,clip_loose_q0005_q9995,Clip to 0.25*q0005 and 2*q9995 of observed concentration.,2016,2322.846466463167,0.0
+prediction_clip,clip_loose_q0005_q9995,Clip to 0.25*q0005 and 2*q9995 of observed concentration.,2017,2351.5118922921442,0.0
+prediction_clip,clip_loose_q0005_q9995,Clip to 0.25*q0005 and 2*q9995 of observed concentration.,2018,27797.705290774193,0.0
+prediction_clip,clip_loose_q0005_q9995,Clip to 0.25*q0005 and 2*q9995 of observed concentration.,2019,30144.556545959924,0.0
+prediction_clip,clip_loose_q0005_q9995,Clip to 0.25*q0005 and 2*q9995 of observed concentration.,2020,36031.96790056782,0.0
+prediction_clip,clip_loose_q0005_q9995,Clip to 0.25*q0005 and 2*q9995 of observed concentration.,2021,32734.96624250194,0.0
+training_window,leave_target_year_out,Each target year's missing concentrations are filled by a model fitted without that year's observations.,2016,2391.7145259501062,2.964813235882945
+training_window,leave_target_year_out,Each target year's missing concentrations are filled by a model fitted without that year's observations.,2017,2497.716411265423,6.217468831542484
+training_window,leave_target_year_out,Each target year's missing concentrations are filled by a model fitted without that year's observations.,2018,26697.830873364866,-3.9567093970679825
+training_window,leave_target_year_out,Each target year's missing concentrations are filled by a model fitted without that year's observations.,2019,29439.01502417802,-2.3405271220566743
+training_window,leave_target_year_out,Each target year's missing concentrations are filled by a model fitted without that year's observations.,2020,35176.45865822284,-2.3743061847351963
+training_window,leave_target_year_out,Each target year's missing concentrations are filled by a model fitted without that year's observations.,2021,34028.439857712256,3.951351608638328

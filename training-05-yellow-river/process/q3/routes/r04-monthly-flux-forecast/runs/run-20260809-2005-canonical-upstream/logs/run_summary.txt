@@ -1,0 +1,15 @@
+observations=16735
+monthly_rows=72
+modeling_months=48
+model_selection_years=2019,2020
+holdout_test_years=2021
+selected_models=water_volume_1e8_m3=fourier_ridge_alpha_1, sediment_mass_1e4_t=fourier_ridge_alpha_1
+sampling_times=474
+max_integration_difference_pct=0.364676
+quality_checks_passed=9/9
+q1_series=process\q1\routes\r01-log-linear-sediment\runs\run-20260809-1941-canonical-uncertainty\results\data\cleaned_hydro_timeseries.csv
+q1_series_sha256=07d45adaa1f36fa5d1506e0d82ef66be440835b6faaa78adde0d6289f6712330
+q2_daily=process\q2\routes\r01-interpolated-daily-pattern\runs\run-20260809-1954-canonical-q1-input\results\data\processed\daily_flux_series.csv
+q2_daily_sha256=d71c5cd4c2aff0e7689c59432c37ca282521d085c4d7d9055a951147cb91584b
+q2_events=process\q2\routes\r01-interpolated-daily-pattern\runs\run-20260809-1954-canonical-q1-input\results\tables\abrupt_change_events.csv
+q2_events_sha256=3ca5db1ebdf8b26759184754dac62dc8fbd1301439298cd1d8444bcb90b8e7ee

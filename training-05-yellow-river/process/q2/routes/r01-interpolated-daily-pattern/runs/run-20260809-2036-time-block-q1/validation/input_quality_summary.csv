@@ -1,0 +1,8 @@
+﻿metric,value,unit,interpretation
+input_rows,16735,rows,Unique Q1 timestamps in 2016-2021
+start_time,2016-01-01T00:00:00,datetime,First upstream timestamp
+end_time,2021-12-31T20:00:00,datetime,Last upstream timestamp
+median_gap_hours,4.0,hours,Median interval between upstream rows
+max_gap_hours,12.0,hours,Maximum interval between upstream rows
+q1_model_filled_sediment_share,0.871287720346579,fraction,Share of upstream timestamps whose sediment concentration came from the Q1 model
+q1_observed_sediment_share,0.12871227965342097,fraction,Share of upstream timestamps with observed sediment concentration

@@ -1,0 +1,16 @@
+Status: no
+Command outcome: tool timeout (exit code 124) after approximately 904 seconds.
+Standard output before timeout: none.
+Generated result/validation files before timeout: none.
+
+Post-timeout process inspection:
+- PID: 20736
+- Parent PID recorded by the orphaned process: 26180 (no longer present)
+- Executable: C:\Users\32417\AppData\Local\Programs\Python\Python312\python.exe
+- Command line: process/q1/routes/r01-log-linear-sediment/code/analyze_question1.py --input source/attachments/附件1.xlsx --run-dir process/q1/routes/r01-log-linear-sediment/runs/run-20260809-2013-time-block-bootstrap --bootstrap-replicates 500 --seed 20260809 --canonical-block-hours 72 --block-sensitivity-hours 24 72 168
+- Child processes: none
+
+After confirming that the executable, full command line, absent parent, and
+absent children identified only this timed-out Q1 calculation (not Codex, its
+shell, terminal host, or a required parent/child), PID 20736 alone was stopped.
+The run directory is retained and must not be reused.

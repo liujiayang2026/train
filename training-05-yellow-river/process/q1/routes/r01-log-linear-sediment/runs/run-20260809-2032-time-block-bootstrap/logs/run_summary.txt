@@ -1,0 +1,17 @@
+Input: F:\train\training-05-yellow-river\source\attachments\附件1.xlsx
+Run directory: F:\train\training-05-yellow-river\process\q1\routes\r01-log-linear-sediment\runs\run-20260809-2032-time-block-bootstrap
+Python: 3.12.10
+NumPy: 1.26.4
+pandas: 3.0.3
+openpyxl: 3.1.5
+Cleaned rows: 16735
+Observed sediment rows: 2154
+Modeled sediment rows: 14581
+Selected machine candidate: hydro_only_quadratic
+Bootstrap replicates: 500
+Random seed: 20260809
+Canonical moving-time block hours: 72
+Block sensitivity hours: 24,72,168
+Pairs resampling: within-year non-circular moving real-time blocks
+Residual resampling: within-year moving real-time blocks mapped by relative time
+Quality checks passed: 13/13

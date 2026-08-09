@@ -1,0 +1,13 @@
+﻿check,passed,observed,expected
+one_policy_per_month,True,12,12
+calibration_water_constraint,True,0.06911727178012904,<= 0.1
+calibration_sediment_constraint,True,0.13992122076387978,<= 0.25
+calibration_event_constraint,True,0.8888888888888888,>= 0.8
+risk_specific_gap_constraints,True,True,True
+canonical_is_pareto,True,01:14@1|02:14@1|03:14@1|04:10@1|05:10@1|06:5@2|07:3@2.5|08:5@1|09:5@1.5|10:3@1.5|11:10@1|12:14@1,present in Pareto front
+future_months_complete,True,24,24
+future_schedule_unique,True,0,0
+future_schedule_years,True,"[2022, 2023]","[2022, 2023]"
+r04_strategy_complete,True,24,24
+old_schedule_preserved,True,473,473
+holdout_reported_separately,True,"['calibration_2018_2020', 'holdout_2021']","['calibration_2018_2020', 'holdout_2021']"

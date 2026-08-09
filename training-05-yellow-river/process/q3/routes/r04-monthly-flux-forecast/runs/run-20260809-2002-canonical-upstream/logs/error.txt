@@ -1,0 +1,5 @@
+status=no
+stage=monthly_trapezoid_totals
+exception=AttributeError: module 'numpy' has no attribute 'trapezoid'
+environment=numpy 1.26.4
+resolution=use a NumPy 1.x/2.x compatible trapezoidal integration helper and execute in a new run

@@ -1,0 +1,5 @@
+status=no
+exception=ValueError: Missing column provided to parse_dates: sample_date
+stage=load_inputs
+outputs_written=none
+resolution=read the existing date column and derive normalized sample_date; execute in a new run directory

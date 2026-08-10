@@ -1,0 +1,5 @@
+profiles=19
+july_windows=3
+cv_predictions=866
+hotspot_intervals=17
+quality_checks=5/5

@@ -1,0 +1,10 @@
+﻿check,passed,value
+strict_grid_is_1820_2050,True,1820-2050
+four_input_intervals,True,4
+three_positive_net_observations,True,3
+spatial_template_zero_integral,True,1.9984014443252818e-15
+central_net_matches_closed_form,True,561.2854177781973
+central_net_aggradation_positive,True,561.2854177781973
+bounded_factor_less_than_linear_horizon,True,"4.323,6.321,7.869"
+all_numeric_outputs_finite,True,423
+three_attachments_used,True,"a1_context,a2_model,a3_base"

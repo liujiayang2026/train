@@ -1,0 +1,7 @@
+﻿check,value,passed
+three_seasonal_windows,3.0,True
+required_attachment3_dates,6.0,True
+all_changes_finite,467.0,True
+grid_step_5m,5.0,True
+attachment1_has_2020_2021,731.0,True
+attachment2_context_pair,919.0,True

@@ -1,0 +1,2 @@
+﻿attachment2_date,attachment3_date,lower_distance_m,upper_distance_m,grid_points,mean_bias_a3_minus_a2_m,raw_rmse_m,bias_corrected_rmse_m,raw_median_absolute_error_m,bias_corrected_median_absolute_error_m,raw_integrated_difference_m2,bias_corrected_integrated_difference_m2,passes_1m_rmse_rule
+2019-04-13,2019-04-17,1695.0,2070.0,76,0.011531256435420002,0.10931208858211641,0.10870217493318636,0.003999999999997783,0.007531256435422219,4.396211266011729,0.07199010272922735,True

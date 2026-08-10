@@ -1,0 +1,7 @@
+﻿check,passed,value
+seven_bed_years_present,True,7
+three_velocity_years_present,True,3
+six_hydrosediment_years_present,True,6
+no_pchip_spatial_extrapolation,True,strict common domains
+pchip_linear_direction_agreement_core,True,1.0
+target_matrix_has_2016_2023,True,8

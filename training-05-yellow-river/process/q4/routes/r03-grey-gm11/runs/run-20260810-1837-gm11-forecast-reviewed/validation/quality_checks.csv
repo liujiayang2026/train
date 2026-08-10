@@ -1,0 +1,8 @@
+﻿check,passed,value
+strict_grid_is_1820_2050,True,1820-2050
+four_input_intervals,True,4
+interval_days_match,True,"203,212,156,360"
+central_scenario_completed,True,3.0
+paper_shift_one_flagged_invalid,True,-0.008306573540053819
+three_attachments_used,True,"a1_context,a2_model,a3_base"
+all_numeric_outputs_finite,True,329

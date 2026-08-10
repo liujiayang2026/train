@@ -1,0 +1,6 @@
+﻿check,value,passed
+survey_count,9.0,True
+grid_step_m,5.0,True
+grid_values_finite,41265.0,True
+cv_failures,0.0,True
+all_methods_present,5.0,True

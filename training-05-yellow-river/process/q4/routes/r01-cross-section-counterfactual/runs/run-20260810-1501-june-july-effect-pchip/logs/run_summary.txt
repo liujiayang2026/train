@@ -1,0 +1,4 @@
+seasonal_windows=3
+inner_july_windows=3
+figures=5
+quality_checks=6/6

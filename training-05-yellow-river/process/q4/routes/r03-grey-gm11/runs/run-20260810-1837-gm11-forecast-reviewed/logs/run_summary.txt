@@ -1,0 +1,4 @@
+Quality checks passed: 7/7
+Central net section change: +58940.2659 m2
+Central mean elevation change: +280.8007 m
+Central dominant outcome: net_deposition_dominant

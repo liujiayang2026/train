@@ -1,0 +1,4 @@
+Quality checks passed: 7/7
+PCHIP core net change: -889.6849 m2
+PCHIP core positive fraction: 0.1489
+PCHIP dominant outcome: net_erosion_dominant

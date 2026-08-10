@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "visualize_attachment2.py", line 212, in <module>
+    main()
+  File "visualize_attachment2.py", line 180, in main
+    "signed_section_change_m2": np.trapezoid(delta, grid),
+AttributeError: module 'numpy' has no attribute 'trapezoid'
+
+Environment check after failure:
+- Python 3.12.10
+- NumPy 1.26.4
+- pip check: No broken requirements found.

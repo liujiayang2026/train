@@ -1,0 +1,6 @@
+Quality checks passed: 9/9
+Domain length: 230.0 m
+Central initial net aggradation rate: +88.7940 m2/year
+Central net ten-year change: +561.2854 m2
+Central mean ten-year elevation change: +2.4031 m
+Central dominant outcome: net_deposition_dominant

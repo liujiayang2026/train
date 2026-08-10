@@ -1,0 +1,4 @@
+survey_count=9
+common_domain_m=0.000,4583.000
+grid_step_m=5.000
+figures=5

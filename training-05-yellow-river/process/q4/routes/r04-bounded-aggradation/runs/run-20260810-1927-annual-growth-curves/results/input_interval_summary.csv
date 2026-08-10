@@ -1,0 +1,5 @@
+﻿interval,start_date,end_date,days,annualized_net_section_change_m2_per_year,used_as_positive_aggradation_scenario
+g1,2016-10-20,2017-05-11,203,11.801196510427388,True
+g2,2018-09-13,2019-04-13,212,-319.39317432081367,False
+g3,2019-10-15,2020-03-19,156,160.90550136525815,True
+g4,2020-03-19,2021-03-14,360,88.79404568305267,True

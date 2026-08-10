@@ -1,0 +1,8 @@
+﻿check,passed,value
+estimation_days_are_261_and_270,True,"261,270"
+validation_days_are_218,True,218
+forecast_days_are_3653,True,3653
+no_spatial_extrapolation_or_nan,True,strict common core
+both_estimation_intervals_present,True,3
+pchip_linear_central_direction_agree,True,"[-889.6848943841383, -881.8547449132466]"
+three_attachments_used,True,"a1_context,a2_context,a3_model"

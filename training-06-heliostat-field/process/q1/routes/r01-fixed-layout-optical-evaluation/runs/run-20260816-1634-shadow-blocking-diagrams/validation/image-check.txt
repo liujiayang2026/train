@@ -1,0 +1,17 @@
+Image validation
+Date: 2026-08-16
+
+fig01-shadow-vs-blocking-paths.png: 2810 x 1150, PNG, visual inspection passed.
+fig02-ray-plane-intersection.png: 2625 x 1496, PNG, visual inspection passed.
+fig03-sampling-and-union-efficiency.png: 2622 x 1496, PNG, visual inspection passed.
+
+Checks:
+- Incoming and reflected paths use distinct directions and colors.
+- The solar bundle is shown as a cone with a visible solar disk.
+- Ray-plane intersection labels and formulas are readable.
+- Sampling classes distinguish clear, shadowed, blocked, and overlap points.
+- The overlap region is counted once through the set union.
+- The sampling efficiency value is explicitly marked as illustrative.
+
+Process validation:
+Checked 1 package(s), 3 route(s), and 1 run(s): 0 error(s), 0 warning(s).

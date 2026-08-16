@@ -1,0 +1,12 @@
+{
+  "heliostat_count": 1745,
+  "coordinate_duplicates": 0,
+  "efficiencies_in_unit_interval": true,
+  "minimum_solar_altitude_deg": 14.404529570653823,
+  "maximum_required_neighbor_radius_m": 35.68912057918847,
+  "configured_neighbor_radius_m": 45.0,
+  "maximum_morning_afternoon_optical_difference": 0.002702061529856248,
+  "time_row_count": 60,
+  "mirror_time_row_count": 104700,
+  "code_sha256": "6ad815b44fe971f6b6022a1bb0787a1c183e60ab369423b3acb5736c71120e18"
+}

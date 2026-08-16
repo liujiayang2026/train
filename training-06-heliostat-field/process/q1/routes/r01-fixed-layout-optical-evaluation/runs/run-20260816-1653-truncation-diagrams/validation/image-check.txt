@@ -1,0 +1,17 @@
+Image validation
+Date: 2026-08-16
+
+fig01-flat-mirror-footprint-overflow.png: 2864 x 1221, PNG, visual inspection passed.
+fig02-ray-cylinder-intersection.png: 2679 x 1532, PNG, visual inspection passed.
+fig03-conditional-truncation-efficiency.png: 2864 x 1352, PNG, visual inspection passed.
+
+Checks:
+- The incorrect point-to-receiver focusing model is visibly separated from the flat-mirror model.
+- Parallel center rays, solar-cone spreading, receiver hits, and overflow are distinctly labeled.
+- The cylindrical receiver uses radius 3.5 m and finite height 76-84 m.
+- The ray-cylinder equation, positive-root selection, and height check are readable.
+- The conditional denominator uses clear rays rather than all rays.
+- Illustrative counts are explicitly marked as non-result values.
+
+Process validation:
+Checked 1 package(s), 3 route(s), and 2 run(s): 0 error(s), 0 warning(s).

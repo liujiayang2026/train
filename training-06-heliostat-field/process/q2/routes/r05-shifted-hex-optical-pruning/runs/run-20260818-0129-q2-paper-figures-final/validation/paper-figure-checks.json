@@ -1,0 +1,116 @@
+{
+  "paper_background": "#FFFFFF",
+  "figure_count": 6,
+  "mirror_count": 3168,
+  "monthly_rows": 12,
+  "robust_seed_count": 3,
+  "official_power_mw": 60.40796993611511,
+  "official_unit_area_power_kw_m2": 0.48042762228065417,
+  "mirror_power_sum_mw": 60.407969936115116,
+  "power_conservation_error_mw": 7.105427357601002e-15,
+  "minimum_operating_edge": {
+    "height_m": 0.0771865560913958,
+    "month": 12,
+    "solar_time": 9.0,
+    "mirror_id": 2949
+  },
+  "static_vertical_envelope_clearance_m": 0.0,
+  "robust_mean_power_mw": 60.44840473170885,
+  "robust_minimum_seed_power_mw": 60.397151536952755,
+  "robust_lcb_power_mw": 60.289228412855806,
+  "all_seed_power_constraint_satisfied": true,
+  "lcb_power_constraint_satisfied": true,
+  "input_sha256": {
+    "design.json": "f26eca2d3105199c30fb09ae3712b69613e5ba48b971cfca6bff695db52f54f8",
+    "final_positions.csv": "3f6e3170a8f1ca781f237b8c4f2cbe45e522bf9e45e84652a319b3b97b9ee5d4",
+    "monthly_metrics.csv": "b4d358e84a88e0ed10e93b60c94b1b296f1dce46866d1e6544c70442bb4cb6b7",
+    "annual_metrics.csv": "5955a9576ea718fddf65fc38c636028e5e6b3a05523eeed1ab700635ced178bd",
+    "ray_convergence.csv": "73efd60beed5758657d063005b02cae887798fcbe5ed6d0e6953543e4d2ec40f",
+    "initial64_candidates.csv": "9854ea2bb6e17c4ae68cabf58221766c285f0955027cbe38249f92a9c9ac77c2",
+    "pruning_candidates.csv": "983cc7d4963077e5c7611dec2755f3d431a6a3be6313caa5a651a60f332286fd",
+    "mirror_power.csv": "9a41ad77bc9f5db5c552cd139ac4fed1fd5a465e00cad701289473a4f6a59a99",
+    "seed_metrics.csv": "0b2ef561af5297eeea379de74849f56267cc382ff264c2b4fdc2f316054543d2",
+    "summary.json": "56ab544f8b33bc0ad0ecfef318b253eecb8df47b1d0b2a0a5a444e36cbd29ce0"
+  },
+  "images": {
+    "layout-and-spacing-paper.png": {
+      "size_px": [
+        3744,
+        1909
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "mode": "RGB",
+      "white_corner_count": 4,
+      "sha256": "c524123dbd7643149df93e5376501ba29d51fe7ebe36710f4842900a77842e11"
+    },
+    "candidate-selection-paper.png": {
+      "size_px": [
+        3754,
+        1594
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "mode": "RGB",
+      "white_corner_count": 4,
+      "sha256": "805e0e53a29f427f3f01dc8055bda9b934f8271a0f28b0e13f6ba359cd09849f"
+    },
+    "monthly-performance-paper.png": {
+      "size_px": [
+        3274,
+        2284
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "mode": "RGB",
+      "white_corner_count": 4,
+      "sha256": "9997805798e2e3fb9d047dc9e02e01fc1e705b68e7c6bdeb732bbfe87db9dba2"
+    },
+    "spatial-power-paper.png": {
+      "size_px": [
+        2556,
+        2254
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "mode": "RGB",
+      "white_corner_count": 4,
+      "sha256": "d77729b8c12556264b714578a32b85ec5562221bba9d77e68f6411382ab58173"
+    },
+    "ray-convergence-paper.png": {
+      "size_px": [
+        3634,
+        1504
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "mode": "RGB",
+      "white_corner_count": 4,
+      "sha256": "45647ae37f783ee0f7bb2e6f8d3cba4f942e7024ce1f0c3c71eef2a1f1961187"
+    },
+    "robustness-paper.png": {
+      "size_px": [
+        3125,
+        1684
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "mode": "RGB",
+      "white_corner_count": 4,
+      "sha256": "8d556c8304309ccd515cd7fa01c5114210fce2ea48ec70cbc712c40485885582"
+    }
+  },
+  "code_sha256": "70d4772ac7f4902620ae8702227860589305ea48532fe490057b66f82ab5c7a3"
+}

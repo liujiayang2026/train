@@ -1,0 +1,11 @@
+{
+  "status": "partial_success_then_stopped",
+  "full32_candidates": [
+    {"design_id": 167, "power_mw": 60.306, "unit_area_power_kw_m2": 0.4900},
+    {"design_id": 53, "power_mw": 60.241, "unit_area_power_kw_m2": 0.4964},
+    {"design_id": 49, "power_mw": 60.129, "unit_area_power_kw_m2": 0.4980},
+    {"design_id": 132, "power_mw": 60.053, "unit_area_power_kw_m2": 0.4986}
+  ],
+  "reason_for_stop": "The 60.25 MW local-start threshold selected a lower-efficiency candidate instead of refining the higher-efficiency feasible boundary.",
+  "next_action": "Targeted real-ray refinement around designs 49, 53, and 132."
+}

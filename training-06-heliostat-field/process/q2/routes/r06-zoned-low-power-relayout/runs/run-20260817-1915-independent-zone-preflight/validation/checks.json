@@ -1,0 +1,12 @@
+{
+  "strategy": "zoned",
+  "parameter_combinations": 36,
+  "unique_candidates": 36,
+  "selected_for_ray_screen": 16,
+  "baseline_mirror_count": 3168,
+  "maximum_candidate_mirror_count": 3107,
+  "median_candidate_mirror_count": 3012.5,
+  "minimum_candidate_mirror_count": 2987,
+  "candidates_with_at_least_3150_mirrors": 0,
+  "all_geometry_constraints_passed": true
+}

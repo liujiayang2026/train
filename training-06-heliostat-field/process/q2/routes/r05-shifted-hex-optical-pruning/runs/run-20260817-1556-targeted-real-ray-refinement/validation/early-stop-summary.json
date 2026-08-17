@@ -1,0 +1,7 @@
+{
+  "status": "stopped_after_fidelity_check",
+  "best_full32": {"width_m": 6.3, "height_m": 6.10, "power_mw": 60.316, "unit_area_power_kw_m2": 0.4954},
+  "corresponding_full64": {"power_mw": 59.393, "unit_area_power_kw_m2": 0.4878},
+  "other_full64": {"power_mw": 59.430, "unit_area_power_kw_m2": 0.4870},
+  "conclusion": "The 32-ray high-efficiency boundary is not robust; search larger-area near-square mirrors using 64/128 rays."
+}

@@ -1,0 +1,2 @@
+﻿id,tower_y_m,width_m,height_m,center_z_m,clearance_m,rotation_deg,offset_u,offset_v,mirror_count,total_area_m2,annual_avg_optical_efficiency,annual_avg_cosine_efficiency,annual_avg_shadow_blocking_efficiency,annual_avg_truncation_efficiency,annual_field_power_mw,annual_unit_area_power_kw_m2,annual_total_area_m2
+target-29,-60.0,6.3,6.3,3.15,0.05,0.0,0,0,3168,125737.92,0.49275281147745564,0.7864807145862526,0.7762093181160563,0.9361752183016351,60.37595405184541,0.48017299834326366,125737.92

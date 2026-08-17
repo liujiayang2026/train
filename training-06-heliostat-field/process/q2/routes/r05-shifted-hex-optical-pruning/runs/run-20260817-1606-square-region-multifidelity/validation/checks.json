@@ -1,0 +1,17 @@
+{
+  "mirror_count": 3168,
+  "minimum_center_distance_m": 11.349999999999934,
+  "required_problem_distance_m": 11.3,
+  "configured_safe_distance_m": 11.350000000000001,
+  "spacing_constraint_satisfied": true,
+  "maximum_site_radius_m": 349.99298507216747,
+  "site_constraint_satisfied": true,
+  "minimum_tower_distance_m": 100.88100663653194,
+  "tower_exclusion_satisfied": true,
+  "annual_power_constraint_satisfied": true,
+  "annual_power_mw": 60.40796993611511,
+  "unit_area_power_kw_m2": 0.48042762228065417,
+  "final_samples": 256,
+  "local_moves_proposed": 0,
+  "local_field_accepted": false
+}

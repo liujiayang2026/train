@@ -1,0 +1,21 @@
+{
+  "mirror_count": 2948,
+  "minimum_center_distance_m": 11.799999999999953,
+  "required_minimum_center_distance_m": 11.8,
+  "spacing_constraint_satisfied": true,
+  "maximum_site_radius_m": 349.9212670036049,
+  "minimum_tower_distance_m": 100.81924419474687,
+  "site_constraint_satisfied": true,
+  "tower_exclusion_satisfied": true,
+  "surrogate_power_rmse_mw": 0.21921572436861472,
+  "surrogate_power_r2": 0.9267993178506209,
+  "annual_power_constraint_satisfied": true,
+  "annual_power_mw": 60.252821003183264,
+  "unit_area_power_kw_m2": 0.4733335276582208,
+  "ray_128_to_256_absolute_change_kw_m2": 0.00029122657602248525,
+  "maximum_required_neighbor_radius_m": 46.49685600478854,
+  "configured_neighbor_radius_m": 70.0,
+  "figure_count": 7,
+  "optimization_code_sha256": "bb64bb03878bc00e98da40e676412851c1769a67f82b12169abb3eb1181fe0e0",
+  "lattice_code_sha256": "c240701b210020e4e5128bf141557ffdf79b4ffb5e0ce575a23eb0a1e5b64d15"
+}

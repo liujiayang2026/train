@@ -1,0 +1,7 @@
+{
+  "status": "stopped",
+  "reason": "The reduced-state estimate was systematically conservative, so the 59.8 MW pre-threshold emptied the candidate set and triggered an incorrect efficiency-first fallback.",
+  "highest_reduced_estimate_mw": 59.462,
+  "completed_full32_candidate": {"design_id": 171, "power_mw": 59.528, "unit_area_power_kw_m2": 0.5060},
+  "next_action": "Rank full-year candidates directly by reduced-state estimated power without a hard pre-threshold."
+}

@@ -1,0 +1,2 @@
+﻿avg_optical_efficiency,avg_cosine_efficiency,avg_shadow_blocking_efficiency,avg_truncation_efficiency,field_power_mw,unit_area_power_kw_m2,total_area_m2,mirror_count,mirror_width_m,mirror_height_m,mirror_center_z_m,tower_x_m,tower_y_m,samples_per_mirror_time,seed,neighbor_radius_m
+0.4858851039273705,0.7865590611591464,0.7803055699838874,0.9182896819678962,60.252821003183264,0.4733335276582208,127294.64,2948,6.8,6.35,3.175,0.0,-60.0,256,202308,70.0

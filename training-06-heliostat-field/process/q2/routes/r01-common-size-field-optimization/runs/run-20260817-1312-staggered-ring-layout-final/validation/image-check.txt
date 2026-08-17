@@ -1,0 +1,12 @@
+Image validation
+Date: 2026-08-17
+
+fig01-staggered-ring-layout-parameters.png: 2400 x 1450, PNG, 163699 bytes.
+
+Checks:
+- Panel A shows the 350 m site boundary, field origin, tower coordinates x_T/y_T, 100 m exclusion zone, staggered rings, and r_max.
+- Panel B shows r_0, radial spacing Delta r, tangential spacing d_t, theta_0, alternating half-step staggering, and the W + 5 m spacing constraint.
+- Panel C shows common mirror width W, height H, installation height z_H, H/2, the dimension bounds, and the no-ground-contact condition.
+- All labels remain inside their panels with no visible clipping or incoherent overlap.
+- The diagram is explicitly schematic and does not present the illustrated mirror count as an optimization result.
+- Visual inspection passed.

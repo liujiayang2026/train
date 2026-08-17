@@ -1,0 +1,11 @@
+{
+  "parameter_combinations": 336,
+  "unique_candidates": 336,
+  "selected_for_ray_screen": 16,
+  "baseline_mirror_count": 3168,
+  "maximum_candidate_mirror_count": 3168,
+  "median_candidate_mirror_count": 2985.0,
+  "minimum_candidate_mirror_count": 2937,
+  "candidates_with_at_least_3150_mirrors": 3,
+  "all_geometry_constraints_passed": true
+}

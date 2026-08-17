@@ -1,0 +1,16 @@
+{
+  "samples": 256,
+  "mirror_count": 3168,
+  "radial_bins": 5,
+  "sector_count": 12,
+  "zone_count": 60,
+  "occupied_zone_count": 52,
+  "low_power_zone_count": 11,
+  "official_field_power_mw": 60.40796993611511,
+  "recomputed_sum_of_mirror_power_mw": 60.407969936115116,
+  "absolute_power_difference_mw": 7.105427357601002e-15,
+  "relative_power_difference": 1.1762400499661549e-16,
+  "zone_mirror_count_sum": 3168,
+  "zone_power_sum_kw": 60407.969936115114,
+  "power_conservation_passed": true
+}

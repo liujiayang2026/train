@@ -1,0 +1,10 @@
+{
+  "status": "stopped",
+  "reason": "Proxy candidate ordering prioritized unit-area power before the 60 MW feasibility requirement.",
+  "reduced_screen_estimated_power_range_mw": [57.615, 58.489],
+  "completed_full32_candidates": [
+    {"design_id": 103, "power_mw": 58.807, "unit_area_power_kw_m2": 0.5149},
+    {"design_id": 70, "power_mw": 58.856, "unit_area_power_kw_m2": 0.5170}
+  ],
+  "next_action": "Rerun the same model with power-feasibility-first candidate ordering."
+}

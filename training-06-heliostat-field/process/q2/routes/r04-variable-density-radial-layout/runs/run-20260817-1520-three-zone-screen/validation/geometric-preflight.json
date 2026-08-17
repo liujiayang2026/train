@@ -1,0 +1,28 @@
+{
+  "status": "stopped_before_ray_tracing",
+  "reason": "Independent radial ring counts caused excessive cross-ring spacing conflicts; fallback constructions did not establish an advantage over the feasible hexagonal lattice.",
+  "attempts": [
+    {
+      "method": "independent_ring_counts_weighted_conflict_filter",
+      "design_count": 54,
+      "retained_count_range_all_designs": [1473, 2186],
+      "first_nine_retained_counts": [1688, 1855, 2157, 1656, 1826, 2114, 1628, 1780, 2101]
+    },
+    {
+      "method": "phase_search_with_reduced_ring_count",
+      "first_nine_retained_counts": [2243, 2195, 2327, 2200, 2070, 2275, 2174, 2041, 2268]
+    },
+    {
+      "method": "fixed_target_count_with_best_phase_then_conflict_filter",
+      "first_nine_candidate_counts": [2966, 2888, 2806, 2925, 2848, 2748, 2876, 2805, 2695],
+      "first_nine_retained_counts": [1719, 1833, 2151, 1712, 1823, 2095, 1698, 1799, 2099]
+    }
+  ],
+  "reference": {
+    "route": "r03-hexagonal-staggered-lattice",
+    "mirror_count": 2948,
+    "annual_power_mw": 60.252821003183264,
+    "unit_area_power_kw_m2": 0.4733335276582208
+  },
+  "conclusion": "Do not proceed to expensive cone-ray evaluation for this radial-ring implementation."
+}

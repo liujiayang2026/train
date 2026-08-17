@@ -1,0 +1,30 @@
+{
+  "schema_version": 3,
+  "package_id": "training-06-heliostat-field",
+  "title": "定日镜场的优化设计",
+  "intake_status": "intake",
+  "human_supplies": [
+    "source",
+    "process"
+  ],
+  "questions": [
+    "q1",
+    "q2",
+    "q3"
+  ],
+  "source_files": [
+    "source/problem/A题.pdf",
+    "source/attachments/附件.xlsx",
+    "source/attachments/result2.xlsx",
+    "source/attachments/result3.xlsx",
+    "source/attachments/A题.rar"
+  ],
+  "source_file_notes": {
+    "source/problem/A题.pdf": "2023 年高教社杯全国大学生数学建模竞赛 A 题题面：定日镜场的优化设计",
+    "source/attachments/附件.xlsx": "问题 1 给定定日镜中心坐标",
+    "source/attachments/result2.xlsx": "问题 2 结果提交模板",
+    "source/attachments/result3.xlsx": "问题 3 结果提交模板",
+    "source/attachments/A题.rar": "用户提供的原始官方压缩包副本"
+  },
+  "external_input_note": "Official input archive was provided outside the repository at D:\\jianmo\\project6\\原始资料\\A题.rar; extracted official files are copied into source/."
+}

@@ -1,0 +1,11 @@
+Image validation
+Date: 2026-08-16
+
+fig01-reflected-bundle-to-cylinder-process.png: 3062 x 1506, PNG, visual inspection passed.
+
+Checks:
+- The side view shows the solar cone, mirror reflection, cylindrical receiver, vertical hits, and upper/lower spill.
+- The top view shows the finite reflected bundle, circular receiver section, lateral hits, and rays missing the circle.
+- Blue, green, and red consistently encode beam envelope, receiver hits, and truncation losses.
+- The receiver dimensions and ray-cylinder acceptance conditions are readable.
+- The drawing is explicitly schematic and does not present illustrative rays as attachment results.

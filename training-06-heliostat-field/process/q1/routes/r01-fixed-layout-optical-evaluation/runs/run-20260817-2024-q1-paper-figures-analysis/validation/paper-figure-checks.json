@@ -1,0 +1,204 @@
+{
+  "paper_background": "#FFFFFF",
+  "review_headers_removed": true,
+  "power_symbol_in_aggregation": "P_field",
+  "heliostat_count": 1745,
+  "monthly_result_rows": 12,
+  "narrative_geometry_checks": {
+    "representative_month": 1,
+    "representative_solar_time": 9.0,
+    "representative_mirror_id": 1660,
+    "representative_mirror_center": [
+      -175.626,
+      287.774,
+      4.0
+    ],
+    "neighbor_radius_m": 45.0,
+    "neighbor_count": 15,
+    "dominant_neighbor_id": 1529,
+    "dominant_neighbor_union_hit_count": 214,
+    "sample_count": 512,
+    "category_counts": {
+      "clear_hit": 287,
+      "shadow_only": 71,
+      "block_only": 58,
+      "overlap": 85,
+      "clear_miss": 11
+    },
+    "category_count_sum": 512,
+    "shadow_blocking_efficiency": 0.58203125,
+    "conditional_truncation_efficiency": 0.9630872483221476,
+    "joint_clear_receiver_hit_fraction": 0.560546875,
+    "schematic_reflection_direction_error": 3.3306690738754696e-16,
+    "schematic_shadow_collinearity_error": 2.220446049250313e-16,
+    "code_sha256": "e910868aeeba4935e606809a817352baaac5b9e5bf5e40eec1e2881651412b2d"
+  },
+  "physical_geometry_checks": {
+    "center_reflection_direction_error": 5.551115123125783e-17,
+    "maximum_cone_half_angle_preservation_error_rad": 2.3914030478078274e-14,
+    "solar_half_angle_deg": 0.26600000000000007,
+    "mirror_size_m": 6.0,
+    "mirror_center_height_m": 4.0,
+    "receiver_center_height_m": 80.0,
+    "receiver_z_range_m": [
+      76.0,
+      84.0
+    ],
+    "ray_count": 21,
+    "receiver_hit_count": 19,
+    "receiver_miss_count": 2,
+    "code_sha256": "8a8b36ff418f2bc3d6ea34e4c5eb56ef9c0cea53521a9ed6dbc381c8cd7e83c7"
+  },
+  "images": {
+    "scene-inputs-paper.png": {
+      "source_size_px": [
+        2880,
+        1620
+      ],
+      "crop_box_px": [
+        86,
+        202,
+        2794,
+        1507
+      ],
+      "output_size_px": [
+        2744,
+        1341
+      ],
+      "source_sha256": "219747b4cec6a91958676ed8d44d6a450961b49a76472e1ac434562366b1d70f",
+      "output_sha256": "a72813244fee3c7f5e6301b007403fd1d23d6be6beeadda5240e4315f4db11b4"
+    },
+    "per-mirror-optical-chain-paper.png": {
+      "source_size_px": [
+        2880,
+        1620
+      ],
+      "crop_box_px": [
+        86,
+        202,
+        2794,
+        1507
+      ],
+      "output_size_px": [
+        2744,
+        1341
+      ],
+      "source_sha256": "6c85e4b51fd4fefe9fccf3735dc053a8178ced2990c946ce267f781063b25d98",
+      "output_sha256": "35f62075337ae8a76069dcd8bbb3b0ef8cc854cd4a3a6469a3b448b851a65656"
+    },
+    "aggregation-to-tables-paper.png": {
+      "source_size_px": [
+        2880,
+        1620
+      ],
+      "crop_box_px": [
+        86,
+        202,
+        2794,
+        1507
+      ],
+      "output_size_px": [
+        2744,
+        1341
+      ],
+      "source_sha256": "71ff35335ff800aec2d3c9b593315bd13cc14cdec1a9f0bef3ffae05ca67775e",
+      "output_sha256": "1badd5c781480cff72ec28504c829184801acaceff9c4765e1f1302bc431c8b7"
+    },
+    "field-to-neighbor-scale-paper.png": {
+      "source_size_px": [
+        2880,
+        1620
+      ],
+      "crop_box_px": [
+        86,
+        211,
+        2794,
+        1523
+      ],
+      "output_size_px": [
+        2744,
+        1348
+      ],
+      "source_sha256": "ee7fa87903cea625dc67b5634d19fb34de9ca1ecd800802d96722f8b8bb8c043",
+      "output_sha256": "9f75d27f1dc96fe40a49e55dd12a2610c0edbec35bad811d784cd81d0d269bc0"
+    },
+    "shadow-vs-blocking-paper.png": {
+      "source_size_px": [
+        2880,
+        1620
+      ],
+      "crop_box_px": [
+        86,
+        211,
+        2794,
+        1523
+      ],
+      "output_size_px": [
+        2744,
+        1348
+      ],
+      "source_sha256": "fa1e4f299ebcde0c5e2169c56471820d5f9db4eb71cf556c9d996097c1ca1187",
+      "output_sha256": "5c3c20ebdffae1c87e95c018491c8f8d6fcd6a41f5b7dedc2a80ee1524687d32"
+    },
+    "real-joint-sampling-paper.png": {
+      "source_size_px": [
+        2880,
+        1620
+      ],
+      "crop_box_px": [
+        86,
+        211,
+        2794,
+        1539
+      ],
+      "output_size_px": [
+        2744,
+        1364
+      ],
+      "source_sha256": "5c5783f57578a64ff33b74c7653f6db1a3b9ae1c3716ec804544073dc9515a59",
+      "output_sha256": "ba8fafe4fc6dcc7ea6c6937e51a87776d1c5717d661581253c7f0e8e3efdcbf0"
+    },
+    "monthly-performance-paper.png": {
+      "source_size_px": [
+        2880,
+        1620
+      ],
+      "crop_box_px": [
+        86,
+        292,
+        2794,
+        1507
+      ],
+      "output_size_px": [
+        2744,
+        1251
+      ],
+      "source_sha256": "206590f064ed48ad109452f1ce02899dfa6bea6f53f055e9c68e4239779adab5",
+      "output_sha256": "e9848db6079261928a77113d29c0bbe73c8395e5e6b1a0a836051e673831dace"
+    },
+    "physical-ray-geometry-paper.png": {
+      "source_size_px": [
+        2880,
+        1620
+      ],
+      "crop_box_px": [
+        86,
+        178,
+        2794,
+        1555
+      ],
+      "output_size_px": [
+        2744,
+        1413
+      ],
+      "source_sha256": "b6bb781d489dbb0695bbbb09dc2b334df65833fe6e200fe3d56b4f7cb83cd112",
+      "output_sha256": "341e169076db5cb7e40298b532ddac5fb839f7a279f1ddbacf4eedf71560ddc4"
+    }
+  },
+  "code_sha256": {
+    "export_q1_paper_figures.py": "2126a43914a434347fc1bd584f923e06c85055c7fda8f66f59c5cf48a9d69d71",
+    "draw_q1_narrative_flow_split.py": "231154ef49ad7927972962105066c02a7de4177984da3da9bec0e7ebff9cb01a",
+    "draw_q1_narrative_figures.py": "e910868aeeba4935e606809a817352baaac5b9e5bf5e40eec1e2881651412b2d",
+    "draw_physical_ray_geometry.py": "8a8b36ff418f2bc3d6ea34e4c5eb56ef9c0cea53521a9ed6dbc381c8cd7e83c7"
+  }
+}

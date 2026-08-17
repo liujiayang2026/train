@@ -1,0 +1,2 @@
+﻿avg_optical_efficiency,avg_cosine_efficiency,avg_shadow_blocking_efficiency,avg_truncation_efficiency,field_power_mw,unit_area_power_kw_m2,samples_per_mirror_time,seed,neighbor_radius_m
+0.5773651126563845,0.7564654978846908,0.9281986479226361,0.9391882593338052,35.294197282479594,0.561830583929952,256,202308,45.0

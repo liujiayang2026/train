@@ -1,0 +1,29 @@
+{
+  "representative_month": 1,
+  "representative_solar_time": 9.0,
+  "representative_mirror_id": 1660,
+  "representative_mirror_center": [
+    -175.626,
+    287.774,
+    4.0
+  ],
+  "neighbor_radius_m": 45.0,
+  "neighbor_count": 15,
+  "dominant_neighbor_id": 1529,
+  "dominant_neighbor_union_hit_count": 214,
+  "sample_count": 512,
+  "category_counts": {
+    "clear_hit": 287,
+    "shadow_only": 71,
+    "block_only": 58,
+    "overlap": 85,
+    "clear_miss": 11
+  },
+  "category_count_sum": 512,
+  "shadow_blocking_efficiency": 0.58203125,
+  "conditional_truncation_efficiency": 0.9630872483221476,
+  "joint_clear_receiver_hit_fraction": 0.560546875,
+  "schematic_reflection_direction_error": 3.3306690738754696e-16,
+  "schematic_shadow_collinearity_error": 2.220446049250313e-16,
+  "code_sha256": "e910868aeeba4935e606809a817352baaac5b9e5bf5e40eec1e2881651412b2d"
+}

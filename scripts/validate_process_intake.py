@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""Validate process-only CUMCM human modeling intake packages.
-
-The validator intentionally uses only the Python standard library so every
-teammate and GitHub Actions can run it without installing project dependencies.
-"""
+"""Validate CUMCM modeling packages from live intake through approved final."""
 
 from __future__ import annotations
 
@@ -311,6 +307,7 @@ def validate_package(
     package: Path,
     report: Report,
     ready_for_finalization: bool = False,
+    ready_for_writing: bool = False,
 ) -> None:
     report.packages += 1
     required_files = ("README.md", "PROCESS_GUIDE.md", "human-process.json", "process/README.md", "process/common/README.md")
@@ -319,10 +316,26 @@ def validate_package(
             report.error(package / value, "required package file is missing")
     validate_process_guide(package, report)
 
-    if (package / "final").exists():
-        report.error(package / "final", "final/ is forbidden in a process-only intake")
-    if (package / "human-package.json").exists():
-        report.error(package / "human-package.json", "generated finalization manifest is forbidden in intake")
+    has_final = (package / "final").is_dir()
+    has_manifest = (package / "human-package.json").is_file()
+    if has_final != has_manifest:
+        report.error(package, "final/ and human-package.json must appear together")
+    elif has_final:
+        command = [sys.executable, str(Path(__file__).with_name("validate_human_package.py")), str(package)]
+        if ready_for_writing:
+            command.append("--require-approved")
+        completed = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+        )
+        if completed.returncode:
+            detail = completed.stdout.strip() or completed.stderr.strip()
+            report.error(package, f"finalized package validation failed: {detail}")
+    elif ready_for_writing:
+        report.error(package, "ready-for-writing requires final/ and human-package.json")
     validate_staging(package, report, ready_for_finalization)
     validate_legacy_migration(package, report)
 
@@ -427,8 +440,6 @@ def validate_git_immutability(repo: Path, base: str, report: Report) -> None:
             if len(parts) < 2 or not parts[0].startswith("training-"):
                 continue
             joined = "/".join(parts)
-            if "/final/" in f"/{joined}/" or value.endswith("/human-package.json"):
-                report.error(value, "finalized artifacts are forbidden in this intake repository")
             if status_code in {"M", "D", "R", "C"} and "/source/" in f"/{joined}/":
                 report.error(value, "existing official source material is immutable")
             if status_code in {"M", "D", "R", "C"} and "/process/legacy-package/" in f"/{joined}/":
@@ -480,6 +491,11 @@ def main() -> int:
         action="store_true",
         help="fail if any unclassified file remains in process/_staging/",
     )
+    parser.add_argument(
+        "--ready-for-writing",
+        action="store_true",
+        help="require a structurally valid final package with current human approval",
+    )
     args = parser.parse_args()
 
     repo = Path(__file__).resolve().parents[1]
@@ -488,7 +504,12 @@ def main() -> int:
     if not packages and not report.errors:
         report.error(repo, "no process intake packages found")
     for package in packages:
-        validate_package(package, report, args.ready_for_finalization)
+        validate_package(
+            package,
+            report,
+            args.ready_for_finalization or args.ready_for_writing,
+            args.ready_for_writing,
+        )
     if args.git_base:
         validate_git_immutability(repo, args.git_base, report)
 

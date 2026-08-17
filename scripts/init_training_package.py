@@ -104,8 +104,9 @@ def main() -> int:
     write_text(
         destination / "README.md",
         "# Human modeling intake\n\n"
-        "This package is created and maintained by the `train` repository. Humans and modeling "
-        "Agents provide only `source/` and `process/`; do not create or curate `final/`.\n\n"
+        "This package is created and maintained by the `train` repository. During modeling, "
+        "Agents maintain only `source/` and `process/`; an independent train Finalizer creates "
+        "`final/` and `human-package.json` after strict readiness.\n\n"
         "Read `PROCESS_GUIDE.md` before adding materials. Before handoff, classify every file "
         "in `process/_staging/` and run the readiness validator from the train repository.\n",
     )

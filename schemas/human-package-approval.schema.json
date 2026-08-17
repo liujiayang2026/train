@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/train/human-package-approval.schema.json",
+  "title": "Human review decision for a generated final package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "package_id", "status", "reviewed_at", "reviewer", "review_note", "manifest_sha256", "final_tree_sha256"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "package_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "status": { "enum": ["pending", "approved", "rejected"] },
+    "reviewed_at": { "type": "string", "format": "date-time" },
+    "reviewer": { "type": "string" },
+    "review_note": { "type": "string" },
+    "manifest_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "final_tree_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

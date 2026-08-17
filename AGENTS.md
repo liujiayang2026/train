@@ -97,6 +97,32 @@ one classification-log row per file.
 - When Git history is unavailable for a run, record a SHA-256 hash of its code
   entry point in `run.md`.
 
+## Finalization ownership
+
+This repository owns the complete human modeling package lifecycle. After the
+process intake passes strict readiness, a dedicated Finalizer Agent follows
+`FINALIZATION_GUIDE.md` and creates `final/` plus `human-package.json`. A human
+then records approval or rejection with `scripts/review_human_package.py`.
+
+Finalization is evidence-preserving selection, not summary rewriting. Prefer
+copying complete, compatible reasoning documents from adopted/supporting
+process routes into the question's `final/` directory byte-for-byte. The
+canonical `solution.md` may organize and index those files, but final must
+retain the full derivation, parameter determination, solution process, result
+interpretation, and limitations needed for writing without access to
+`process/`. A conclusion-only or heavily compressed final is not review-ready.
+
+The downstream `F:\write-cumcm-paper` repository is writing-only. It may read
+only an approved package's `human-package.json`, `approval.json`, declared
+`final/` files, and official `source/` inputs. It must not read `process/`,
+choose routes, run models, calculate new results, or finalize packages.
+
+Before handing a package to the writing repository, run:
+
+```powershell
+python scripts/validate_process_intake.py <package> --ready-for-writing
+```
+
 ## Protected material
 
 - Treat `source/` as official input. Do not clean, rewrite, or replace files in
@@ -107,6 +133,9 @@ one classification-log row per file.
   `git mv` migration and the package records every mapping in
   `process/legacy-migration.json`.
 - Do not create or hand-edit `final/` or `human-package.json` during intake.
+  Only the dedicated Finalizer Agent may create them after strict readiness.
+  Once approved, treat `final/`, `human-package.json`, and `approval.json` as a
+  hash-bound immutable release; revisions require a new finalization and review.
 - Do not infer adoption from names such as `final`, `new`, `best`, or `v2`.
   Adoption/rejection requires an explicit human decision file.
 - Do not edit an existing decision record to reverse a choice. Add a new
@@ -126,11 +155,14 @@ python scripts/validate_process_intake.py
 ```
 
 This normal check reports staging files as warnings so live work can continue.
-Before handing a package to `write-cumcm-paper`, use strict readiness mode:
+Before starting finalization, use strict intake readiness mode:
 
 ```powershell
 python scripts/validate_process_intake.py <package> --ready-for-finalization
 ```
+
+After Finalizer output and explicit human approval, use `--ready-for-writing`;
+only that state may be handed to `write-cumcm-paper`.
 
 - For a focused check, pass one or more package directories:
 

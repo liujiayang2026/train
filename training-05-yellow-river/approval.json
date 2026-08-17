@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "package_id": "training-05-yellow-river",
+  "status": "approved",
+  "reviewed_at": "2026-08-11T15:25:41.933705+00:00",
+  "reviewer": "刘嘉阳",
+  "review_note": "用户明确要求基于当前重建final生成论文效果稿；采用完整思路与关键图表，PDF正文不附可执行代码。",
+  "manifest_sha256": "2a784b61c27a96434fdceca8f47aab9c50193599f4609025bf690f6bee51d6f6",
+  "final_tree_sha256": "bbeaf1c32133c33f7a1ae581eed6b28edf5bdcea64bed6ff1447c760a0ecdafd"
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/train/human-package.schema.json",
+  "title": "Skill-generated CUMCM final package V3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "package_id", "title", "finalization_status", "generated_from_process", "writer_entrypoint", "process_policy", "source_files", "external_input_note", "common_files", "common_provenance", "unresolved_decisions", "questions"],
+  "properties": {
+    "schema_version": { "const": 3 },
+    "package_id": { "$ref": "#/$defs/slug" },
+    "title": { "type": "string", "minLength": 1 },
+    "finalization_status": { "enum": ["needs_decision", "ready_for_review"] },
+    "generated_from_process": { "const": true },
+    "writer_entrypoint": { "const": "final" },
+    "process_policy": { "const": "noncanonical" },
+    "source_files": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/sourcePath" } },
+    "external_input_note": { "type": "string" },
+    "common_files": { "type": "array", "minItems": 5, "uniqueItems": true, "items": { "$ref": "#/$defs/finalPath" } },
+    "common_provenance": { "type": "array", "minItems": 5, "items": { "$ref": "#/$defs/provenance" } },
+    "unresolved_decisions": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "questions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/question" } }
+  },
+  "$defs": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "questionId": { "type": "string", "pattern": "^q[1-9][0-9]*$" },
+    "relativePath": { "type": "string", "minLength": 1, "pattern": "^(?!/)(?![A-Za-z]:/)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\\\u0000]+$" },
+    "finalPath": { "allOf": [{ "$ref": "#/$defs/relativePath" }, { "pattern": "^final/" }] },
+    "sourcePath": { "allOf": [{ "$ref": "#/$defs/relativePath" }, { "pattern": "^source/" }] },
+    "processPath": { "allOf": [{ "$ref": "#/$defs/relativePath" }, { "pattern": "^process/" }] },
+    "route": {
+      "type": "object", "additionalProperties": false, "required": ["artifact", "reason"],
+      "properties": { "artifact": { "$ref": "#/$defs/processPath" }, "reason": { "type": "string", "minLength": 1 } }
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false, "required": ["final_artifact", "process_sources"],
+      "properties": {
+        "final_artifact": { "$ref": "#/$defs/finalPath" },
+        "process_sources": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/processPath" } }
+      }
+    },
+    "validation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "artifacts", "gap_reason", "affected_conclusion"],
+      "properties": {
+        "status": { "enum": ["verified", "partial", "unverified", "conflict"] },
+        "artifacts": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/finalPath" } },
+        "gap_reason": { "type": "string" },
+        "affected_conclusion": { "type": "string", "minLength": 1 }
+      }
+    },
+    "question": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "solution", "source_inputs", "final_code", "no_code_reason", "final_results", "no_machine_results_reason", "final_figures", "validation", "route_decisions", "provenance"],
+      "properties": {
+        "id": { "$ref": "#/$defs/questionId" },
+        "solution": { "$ref": "#/$defs/finalPath" },
+        "source_inputs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "final_code": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/finalPath" } },
+        "no_code_reason": { "type": "string" },
+        "final_results": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/finalPath" } },
+        "no_machine_results_reason": { "type": "string" },
+        "final_figures": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/finalPath" } },
+        "validation": { "$ref": "#/$defs/validation" },
+        "route_decisions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["adopted", "supporting", "rejected", "superseded", "unresolved"],
+          "properties": {
+            "adopted": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/route" } },
+            "supporting": { "type": "array", "items": { "$ref": "#/$defs/route" } },
+            "rejected": { "type": "array", "items": { "$ref": "#/$defs/route" } },
+            "superseded": { "type": "array", "items": { "$ref": "#/$defs/route" } },
+            "unresolved": { "type": "array", "items": { "$ref": "#/$defs/route" } }
+          }
+        },
+        "provenance": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/provenance" } }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # 人工 Process 包填写手册
 
-本手册面向建模人员。人工只负责提供 `source/` 和 `process/`，不创建 `final/`。Process 可以保留多版本和废方案，但必须让每条路线的模型、代码、运行结果和验证证据能够对应起来。
+本手册面向建模人员。建模阶段只维护 `source/` 和 `process/`；通过严格 readiness 后，由 `F:\train` 的独立 Finalizer 创建 `final/` 和 manifest。Process 可以保留多版本和废方案，但必须让每条路线的模型、代码、运行结果和验证证据能够对应起来。
 
 ## 一、目录放什么
 
@@ -149,10 +149,13 @@ process/q1/routes/r01-baseline/
 - 重要人工选择已经写入 `decisions/`，而不是只存在于聊天中。
 - 题目原始材料仍在 `source/`，没有被清洗结果覆盖。
 - `_staging/` 中只剩 `README.md` 和 `classification-log.md`，所有移动均已留痕。
-- 没有人工创建 `final/`；把完整包交给 Finalizer Skill 即可。
+- 建模人员没有手工创建 `final/`；把完整包交给本仓库的独立 Finalizer Agent。
 
 移交前在 `train` 仓库根目录运行：
 
 ```powershell
 python scripts/validate_process_intake.py <package> --ready-for-finalization
 ```
+
+Finalizer、人工审批及写作移交步骤见仓库根目录 `FINALIZATION_GUIDE.md`。只有
+`--ready-for-writing` 通过的包才能交给 `F:\write-cumcm-paper`。

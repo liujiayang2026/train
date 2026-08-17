@@ -1,0 +1,7 @@
+﻿year,baseline_sediment_mass_1e4_t,bootstrap_median_1e4_t,bootstrap_p2_5_1e4_t,bootstrap_p97_5_1e4_t,relative_half_width_pct,baseline_inside_interval,bootstrap_replicates,random_seed,time_block_hours,pairs_resampling,residual_resampling,is_canonical
+2016,2322.846466463167,2149.439144220516,1935.6373078106774,2451.1017541714855,11.095534160414594,True,500,20260809,72,within-year moving real-time blocks,within-year moving real-time blocks mapped by relative time,True
+2017,2351.5118922921442,2100.8085017371372,1971.6135301416516,2250.300605109582,5.925699884432212,False,500,20260809,72,within-year moving real-time blocks,within-year moving real-time blocks mapped by relative time,True
+2018,27797.705290774193,33973.09716555885,28820.077991881204,41158.9106790034,22.193977089212,False,500,20260809,72,within-year moving real-time blocks,within-year moving real-time blocks mapped by relative time,True
+2019,30144.556545959924,38249.54411027528,32804.06159999783,46374.66081258048,22.509203596828865,False,500,20260809,72,within-year moving real-time blocks,within-year moving real-time blocks mapped by relative time,True
+2020,36031.96309418267,45443.01067408758,39201.82441020086,52719.38529063202,18.757735798488252,False,500,20260809,72,within-year moving real-time blocks,within-year moving real-time blocks mapped by relative time,True
+2021,32734.96624250194,31544.80877170385,26380.94660185824,37312.35593423369,16.696839170987882,True,500,20260809,72,within-year moving real-time blocks,within-year moving real-time blocks mapped by relative time,True

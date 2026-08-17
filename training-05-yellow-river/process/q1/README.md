@@ -4,7 +4,7 @@
 - Current candidate routes: `routes/r01-log-linear-sediment/`，四模型留一年比较、对数线性含沙量补全与通量积分方案。
 - Current reference evidence: `routes/r01-log-linear-sediment/runs/run-20260809-2032-time-block-bootstrap/`；规范输入路径成功运行，13/13质量检查通过。72小时为事先指定主块长，24/72/168小时各完成500次按年真实时间移动块自助。
 - Known conflicts: 87.13%的含沙量由模型补全；留一年稀疏观测网格输沙WAPE为28.85%-71.49%。72小时经验区间相对半宽为5.93%-22.51%，基准点仅落入2/6个区间，且结果对块长敏感。全时段拟合结果若供时间外推回测使用，需要按预测时点重新拟合以避免信息泄漏。这些经验区间仅覆盖当前模型内的训练样本和补全残差，不是完整真实误差区间或覆盖率验证。
-- Explicit human decisions: 用户表示前两问当前没有明显问题，但尚未形成正式采用决定。
+- Explicit human decisions: `decisions/d01-adopt-log-linear-sediment.md`已正式采用r01及2032 run，并要求完整思路无损进入final。
 
 Create one `routes/rNN-short-name/` directory per materially different route. Keep each route's model, code, runs, results, figures, validation, and logs together.
 

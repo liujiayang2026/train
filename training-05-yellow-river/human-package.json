@@ -1,0 +1,724 @@
+{
+  "schema_version": 3,
+  "package_id": "training-05-yellow-river",
+  "title": "黄河水沙监测数据分析",
+  "finalization_status": "ready_for_review",
+  "generated_from_process": true,
+  "writer_entrypoint": "final",
+  "process_policy": "noncanonical",
+  "source_files": [
+    "source/problem/E题.pdf",
+    "source/attachments/附件1.xlsx",
+    "source/attachments/附件2.xlsx",
+    "source/attachments/附件3.xlsx"
+  ],
+  "external_input_note": "官方题面和三个附件均位于source/；无包外必需输入。",
+  "common_files": [
+    "final/README.md",
+    "final/common/assumptions.md",
+    "final/common/notation.md",
+    "final/common/dependency-map.md",
+    "final/common/decision-log.md"
+  ],
+  "common_provenance": [
+    {
+      "final_artifact": "final/README.md",
+      "process_sources": [
+        "process/README.md",
+        "process/q1/decisions/d01-adopt-log-linear-sediment.md",
+        "process/q2/decisions/d01-adopt-interpolated-daily-pattern.md",
+        "process/q3/decisions/d03-adopt-forecast-and-cost-sampling.md",
+        "process/q4/decisions/d09-adopt-bounded-aggradation.md"
+      ]
+    },
+    {
+      "final_artifact": "final/common/assumptions.md",
+      "process_sources": [
+        "process/q1/routes/r01-log-linear-sediment/route.md",
+        "process/q3/routes/r05-cost-constrained-sampling/route.md",
+        "process/q4/routes/r04-bounded-aggradation/model/bounded-aggradation-model.md"
+      ]
+    },
+    {
+      "final_artifact": "final/common/notation.md",
+      "process_sources": [
+        "process/q1/routes/r01-log-linear-sediment/notes/question1-method.md",
+        "process/q4/routes/r01-cross-section-counterfactual/model/multiyear-tiered-effect-evaluation.md",
+        "process/q4/routes/r04-bounded-aggradation/model/bounded-aggradation-model.md"
+      ]
+    },
+    {
+      "final_artifact": "final/common/dependency-map.md",
+      "process_sources": [
+        "process/q1/README.md",
+        "process/q2/README.md",
+        "process/q3/README.md",
+        "process/q4/README.md"
+      ]
+    },
+    {
+      "final_artifact": "final/common/decision-log.md",
+      "process_sources": [
+        "process/q1/decisions/d01-adopt-log-linear-sediment.md",
+        "process/q2/decisions/d01-adopt-interpolated-daily-pattern.md",
+        "process/q3/decisions/d03-adopt-forecast-and-cost-sampling.md",
+        "process/q3/comparisons/compare-q3-forecast-routes.md",
+        "process/q4/comparisons/compare-q4-working-solution.md",
+        "process/q4/comparisons/compare-ten-year-forecast-models.md",
+        "process/q4/decisions/d09-adopt-bounded-aggradation.md"
+      ]
+    }
+  ],
+  "unresolved_decisions": [],
+  "questions": [
+    {
+      "id": "q1",
+      "solution": "final/q1/solution.md",
+      "source_inputs": [
+        "source/attachments/附件1.xlsx"
+      ],
+      "final_code": [
+        "final/q1/code/analyze_question1.py"
+      ],
+      "no_code_reason": "",
+      "final_results": [
+        "final/q1/full-solution.md",
+        "final/q1/results/summary.md",
+        "final/q1/results/annual_flux_estimates.csv"
+      ],
+      "no_machine_results_reason": "",
+      "final_figures": [],
+      "validation": {
+        "status": "partial",
+        "artifacts": [
+          "final/q1/validation/summary.md",
+          "final/q1/validation/model_validation.csv",
+          "final/q1/validation/annual_flux_holdout_validation.csv",
+          "final/q1/validation/annual_sediment_uncertainty.csv"
+        ],
+        "gap_reason": "含沙量87.13%由模型补全；年度留出只覆盖实测含沙量稀疏网格，移动块自助只描述模型内不确定性，不能验证完整真实年度误差覆盖。",
+        "affected_conclusion": "年度排沙点估计及其经验区间不能表述为完整真值或正式覆盖率已验证。"
+      },
+      "route_decisions": {
+        "adopted": [
+          {
+            "artifact": "process/q1/routes/r01-log-linear-sediment/route.md",
+            "reason": "d01正式采用；完整思路保留于full-solution.md，2032成功run提供当前输入、结果、模型比较和时间块不确定性证据。"
+          }
+        ],
+        "supporting": [],
+        "rejected": [],
+        "superseded": [],
+        "unresolved": []
+      },
+      "provenance": [
+        {
+          "final_artifact": "final/q1/solution.md",
+          "process_sources": [
+            "process/q1/routes/r01-log-linear-sediment/notes/question1-method.md",
+            "process/q1/routes/r01-log-linear-sediment/runs/run-20260809-2032-time-block-bootstrap/results/analysis.md",
+            "process/q1/routes/r01-log-linear-sediment/runs/run-20260809-2032-time-block-bootstrap/validation/validation_summary.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q1/full-solution.md",
+          "process_sources": [
+            "process/q1/routes/r01-log-linear-sediment/notes/question1-method.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q1/code/analyze_question1.py",
+          "process_sources": [
+            "process/q1/routes/r01-log-linear-sediment/code/analyze_question1.py"
+          ]
+        },
+        {
+          "final_artifact": "final/q1/results/summary.md",
+          "process_sources": [
+            "process/q1/routes/r01-log-linear-sediment/runs/run-20260809-2032-time-block-bootstrap/results/analysis.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q1/results/annual_flux_estimates.csv",
+          "process_sources": [
+            "process/q1/routes/r01-log-linear-sediment/runs/run-20260809-2032-time-block-bootstrap/results/tables/annual_flux_estimates.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q1/validation/summary.md",
+          "process_sources": [
+            "process/q1/routes/r01-log-linear-sediment/runs/run-20260809-2032-time-block-bootstrap/validation/validation_summary.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q1/validation/model_validation.csv",
+          "process_sources": [
+            "process/q1/routes/r01-log-linear-sediment/runs/run-20260809-2032-time-block-bootstrap/validation/model_validation.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q1/validation/annual_flux_holdout_validation.csv",
+          "process_sources": [
+            "process/q1/routes/r01-log-linear-sediment/runs/run-20260809-2032-time-block-bootstrap/validation/annual_flux_holdout_validation.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q1/validation/annual_sediment_uncertainty.csv",
+          "process_sources": [
+            "process/q1/routes/r01-log-linear-sediment/runs/run-20260809-2032-time-block-bootstrap/validation/annual_sediment_uncertainty.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "solution": "final/q2/solution.md",
+      "source_inputs": [
+        "source/attachments/附件1.xlsx"
+      ],
+      "final_code": [
+        "final/q2/code/analyze_question2.py"
+      ],
+      "no_code_reason": "",
+      "final_results": [
+        "final/q2/full-solution.md",
+        "final/q2/results/summary.md",
+        "final/q2/results/annual_flux_pattern.csv",
+        "final/q2/results/abrupt_change_events.csv",
+        "final/q2/results/periodicity_summary.csv"
+      ],
+      "no_machine_results_reason": "",
+      "final_figures": [
+        "final/q2/figures/monthly-mean-flow.png",
+        "final/q2/figures/monthly-mean-sediment-flux.png",
+        "final/q2/figures/monthly-normalized-flux.png",
+        "final/q2/figures/monthly-water-sediment-share.png"
+      ],
+      "validation": {
+        "status": "partial",
+        "artifacts": [
+          "final/q2/validation/summary.md",
+          "final/q2/validation/interpolation_sensitivity_summary.csv",
+          "final/q2/validation/abrupt_event_stability.csv",
+          "final/q2/validation/periodicity_robustness.csv"
+        ],
+        "gap_reason": "沙通量继承q1补全误差；突变候选对参数敏感且无外部事件标签；六年样本不足以验证长期周期稳定性。",
+        "affected_conclusion": "只能声称样本内季节集中、算法突变候选和较强年尺度成分，不能作因果或长期稳定性结论。"
+      },
+      "route_decisions": {
+        "adopted": [
+          {
+            "artifact": "process/q2/routes/r01-interpolated-daily-pattern/route.md",
+            "reason": "d01正式采用；完整思路保留于full-solution.md，2036成功run绑定q1当前输入并包含插值、突变和周期稳健性。"
+          }
+        ],
+        "supporting": [],
+        "rejected": [],
+        "superseded": [],
+        "unresolved": []
+      },
+      "provenance": [
+        {
+          "final_artifact": "final/q2/solution.md",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/notes/question2-method.md",
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/results/reports/question2-analysis.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/full-solution.md",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/notes/question2-method.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/code/analyze_question2.py",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/code/analyze_question2.py"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/results/summary.md",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/results/reports/question2-analysis.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/results/annual_flux_pattern.csv",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/results/tables/annual_flux_pattern.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/results/abrupt_change_events.csv",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/results/tables/abrupt_change_events.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/results/periodicity_summary.csv",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/results/tables/periodicity_summary.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/figures/monthly-mean-flow.png",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/figures/monthly-mean-flow.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/figures/monthly-mean-sediment-flux.png",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/figures/monthly-mean-sediment-flux.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/figures/monthly-normalized-flux.png",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/figures/monthly-normalized-flux.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/figures/monthly-water-sediment-share.png",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/figures/monthly-water-sediment-share.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/validation/summary.md",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/results/reports/question2-analysis.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/validation/interpolation_sensitivity_summary.csv",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/validation/interpolation_sensitivity_summary.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/validation/abrupt_event_stability.csv",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/validation/abrupt_event_stability.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q2/validation/periodicity_robustness.csv",
+          "process_sources": [
+            "process/q2/routes/r01-interpolated-daily-pattern/runs/run-20260809-2036-time-block-q1/validation/periodicity_robustness.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "solution": "final/q3/solution.md",
+      "source_inputs": [
+        "source/attachments/附件1.xlsx"
+      ],
+      "final_code": [
+        "final/q3/code/monthly_flux_forecast.py",
+        "final/q3/code/cost_constrained_sampling.py"
+      ],
+      "no_code_reason": "",
+      "final_results": [
+        "final/q3/full-solution.md",
+        "final/q3/results/forecast-summary.md",
+        "final/q3/results/sampling-summary.md",
+        "final/q3/results/annual_forecast_2022_2023.csv",
+        "final/q3/results/monthly_forecast_2022_2023.csv",
+        "final/q3/results/monthly_plan_2022_2023.csv",
+        "final/q3/results/cost_summary_2022_2023.csv"
+      ],
+      "no_machine_results_reason": "",
+      "final_figures": [
+        "final/q3/figures/historical_backtest.png",
+        "final/q3/figures/monthly_forecast_intervals.png",
+        "final/q3/figures/sampling_intensity.png",
+        "final/q3/figures/epsilon_constraint_approx_front.png",
+        "final/q3/figures/sampling_calendar_2022_2023.png",
+        "final/q3/figures/strategy_conditional_holdout_baseline_comparison.png"
+      ],
+      "validation": {
+        "status": "partial",
+        "artifacts": [
+          "final/q3/validation/summary.md",
+          "final/q3/validation/forecast_model_comparison.csv",
+          "final/q3/validation/forecast_backtest_predictions.csv",
+          "final/q3/validation/sampling_historical_replay_metrics.csv",
+          "final/q3/validation/dynamic_trigger_ablation.csv"
+        ],
+        "gap_reason": "预测仅有四年突变后数据且缺少未来外生变量；2021证据受上游全时段补全限制。采样成本为代理单位、事件少、日代理不能验证日内采样收益。",
+        "affected_conclusion": "预测区间和成本节约均为条件结果，不能声称端到端无泄漏、人民币成本最优或最坏情形仍节约。"
+      },
+      "route_decisions": {
+        "adopted": [
+          {
+            "artifact": "process/q3/routes/r04-monthly-flux-forecast/route.md",
+            "reason": "d01确定月尺度和时间验证，d03正式采用r04+r05组合；2103为当前成功预测证据。"
+          },
+          {
+            "artifact": "process/q3/routes/r05-cost-constrained-sampling/route.md",
+            "reason": "d03正式采用r04+r05组合；2145以连续日历MILP直接满足成本、误差、事件捕获和最大间隔约束，完整融合思路保留于full-solution.md。"
+          }
+        ],
+        "supporting": [],
+        "rejected": [
+          {
+            "artifact": "process/q3/routes/r01-historical-ensemble/route.md",
+            "reason": "仅历史迁移partial，输入和验证口径不统一，采样为规则式。"
+          },
+          {
+            "artifact": "process/q3/routes/r02-random-forest/route.md",
+            "reason": "仅legacy partial，短样本递归外推不适于结构变化后的未来。"
+          },
+          {
+            "artifact": "process/q3/routes/r03-stl-template-ensemble/route.md",
+            "reason": "名称与实现不完全一致，验证折复用且无显式成本优化。"
+          }
+        ],
+        "superseded": [],
+        "unresolved": []
+      },
+      "provenance": [
+        {
+          "final_artifact": "final/q3/solution.md",
+          "process_sources": [
+            "process/q3/routes/r04-monthly-flux-forecast/model/complete-solution.md",
+            "process/q3/routes/r05-cost-constrained-sampling/model/complete-solution.md",
+            "process/q3/comparisons/compare-q3-forecast-routes.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/full-solution.md",
+          "process_sources": [
+            "process/q3/routes/r05-cost-constrained-sampling/model/complete-solution.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/code/monthly_flux_forecast.py",
+          "process_sources": [
+            "process/q3/routes/r04-monthly-flux-forecast/code/monthly_flux_forecast.py"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/code/cost_constrained_sampling.py",
+          "process_sources": [
+            "process/q3/routes/r05-cost-constrained-sampling/code/cost_constrained_sampling.py"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/results/forecast-summary.md",
+          "process_sources": [
+            "process/q3/routes/r04-monthly-flux-forecast/runs/run-20260809-2103-figure-label-clarity/results/summary.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/results/sampling-summary.md",
+          "process_sources": [
+            "process/q3/routes/r05-cost-constrained-sampling/runs/run-20260809-2145-global-event-boundaries/results/summary.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/results/annual_forecast_2022_2023.csv",
+          "process_sources": [
+            "process/q3/routes/r04-monthly-flux-forecast/runs/run-20260809-2103-figure-label-clarity/results/annual_forecast_2022_2023.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/results/monthly_forecast_2022_2023.csv",
+          "process_sources": [
+            "process/q3/routes/r04-monthly-flux-forecast/runs/run-20260809-2103-figure-label-clarity/results/monthly_forecast_2022_2023.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/results/monthly_plan_2022_2023.csv",
+          "process_sources": [
+            "process/q3/routes/r05-cost-constrained-sampling/runs/run-20260809-2145-global-event-boundaries/results/monthly_plan_2022_2023.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/results/cost_summary_2022_2023.csv",
+          "process_sources": [
+            "process/q3/routes/r05-cost-constrained-sampling/runs/run-20260809-2145-global-event-boundaries/results/cost_summary_2022_2023.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/figures/historical_backtest.png",
+          "process_sources": [
+            "process/q3/routes/r04-monthly-flux-forecast/runs/run-20260809-2103-figure-label-clarity/figures/historical_backtest.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/figures/monthly_forecast_intervals.png",
+          "process_sources": [
+            "process/q3/routes/r04-monthly-flux-forecast/runs/run-20260809-2103-figure-label-clarity/figures/monthly_forecast_intervals.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/figures/sampling_intensity.png",
+          "process_sources": [
+            "process/q3/routes/r04-monthly-flux-forecast/runs/run-20260809-2103-figure-label-clarity/figures/sampling_intensity.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/figures/epsilon_constraint_approx_front.png",
+          "process_sources": [
+            "process/q3/routes/r05-cost-constrained-sampling/runs/run-20260809-2145-global-event-boundaries/figures/epsilon_constraint_approx_front.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/figures/sampling_calendar_2022_2023.png",
+          "process_sources": [
+            "process/q3/routes/r05-cost-constrained-sampling/runs/run-20260809-2145-global-event-boundaries/figures/sampling_calendar_2022_2023.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/figures/strategy_conditional_holdout_baseline_comparison.png",
+          "process_sources": [
+            "process/q3/routes/r05-cost-constrained-sampling/runs/run-20260809-2145-global-event-boundaries/figures/strategy_conditional_holdout_baseline_comparison.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/validation/summary.md",
+          "process_sources": [
+            "process/q3/comparisons/compare-q3-forecast-routes.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/validation/forecast_model_comparison.csv",
+          "process_sources": [
+            "process/q3/routes/r04-monthly-flux-forecast/runs/run-20260809-2103-figure-label-clarity/validation/model_comparison.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/validation/forecast_backtest_predictions.csv",
+          "process_sources": [
+            "process/q3/routes/r04-monthly-flux-forecast/runs/run-20260809-2103-figure-label-clarity/validation/backtest_predictions.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/validation/sampling_historical_replay_metrics.csv",
+          "process_sources": [
+            "process/q3/routes/r05-cost-constrained-sampling/runs/run-20260809-2145-global-event-boundaries/validation/historical_replay_metrics.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q3/validation/dynamic_trigger_ablation.csv",
+          "process_sources": [
+            "process/q3/routes/r05-cost-constrained-sampling/runs/run-20260809-2145-global-event-boundaries/validation/dynamic_trigger_ablation.csv"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "solution": "final/q4/solution.md",
+      "source_inputs": [
+        "source/attachments/附件1.xlsx",
+        "source/attachments/附件2.xlsx",
+        "source/attachments/附件3.xlsx"
+      ],
+      "final_code": [
+        "final/q4/code/evaluate_multiyear_regulation_effect.py",
+        "final/q4/code/forecast_bounded_aggradation.py"
+      ],
+      "no_code_reason": "",
+      "final_results": [
+        "final/q4/full-solution-part1.md",
+        "final/q4/full-solution-part2.md",
+        "final/q4/route-comparison.md",
+        "final/q4/results/effect-summary.md",
+        "final/q4/results/forecast-summary.md",
+        "final/q4/results/target_achievement_matrix.csv",
+        "final/q4/results/multiyear_bed_effect_summary.csv",
+        "final/q4/results/bounded_forecast_summary.csv"
+      ],
+      "no_machine_results_reason": "",
+      "final_figures": [
+        "final/q4/figures/cross_attachment_calibration.png",
+        "final/q4/figures/multiyear_bed_change.png",
+        "final/q4/figures/multiyear_effect_summary.png",
+        "final/q4/figures/bounded_annual_growth.png",
+        "final/q4/figures/bounded_forecast_2023_2033.png",
+        "final/q4/figures/bounded_sensitivity.png",
+        "final/q4/figures/observed_annualized_rates.png"
+      ],
+      "validation": {
+        "status": "partial",
+        "artifacts": [
+          "final/q4/validation/summary.md",
+          "final/q4/validation/cross_attachment_calibration_summary.csv",
+          "final/q4/validation/pchip_linear_sensitivity.csv",
+          "final/q4/validation/spatial_template_loo_summary.csv"
+        ],
+        "gap_reason": "没有工程前基线或同期无调度对照；第一子问测次和空间范围不一。第二子问净淤积方向是工程机理约束，空间留一只验证形态分配。",
+        "affected_conclusion": "只能评价单断面局部观测响应并给出条件反事实情景，不能识别工程总体因果效应或无条件预测。"
+      },
+      "route_decisions": {
+        "adopted": [
+          {
+            "artifact": "process/q4/routes/r01-cross-section-counterfactual/route.md",
+            "reason": "d01、d03—d05明确三附件、PCHIP、分级评价与解释边界；1722为当前综合证据。"
+          },
+          {
+            "artifact": "process/q4/routes/r04-bounded-aggradation/route.md",
+            "reason": "d09正式采用；断面净淤积约束、局部可冲刷、长期有界且报告情景范围。"
+          }
+        ],
+        "supporting": [
+          {
+            "artifact": "process/q4/routes/r02-offseason-natural-rate/route.md",
+            "reason": "透明的无约束线性基准，用于显示长期外推方向和幅度对模型假设敏感。"
+          }
+        ],
+        "rejected": [
+          {
+            "artifact": "process/q4/routes/r03-grey-gm11/route.md",
+            "reason": "d08明确放弃；指数爆炸、级比检验0%且平移敏感。"
+          }
+        ],
+        "superseded": [],
+        "unresolved": []
+      },
+      "provenance": [
+        {
+          "final_artifact": "final/q4/solution.md",
+          "process_sources": [
+            "process/q4/routes/r01-cross-section-counterfactual/notes/q4-first-subquestion-solution.md",
+            "process/q4/routes/r04-bounded-aggradation/model/bounded-aggradation-model.md",
+            "process/q4/comparisons/compare-q4-working-solution.md",
+            "process/q4/decisions/d09-adopt-bounded-aggradation.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/full-solution-part1.md",
+          "process_sources": [
+            "process/q4/routes/r01-cross-section-counterfactual/notes/q4-first-subquestion-solution.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/full-solution-part2.md",
+          "process_sources": [
+            "process/q4/routes/r04-bounded-aggradation/notes/q4-second-subquestion-solution.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/route-comparison.md",
+          "process_sources": [
+            "process/q4/comparisons/compare-ten-year-forecast-models.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/code/evaluate_multiyear_regulation_effect.py",
+          "process_sources": [
+            "process/q4/routes/r01-cross-section-counterfactual/code/evaluate_multiyear_regulation_effect.py"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/code/forecast_bounded_aggradation.py",
+          "process_sources": [
+            "process/q4/routes/r04-bounded-aggradation/code/forecast_bounded_aggradation.py"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/results/effect-summary.md",
+          "process_sources": [
+            "process/q4/routes/r01-cross-section-counterfactual/runs/run-20260810-1722-first-subquestion-wording-review/results/analysis.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/results/forecast-summary.md",
+          "process_sources": [
+            "process/q4/routes/r04-bounded-aggradation/runs/run-20260810-1927-annual-growth-curves/results/analysis.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/results/target_achievement_matrix.csv",
+          "process_sources": [
+            "process/q4/routes/r01-cross-section-counterfactual/runs/run-20260810-1722-first-subquestion-wording-review/results/target_achievement_matrix.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/results/multiyear_bed_effect_summary.csv",
+          "process_sources": [
+            "process/q4/routes/r01-cross-section-counterfactual/runs/run-20260810-1722-first-subquestion-wording-review/results/multiyear_bed_effect_summary.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/results/bounded_forecast_summary.csv",
+          "process_sources": [
+            "process/q4/routes/r04-bounded-aggradation/runs/run-20260810-1927-annual-growth-curves/results/bounded_forecast_summary.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/figures/cross_attachment_calibration.png",
+          "process_sources": [
+            "process/q4/routes/r01-cross-section-counterfactual/runs/run-20260810-1722-first-subquestion-wording-review/figures/cross_attachment_calibration.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/figures/multiyear_bed_change.png",
+          "process_sources": [
+            "process/q4/routes/r01-cross-section-counterfactual/runs/run-20260810-1722-first-subquestion-wording-review/figures/multiyear_bed_change.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/figures/multiyear_effect_summary.png",
+          "process_sources": [
+            "process/q4/routes/r01-cross-section-counterfactual/runs/run-20260810-1722-first-subquestion-wording-review/figures/multiyear_effect_summary.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/figures/bounded_annual_growth.png",
+          "process_sources": [
+            "process/q4/routes/r04-bounded-aggradation/runs/run-20260810-1927-annual-growth-curves/figures/bounded_annual_growth.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/figures/bounded_forecast_2023_2033.png",
+          "process_sources": [
+            "process/q4/routes/r04-bounded-aggradation/runs/run-20260810-1927-annual-growth-curves/figures/bounded_forecast_2023_2033.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/figures/bounded_sensitivity.png",
+          "process_sources": [
+            "process/q4/routes/r04-bounded-aggradation/runs/run-20260810-1927-annual-growth-curves/figures/bounded_sensitivity.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/figures/observed_annualized_rates.png",
+          "process_sources": [
+            "process/q4/routes/r04-bounded-aggradation/runs/run-20260810-1927-annual-growth-curves/figures/observed_annualized_rates.png"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/validation/summary.md",
+          "process_sources": [
+            "process/q4/comparisons/compare-ten-year-forecast-models.md"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/validation/cross_attachment_calibration_summary.csv",
+          "process_sources": [
+            "process/q4/routes/r01-cross-section-counterfactual/runs/run-20260810-1722-first-subquestion-wording-review/validation/cross_attachment_calibration_summary.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/validation/pchip_linear_sensitivity.csv",
+          "process_sources": [
+            "process/q4/routes/r01-cross-section-counterfactual/runs/run-20260810-1722-first-subquestion-wording-review/validation/pchip_linear_sensitivity.csv"
+          ]
+        },
+        {
+          "final_artifact": "final/q4/validation/spatial_template_loo_summary.csv",
+          "process_sources": [
+            "process/q4/routes/r04-bounded-aggradation/runs/run-20260810-1927-annual-growth-curves/validation/spatial_template_loo_summary.csv"
+          ]
+        }
+      ]
+    }
+  ]
+}

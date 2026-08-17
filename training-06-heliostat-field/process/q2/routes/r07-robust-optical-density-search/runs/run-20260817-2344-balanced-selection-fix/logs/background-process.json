@@ -1,0 +1,12 @@
+{
+  "process_id": 29572,
+  "parent_process_id": 23852,
+  "executable_path": "C:\\Users\\32417\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "working_directory": "F:\\train",
+  "command": "python training-06-heliostat-field\\process\\q2\\routes\\r07-robust-optical-density-search\\code\\run_robust_density_search.py --output training-06-heliostat-field\\process\\q2\\routes\\r07-robust-optical-density-search\\runs\\run-20260817-2344-balanced-selection-fix --seed 202308 --designs 128 --screen-samples 16 --full-samples 64 --robust-samples 128 --neighbor-radius 70",
+  "purpose": "Q2 r07 balanced multi-objective candidate selection and pruning rerun",
+  "status_at_recording": "running",
+  "final_status": "completed",
+  "finished_at": "2026-08-18 00:20:50 +08:00",
+  "exit_code": 0
+}

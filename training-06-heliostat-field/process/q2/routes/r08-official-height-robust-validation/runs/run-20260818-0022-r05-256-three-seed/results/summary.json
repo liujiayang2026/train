@@ -1,0 +1,19 @@
+{
+  "source_design_run": "training-06-heliostat-field\\process\\q2\\routes\\r05-shifted-hex-optical-pruning\\runs\\run-20260817-1606-square-region-multifidelity",
+  "samples_per_mirror_time": 256,
+  "seeds": [
+    202308,
+    202309,
+    202310
+  ],
+  "mirror_count": 3168,
+  "total_area_m2": 125737.92,
+  "mean_power_mw": 60.44840473170885,
+  "std_power_mw": 0.07958815942652277,
+  "lcb_power_mw": 60.289228412855806,
+  "minimum_seed_power_mw": 60.397151536952755,
+  "maximum_seed_power_mw": 60.540092722058674,
+  "mean_unit_area_power_kw_m2": 0.48074920224311685,
+  "all_seed_power_constraint_satisfied": true,
+  "lcb_power_constraint_satisfied": true
+}

@@ -1,0 +1,3 @@
+Generation stopped while saving per-mirror-optical-chain.png.
+Matplotlib mathtext ParseFatalException: Unknown symbol \mathbf in expression \eta_{cos}=\mathbf n_i\cdot\mathbf s.
+The expression was corrected to use braced mathtext commands in the next run.

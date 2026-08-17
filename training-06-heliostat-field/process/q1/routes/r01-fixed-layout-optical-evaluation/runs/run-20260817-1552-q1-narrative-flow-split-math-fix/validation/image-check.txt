@@ -1,0 +1,5 @@
+FAIL
+- scene-inputs.png: pass.
+- aggregation-to-tables.png: pass.
+- per-mirror-optical-chain.png: reflected ray and mirror extend beyond the first panel and visually enter the next stage.
+- A new run is required after constraining the reflection diagram to its own panel.

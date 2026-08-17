@@ -1,0 +1,24 @@
+Q1 narrative figure suite image check
+Date: 2026-08-17
+
+Scope
+- Inspected all five generated PNG files at original resolution.
+- Used an independent vision-model review, followed by a manual second pass.
+- These files are review candidates only; no existing paper figure was replaced.
+
+Checks and refinements
+- fig01: shortened the solar and reflection rays so every mark remains inside its stage panel.
+- fig02: identified the two local arrows as the solar direction vector s and receiver direction vector t_i; separated mirror labels.
+- fig03: removed an incomplete auxiliary clear ray, retained one physically complete incident-reflected path, separated formulas from mirrors, and labeled unrealized path extensions.
+- fig04: moved the five-category legend into a dedicated strip and added all category counts.
+- fig05: separated annual summary metrics from the page marker and chart legend.
+
+Physics and data evidence
+- Schematic reflection direction error: 3.3306690738754696e-16.
+- Schematic shadow collinearity error: 2.220446049250313e-16.
+- Real sample categories: clear-hit 287, shadow-only 71, block-only 58, overlap 85, clear-miss 11; total 512.
+- No missing-glyph warning remained in the final generation run.
+
+Result
+- PASS for candidate review: no visible text overlap, incoherent ray crossing, or canvas overflow was found in the final manual pass.
+- Human adoption/replacement decision remains pending.

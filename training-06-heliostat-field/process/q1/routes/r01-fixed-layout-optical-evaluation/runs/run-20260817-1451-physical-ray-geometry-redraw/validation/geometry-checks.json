@@ -1,0 +1,16 @@
+{
+  "center_reflection_direction_error": 5.551115123125783e-17,
+  "maximum_cone_half_angle_preservation_error_rad": 2.3914030478078274e-14,
+  "solar_half_angle_deg": 0.26600000000000007,
+  "mirror_size_m": 6.0,
+  "mirror_center_height_m": 4.0,
+  "receiver_center_height_m": 80.0,
+  "receiver_z_range_m": [
+    76.0,
+    84.0
+  ],
+  "ray_count": 21,
+  "receiver_hit_count": 19,
+  "receiver_miss_count": 2,
+  "code_sha256": "8a8b36ff418f2bc3d6ea34e4c5eb56ef9c0cea53521a9ed6dbc381c8cd7e83c7"
+}

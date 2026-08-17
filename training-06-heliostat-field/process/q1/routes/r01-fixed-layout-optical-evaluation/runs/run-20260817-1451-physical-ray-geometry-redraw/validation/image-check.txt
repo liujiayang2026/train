@@ -1,0 +1,14 @@
+Image validation
+Date: 2026-08-17
+
+fig01-physical-ray-geometry.png: 2880 x 1620, PNG, visual inspection passed.
+
+Checks:
+- The enlarged inset shows one incident direction cone with a shared vertex at sample point P; the displayed angle is explicitly marked as enlarged.
+- Main-view incoming rays are parallel and do not cross.
+- The mirror normal, center incident ray, and center reflected ray are generated from the same vector geometry.
+- Reflected cone boundary directions are computed by reflection rather than drawn toward the receiver bounds.
+- The finite-mirror bundle is generated before receiver intersection; green rays hit and red rays spill.
+- Receiver center height is 80 m and the effective cylindrical sidewall spans 76--84 m.
+- Labels, rays, dimension marks, and legends do not overlap incoherently at full resolution.
+- The diagram is deterministic and contains no illustrative result values presented as attachment results.

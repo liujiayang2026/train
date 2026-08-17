@@ -1,0 +1,11 @@
+{
+  "mirror_count": 1745,
+  "monthly_row_count": 12,
+  "evaluation_time_count": 60,
+  "annual_row_count": 1,
+  "annual_avg_optical_efficiency": 0.5773986466201937,
+  "annual_field_power_mw": 35.2963851864138,
+  "annual_unit_area_power_kw_m2": 0.5618654120728082,
+  "schematic_reflection_direction_error": 3.1401849173675503e-16,
+  "code_sha256": "86711d295abde410f068ee85419f976b59b46be8b92933c456ba3dc36b6ef0c5"
+}
